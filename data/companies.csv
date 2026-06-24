@@ -1,0 +1,301 @@
+company_id,company_name,industry,city,country,phone_number,email,created_at
+0,Banca Privada OLMJ S.L.N.E,Education,La Romana,Dominican Republic,+34823 96 00 13,anselmaamor@soluciones.org,2021-07-13 19:58:05
+1,Suministros Nieto S.C.P,Technology,La Romana,Dominican Republic,+34875511615,elisabet40@brunilda.org,2024-07-21 04:50:51
+2,Comercializadora Castellana S.L.,Legal Services,La Romana,Dominican Republic,+34 888 13 16 47,fermin55@inmobiliaria.com,2026-01-08 03:44:28
+3,Distribuciones del Norte S.Com.,Education,San Pedro de Macorís,Dominican Republic,+34 876 50 30 56,blas39@garcia.es,2022-09-10 12:39:48
+4,Desarrollo Huerta y asociados S.L.,Retail,Punta Cana,Dominican Republic,+34 959 653 287,arevalorosalinda@despacho.es,2025-12-23 13:00:38
+5,Alimentación Carbó y asociados S.L.,Finance,San Pedro de Macorís,Dominican Republic,+34 924 146 270,angelita28@inversiones.com,2024-03-26 18:12:47
+6,Alejo Caparrós Parejo S.L.N.E,Education,Santiago,Dominican Republic,+34 902 30 39 11,wbayon@desarrollo.com,2023-09-25 03:26:24
+7,Galán y Font S.L.,Education,Punta Cana,Dominican Republic,+34 945 578 713,bernardoneira@grupo.com,2023-06-04 22:31:21
+8,Banco DMI S.A.T.,Education,La Romana,Dominican Republic,+34842 997 376,ciriacocaballero@pablo.com,2022-04-25 09:57:14
+9,Hnos Nicolau S.L.,Legal Services,Punta Cana,Dominican Republic,+34827 333 872,respanol@josep.com,2021-11-27 19:31:29
+10,Familia Guzmán S.A.,Legal Services,San Pedro de Macorís,Dominican Republic,+34978 73 60 26,porterojuan-manuel@lucho.org,2023-05-01 00:20:26
+11,Familia Mir S.A.,Technology,La Romana,Dominican Republic,+34 977 88 20 81,brunobayo@servicios.net,2026-05-27 06:43:08
+12,Familia Rius S.L.,Legal Services,La Romana,Dominican Republic,+34 985543534,qcastro@talleres.com,2022-02-06 06:06:02
+13,Infraestructuras Globales S.L.N.E,Consulting,La Romana,Dominican Republic,+34820354278,emma80@construccion.com,2026-03-08 10:43:49
+14,Inmobiliaria Luján S.Coop.,Construction,Punta Cana,Dominican Republic,+34924 348 740,rodapaula@banco.org,2022-11-07 15:48:39
+15,Carmen Roma Agustí S.A.,Healthcare,Santo Domingo,Dominican Republic,+34 845 80 59 82,ccastell@promociones.net,2022-05-09 00:14:00
+16,Ramos & Asociados S.L.N.E,Consulting,San Francisco de Macorís,Dominican Republic,+34 879 22 60 25,rhurtado@construccion.es,2023-05-15 17:14:44
+17,Talleres del Levante S.Com.,Finance,La Romana,Dominican Republic,+34877 30 36 54,lorenzopascual@munoz.org,2022-12-30 10:22:01
+18,Banco Camps y asociados S.Com.,Finance,Santiago,Dominican Republic,+34916 981 693,arsenio60@promociones.es,2024-02-23 22:37:56
+19,Inversiones QVUP S.A.,Healthcare,Santo Domingo,Dominican Republic,+34948629946,mateuluciano@suministros.es,2023-04-18 14:07:01
+20,Nadia Doménech Blazquez S.C.P,Finance,La Romana,Dominican Republic,+34 923134332,arteagajose-ignacio@emiliana.net,2024-09-28 14:53:43
+21,Salomón Hervás Coloma S.L.,Construction,San Francisco de Macorís,Dominican Republic,+34616 32 87 08,yessicacarrion@eliseo.es,2025-10-08 22:22:24
+22,Salmerón y Cuenca S.L.,Education,La Romana,Dominican Republic,+34 977 743 487,leonardosabater@instalaciones.com,2022-10-05 06:08:05
+23,Restauración Globales S.L.,Construction,Santo Domingo,Dominican Republic,+34816 65 87 60,pepitarivera@aller.es,2024-01-07 09:33:31
+24,Rius y Giménez S.Coop.,Legal Services,Santiago,Dominican Republic,+34885 670 656,priscilasolsona@banca.com,2022-03-11 10:57:42
+25,Cerdá y Serrano S.A.,Healthcare,San Pedro de Macorís,Dominican Republic,+34 883 65 37 55,wlobo@iniesta.com,2024-06-14 22:19:12
+26,Comercializadora Castellana S.L.,Retail,Punta Cana,Dominican Republic,+34 881309232,kcarbo@talleres.com,2022-06-14 11:34:30
+27,Inversiones Campoy S.Coop.,Legal Services,San Pedro de Macorís,Dominican Republic,+34 919663193,mataremedios@banco.com,2025-01-18 17:14:07
+28,Curro Rosselló Paredes S.L.,Manufacturing,Santo Domingo,Dominican Republic,+34 974 26 28 49,bsola@logistica.es,2023-07-21 07:09:40
+29,Clotilde Pinilla Navarrete S.A.,Healthcare,Puerto Plata,Dominican Republic,+34 921 27 35 45,silvia94@grupo.es,2025-08-19 14:23:25
+30,Tecnologías del Sur S.Coop.,Retail,San Francisco de Macorís,Dominican Republic,+34711 43 63 49,ainara88@roig.es,2023-10-13 08:22:42
+31,Infraestructuras Gual & Asociados S.L.,Education,San Pedro de Macorís,Dominican Republic,+34911 82 33 74,cornelio34@promociones.com,2023-10-23 21:31:15
+32,Familia Manzano S.L.,Legal Services,San Pedro de Macorís,Dominican Republic,+34841 710 947,vsaez@comercial.es,2022-06-13 02:20:20
+33,Servicios DGC S.A.,Retail,Santo Domingo,Dominican Republic,+34901 13 18 69,maurayanez@sanjuan.es,2024-01-28 10:11:12
+34,Familia Galiano S.L.,Consulting,La Romana,Dominican Republic,+34 884 123 281,abilioreal@jennifer.org,2023-11-19 00:23:43
+35,Calisto Guillen Lamas S.L.,Legal Services,Santo Domingo,Dominican Republic,+34872618324,calixtobarreda@inversiones.es,2024-01-24 10:04:04
+36,Lladó y Vall S.Coop.,Technology,Santiago,Dominican Republic,+34961906594,bravojenaro@hermanos.com,2025-06-24 10:28:10
+37,Yésica Lobo Escudero S.L.U.,Finance,Puerto Plata,Dominican Republic,+34 967 17 56 55,cuevasnarciso@valbuena.es,2026-02-26 17:33:43
+38,Hnos Borja S.Com.,Retail,San Francisco de Macorís,Dominican Republic,+34 921168087,mballester@valentin.net,2023-10-01 08:32:31
+39,Instalaciones Ríos S.L.N.E,Retail,Puerto Plata,Dominican Republic,+34978109324,rayaciro@consultoria.com,2025-09-19 00:57:23
+40,Inmobiliaria Ribes y asociados S.L.U.,Finance,La Romana,Dominican Republic,+34880 782 639,rosariobanos@soluciones.org,2024-01-07 05:19:23
+41,Rosenda Comas Salom S.Coop.,Healthcare,Punta Cana,Dominican Republic,+34924 58 86 75,joseharo@guillen.es,2024-09-20 02:02:25
+42,Cornejo y Valbuena S.L.N.E,Healthcare,La Romana,Dominican Republic,+34841 895 171,ualcantara@soluciones.org,2024-05-10 12:20:27
+43,Bernat y Moya S.L.L.,Consulting,San Pedro de Macorís,Dominican Republic,+34 987 657 809,guitartevangelina@hotel.com,2025-04-02 02:27:22
+44,Inversiones Andres S.A.,Manufacturing,Santiago,Dominican Republic,+34807 455 623,kescolano@compania.net,2025-09-16 20:08:42
+45,Hotel Serra S.L.,Healthcare,La Romana,Dominican Republic,+34 974 40 74 82,salaonofre@suministros.net,2024-09-30 20:11:34
+46,Custodio Gálvez Pizarro S.Coop.,Healthcare,Santo Domingo,Dominican Republic,+34 900 40 64 09,valdespepita@hotel.org,2022-08-22 14:23:04
+47,Banco PBS S.A.,Healthcare,Santo Domingo,Dominican Republic,+34 900 56 23 28,bernarda84@infraestructuras.org,2024-05-10 23:49:31
+48,Talleres HY S.L.L.,Retail,Puerto Plata,Dominican Republic,+34944851604,sanzrafa@restauracion.es,2021-09-09 09:21:30
+49,Giralt & Asociados S.L.,Construction,Puerto Plata,Dominican Republic,+34 975461200,america11@desarrollo.es,2026-06-22 10:39:21
+50,Soluciones Cabeza S.L.L.,Healthcare,Santo Domingo,Dominican Republic,+34946 405 377,ritapareja@promociones.es,2022-04-04 11:03:04
+51,Banca Privada Castellana S.L.,Healthcare,La Romana,Dominican Republic,+34880 293 183,odalisguijarro@coloma.com,2022-08-01 12:18:05
+52,Farmaceútica Canet & Asociados S.A.,Education,San Pedro de Macorís,Dominican Republic,+34 927 395 024,castanedamanuela@zorrilla.es,2025-04-16 09:12:29
+53,Vilanova & Asociados S.Coop.,Technology,Santiago,Dominican Republic,+34876908470,tejerorebeca@roldan.es,2022-02-06 23:15:00
+54,Logística HGGE S.L.,Education,Puerto Plata,Dominican Republic,+34 942 984 789,ycabezas@fabrica.es,2022-04-15 01:29:58
+55,Roldán y asociados S.L.,Finance,Punta Cana,Dominican Republic,+34932 71 11 16,peraltaoctavia@comercial.es,2024-06-26 05:34:09
+56,Aznar y Maestre S.Coop.,Legal Services,San Francisco de Macorís,Dominican Republic,+34 926 198 327,rebecacampoy@pedrero.net,2025-02-15 20:19:32
+57,Hermanos Andres S.A.,Technology,San Pedro de Macorís,Dominican Republic,+34902550229,jbanos@familia.es,2024-05-17 18:25:57
+58,Promociones Mesa S.L.,Legal Services,Santiago,Dominican Republic,+34 823 02 29 01,venceslas67@severino.com,2024-05-31 01:20:20
+59,Cantero y Luque S.L.,Legal Services,Puerto Plata,Dominican Republic,+34 979 840 369,aguilerahernando@fabrica.com,2021-07-17 15:46:08
+60,Margarita Ros Echevarría S.A.,Healthcare,Puerto Plata,Dominican Republic,+34986 38 85 16,rubioalejo@africa.es,2025-01-11 08:54:16
+61,Consultoría Quirós & Asociados S.L.N.E,Legal Services,San Pedro de Macorís,Dominican Republic,+34 849975161,tristanperez@servicios.com,2025-12-28 04:08:55
+62,Minería del Levante S.L.,Technology,Santiago,Dominican Republic,+34 845312432,martiriobenet@transportes.es,2026-04-12 10:56:37
+63,Molina & Asociados S.Com.,Legal Services,San Pedro de Macorís,Dominican Republic,+34 976 744 905,menendezinigo@anselmo.com,2022-03-31 04:22:51
+64,Sevillano y Armengol S.Coop.,Construction,Santo Domingo,Dominican Republic,+34 871 597 820,zcalderon@blasco.es,2025-03-19 21:02:57
+65,Promociones Peralta S.L.N.E,Manufacturing,San Pedro de Macorís,Dominican Republic,+34 943 659 051,ciriaco86@infraestructuras.com,2024-06-14 11:54:50
+66,Servicios Castelló & Asociados S.Com.,Consulting,Santiago,Dominican Republic,+34 941528168,alejandro54@fabrica.es,2023-02-10 04:20:00
+67,Desarrollo Globales S.A.,Retail,Santiago,Dominican Republic,+34 826888059,edelmirapenas@distribuciones.com,2025-03-14 10:40:49
+68,Hnos Pastor S.L.,Legal Services,La Romana,Dominican Republic,+34879 794 738,martinsomoza@promociones.org,2024-09-22 01:51:29
+69,Cáceres y Flores S.L.,Construction,Puerto Plata,Dominican Republic,+34843 407 581,lopezcelso@inmobiliaria.com,2025-03-13 19:42:15
+70,Hotel UWV S.Com.,Healthcare,San Pedro de Macorís,Dominican Republic,+34933615305,naranjomaxima@desarrollo.es,2022-08-28 20:31:07
+71,Vidal Adadia Bernad S.A.,Legal Services,Puerto Plata,Dominican Republic,+34875289861,jordan41@grupo.es,2022-01-04 18:37:35
+72,Transportes BGDL S.C.P,Consulting,Santo Domingo,Dominican Republic,+34 695396218,borja88@hnos.es,2024-08-26 10:49:45
+73,Banca Privada Palau & Asociados S.Com.,Retail,Puerto Plata,Dominican Republic,+34826952058,odalys27@evangelina.es,2021-10-16 13:05:49
+74,Finanzas Arranz & Asociados S.L.N.E,Manufacturing,San Pedro de Macorís,Dominican Republic,+34914 86 87 40,luchopalau@hermanos.es,2025-03-12 04:50:30
+75,Sabater y Pomares S.Com.,Technology,Santo Domingo,Dominican Republic,+34867 75 84 16,roseligia@instalaciones.es,2023-12-29 03:53:53
+76,Supermercados Rojas & Asociados S.L.,Construction,Santiago,Dominican Republic,+34925 70 59 64,benavideshilda@parra.com,2021-09-28 09:23:55
+77,Supermercados Arana S.A.,Education,San Francisco de Macorís,Dominican Republic,+34 879556909,irissandoval@peral.com,2025-12-24 14:46:33
+78,Puig y asociados S.L.,Healthcare,Santiago,Dominican Republic,+34881 102 786,juarezmatilde@supermercados.es,2023-03-07 13:45:52
+79,Desarrollo XU S.Com.,Technology,Puerto Plata,Dominican Republic,+34823 55 18 84,renata22@verdugo.net,2022-08-29 02:47:44
+80,Transportes Avanzadas S.Com.,Technology,San Pedro de Macorís,Dominican Republic,+34928 78 29 11,romulo78@recio.es,2022-02-09 01:31:48
+81,Adelaida Villar Ocaña S.A.,Legal Services,Santo Domingo,Dominican Republic,+34 862 680 182,fidel25@mineria.org,2023-02-23 12:43:02
+82,Desarrollo Mateo & Asociados S.Coop.,Retail,La Romana,Dominican Republic,+34848992299,purificacion90@familia.org,2023-04-09 14:23:51
+83,Anglada y Valenciano S.L.N.E,Manufacturing,San Pedro de Macorís,Dominican Republic,+34 888 47 36 47,barredafausto@severo.com,2024-02-19 19:13:32
+84,Ojeda y asociados S.A.,Consulting,San Francisco de Macorís,Dominican Republic,+34 938815371,vinicio32@comercial.com,2024-04-05 22:46:10
+85,Falcó & Asociados S.Coop.,Consulting,Puerto Plata,Dominican Republic,+34983 77 47 01,dvega@fabrica.org,2025-09-08 05:22:19
+86,Lucho Aguiló Campos S.Com.,Technology,San Francisco de Macorís,Dominican Republic,+34 884 565 060,primitivomalo@restauracion.com,2022-04-20 00:28:46
+87,Perea y Nicolau S.Coop.,Manufacturing,Punta Cana,Dominican Republic,+34 928 23 98 68,arrietaantonio@manufacturas.com,2025-11-11 06:16:45
+88,Logística Montalbán S.A.,Healthcare,Santiago,Dominican Republic,+34 901 958 887,aitana05@canals.com,2025-07-07 03:23:48
+89,Hotel Aznar y asociados S.A.,Education,Santiago,Dominican Republic,+34941 23 09 13,sainzmauricio@cordero.es,2025-09-29 17:45:35
+90,Salud Barrios Cervera S.Coop.,Manufacturing,Santo Domingo,Dominican Republic,+34 921 78 65 27,carina54@gregorio.net,2024-01-04 07:08:08
+91,Fábrica Torrijos y asociados S.Coop.,Technology,Puerto Plata,Dominican Republic,+34885419866,maria-teresa24@hermanos.es,2023-08-29 09:14:02
+92,Iker Franch Linares S.L.N.E,Consulting,Puerto Plata,Dominican Republic,+34 885 21 99 33,gonzalezfelicia@comercial.es,2022-05-02 00:33:25
+93,Alimentación Cruz S.Com.,Finance,La Romana,Dominican Republic,+34 977734540,guerrabienvenida@grupo.com,2021-10-14 13:04:50
+94,Valbuena y Estrada S.L.N.E,Manufacturing,Punta Cana,Dominican Republic,+34 888 00 49 91,lucas78@tamara.net,2022-06-08 14:56:12
+95,Cámara y asociados S.L.,Retail,San Francisco de Macorís,Dominican Republic,+34860549329,groma@bolanos.com,2022-09-03 12:10:01
+96,Moisés Hurtado Agudo S.C.P,Retail,San Francisco de Macorís,Dominican Republic,+34 879745499,juradofrancisca@guzman.es,2024-02-01 20:31:28
+97,Servicios Valverde S.L.N.E,Technology,Puerto Plata,Dominican Republic,+34 911 459 332,dcoronado@ricart.net,2023-08-01 11:44:43
+98,Supermercados KEDD S.Coop.,Manufacturing,Punta Cana,Dominican Republic,+34 982398225,rcarnero@transportes.es,2021-12-13 11:53:31
+99,Eligio Vilanova Ribes S.Coop.,Education,Punta Cana,Dominican Republic,+34807 87 40 64,gibertcristina@banco.com,2025-06-29 07:33:56
+100,Hermanos Rebollo S.A.,Finance,Punta Cana,Dominican Republic,+34 843 656 766,canasfrancisca@carrasco.es,2025-12-22 16:44:37
+101,Hotel Acevedo S.L.,Healthcare,Punta Cana,Dominican Republic,+34900 78 68 63,edgaroliva@inmobiliaria.com,2021-10-01 17:40:56
+102,Alcázar y Hernandez S.A.D,Construction,San Francisco de Macorís,Dominican Republic,+34 826907903,quesadavalentin@fabrica.org,2023-06-21 03:44:01
+103,Montes & Asociados S.Com.,Education,Santiago,Dominican Republic,+34 844 83 64 40,eugeniaroldan@asdrubal.es,2025-01-07 02:48:01
+104,Company y Marín S.Com.,Consulting,La Romana,Dominican Republic,+34987733427,reysigfrido@restauracion.es,2022-02-24 07:18:15
+105,Rebeca Peláez Bru S.Coop.,Technology,Punta Cana,Dominican Republic,+34871 046 990,fabranilda@tecnologias.es,2024-01-21 14:43:22
+106,Grupo Falcón S.L.N.E,Education,Santiago,Dominican Republic,+34 837 393 638,maura46@bibiana.es,2025-06-10 11:10:03
+107,Tecnologías VTV S.Coop.,Legal Services,San Francisco de Macorís,Dominican Republic,+34876204899,jmarquez@manufacturas.net,2025-09-21 22:00:08
+108,Jiménez y asociados S.L.N.E,Legal Services,Santo Domingo,Dominican Republic,+34979725228,iespejo@familia.com,2021-07-13 11:23:53
+109,Cervantes y Guardia S.A.,Education,Santo Domingo,Dominican Republic,+34845038750,btorrents@hnos.org,2026-01-13 02:54:49
+110,Banca Privada Vallés y asociados S.L.L.,Finance,Santiago,Dominican Republic,+34851 182 339,ofelia54@bermudez.es,2026-04-14 01:00:07
+111,Hotel Inteligentes S.L.,Education,Santiago,Dominican Republic,+34822016668,obarba@grupo.es,2024-04-17 20:42:47
+112,Banco KT S.L.N.E,Education,Santiago,Dominican Republic,+34 977 401 489,escobarursula@alcazar.es,2022-02-17 16:15:38
+113,Distribuciones Hernandez y asociados S.L.,Construction,La Romana,Dominican Republic,+34 988562185,cabanasulises@comercializadora.es,2024-04-02 15:47:32
+114,Hermanos Sanjuan S.Coop.,Finance,Puerto Plata,Dominican Republic,+34926866296,marqueznazaret@comercializadora.es,2022-10-15 23:06:14
+115,Moliner y Palomo S.A.,Healthcare,La Romana,Dominican Republic,+34647 54 12 12,jsanchez@calderon.com,2024-03-27 14:39:50
+116,Alberola y Manzanares S.Com.,Legal Services,Santiago,Dominican Republic,+34 823 83 98 26,emilioleiva@inmobiliaria.es,2023-10-29 00:35:38
+117,Marí y Tomé S.L.,Legal Services,Punta Cana,Dominican Republic,+34927 437 993,icampo@alimentacion.es,2024-04-12 11:47:48
+118,Nicanor Ros Cerdán S.Com.,Construction,La Romana,Dominican Republic,+34 873752654,uherrera@lozano.net,2026-02-12 20:26:21
+119,Banca Privada Serrano S.L.N.E,Legal Services,San Francisco de Macorís,Dominican Republic,+34874741672,jose-antonio42@pi.es,2026-06-06 14:38:46
+120,Velázquez y Ripoll S.Coop.,Healthcare,San Francisco de Macorís,Dominican Republic,+34 927 89 11 35,florarregui@marmol.com,2023-09-05 12:19:01
+121,Hotel del Norte S.Com.,Consulting,San Pedro de Macorís,Dominican Republic,+34 975 982 507,marquessevero@consultoria.es,2022-04-22 22:41:11
+122,Lorenza Santamaria Montaña S.A.,Finance,La Romana,Dominican Republic,+34803 105 123,carminacuesta@roldan.es,2023-01-17 17:06:24
+123,Suministros Priego S.A.,Consulting,Punta Cana,Dominican Republic,+34872796603,leonbarros@farmaceutica.es,2024-10-13 02:25:45
+124,Carbonell y Oliveras S.Com.,Legal Services,San Pedro de Macorís,Dominican Republic,+34 974 924 991,matiascarranza@inversiones.com,2025-10-27 17:14:54
+125,Ripoll y Cervera S.Coop.,Construction,Santo Domingo,Dominican Republic,+34 949278282,imalo@logistica.es,2021-07-23 09:58:43
+126,Elías Ferrero Plana S.L.N.E,Legal Services,San Francisco de Macorís,Dominican Republic,+34 982767677,celestinoanguita@instalaciones.org,2022-11-28 05:57:20
+127,Clarisa Valbuena Vicente S.A.,Construction,Punta Cana,Dominican Republic,+34 828 48 58 07,teodorocalatayud@inversiones.es,2022-03-20 21:18:30
+128,Rosenda Carpio Gálvez S.A.T.,Consulting,San Francisco de Macorís,Dominican Republic,+34925 96 29 23,noabarranco@lucas.org,2023-12-09 13:38:08
+129,Construcción Cerdá y asociados S.L.N.E,Finance,Punta Cana,Dominican Republic,+34 886223253,jtovar@soluciones.com,2024-11-26 06:06:59
+130,Promociones Sanz y asociados S.Com.,Construction,Puerto Plata,Dominican Republic,+34 617 51 86 36,ana-belenledesma@luque.com,2026-04-17 14:00:02
+131,Modesta Nuñez Atienza S.A.,Healthcare,La Romana,Dominican Republic,+34 974 01 27 70,sfrancisco@inversiones.org,2022-04-09 15:19:09
+132,Ibáñez & Asociados S.Com.,Education,Santiago,Dominican Republic,+34 848064361,abellaignacio@casemiro.es,2021-07-22 11:52:14
+133,Hermanos Carreño S.L.U.,Healthcare,Punta Cana,Dominican Republic,+34 949 271 361,calderonmatias@martinez.com,2022-09-10 11:16:56
+134,Alimentación HWLG S.A.,Technology,San Pedro de Macorís,Dominican Republic,+34 947973112,planapascual@miranda.com,2023-08-03 16:03:36
+135,Banca Privada Mata & Asociados S.Coop.,Education,La Romana,Dominican Republic,+34982 36 40 37,pcapdevila@felicia.com,2024-07-19 12:49:09
+136,Catalán y asociados S.L.L.,Finance,San Pedro de Macorís,Dominican Republic,+34948582710,alcalajuan-francisco@banco.es,2025-10-14 15:00:36
+137,Soluciones Roda y asociados S.A.,Healthcare,Puerto Plata,Dominican Republic,+34987 892 414,vidalafrica@despacho.com,2024-02-12 07:17:56
+138,Gómez y Barco S.A.U,Healthcare,Santiago,Dominican Republic,+34 961 799 042,alberolalaura@alimentacion.es,2025-12-04 13:29:30
+139,Distribuciones Peral & Asociados S.L.,Consulting,Santiago,Dominican Republic,+34884 10 56 48,jodarleticia@transportes.com,2023-08-25 06:13:09
+140,Consultoría MA S.L.L.,Technology,Santiago,Dominican Republic,+34 713 075 622,riusjacobo@hurtado.es,2023-10-14 09:50:41
+141,Promociones AU S.A.,Finance,San Pedro de Macorís,Dominican Republic,+34 984 061 744,chema87@hermanos.org,2023-07-17 07:45:33
+142,Rafa Uriarte Ferrán S.L.,Finance,Puerto Plata,Dominican Republic,+34880 20 60 38,fanny05@hnos.net,2025-01-17 23:07:24
+143,Benito Cisneros Losada S.A.,Consulting,San Francisco de Macorís,Dominican Republic,+34878 865 719,vegaeliseo@benavides.com,2023-06-29 06:21:56
+144,Infraestructuras Miró y asociados S.L.,Finance,La Romana,Dominican Republic,+34921574313,melisacanales@construccion.es,2024-12-07 15:09:30
+145,Minería XY S.L.L.,Technology,Santiago,Dominican Republic,+34 824 24 90 35,ciriacohurtado@prieto.org,2022-12-15 19:54:13
+146,Hnos Santamaria S.Coop.,Construction,Punta Cana,Dominican Republic,+34881 171 210,gironeladio@servicios.com,2026-06-06 20:35:42
+147,Comercializadora Almeida & Asociados S.A.,Technology,Puerto Plata,Dominican Republic,+34971215107,dieguezambar@prat.es,2022-12-12 12:49:30
+148,Garmendia & Asociados S.C.P,Construction,Punta Cana,Dominican Republic,+34 972 209 993,andrea68@benjamin.es,2023-03-05 08:02:14
+149,Banca Privada del Mediterráneo S.L.,Technology,San Pedro de Macorís,Dominican Republic,+34 927787598,roman42@hermanos.org,2021-12-22 16:15:51
+150,Benita Pallarès Guerrero S.L.N.E,Construction,La Romana,Dominican Republic,+34 826 334 803,lpacheco@industrias.es,2021-09-19 06:37:10
+151,Cisneros & Asociados S.L.L.,Retail,La Romana,Dominican Republic,+34 980 842 701,guerreroeligia@banca.net,2022-08-03 01:23:29
+152,Elías y asociados S.A.,Healthcare,Santo Domingo,Dominican Republic,+34 845921851,julie69@manufacturas.es,2024-03-05 09:45:00
+153,Minería Godoy S.L.,Technology,Punta Cana,Dominican Republic,+34849 64 42 20,lantunez@giner.com,2024-04-17 13:05:35
+154,Industrias ZIU S.A.,Technology,Punta Cana,Dominican Republic,+34 923704331,jose-maria10@hnos.com,2024-12-30 22:53:30
+155,Socorro Pinedo Ortega S.Coop.,Manufacturing,San Francisco de Macorís,Dominican Republic,+34 826793271,marinoalex@julian.com,2024-09-02 03:33:17
+156,Comercializadora Buendía S.Com.,Retail,Punta Cana,Dominican Republic,+34 978 06 29 62,cadenasnatanael@finanzas.org,2023-11-15 07:16:02
+157,Industrias Báez & Asociados S.Com.,Legal Services,Santiago,Dominican Republic,+34979205061,palmira97@construccion.org,2022-03-05 04:59:01
+158,Rafaela Carlos Mendez S.L.,Construction,Santo Domingo,Dominican Republic,+34 976 74 18 62,sonia65@supermercados.es,2023-09-19 23:58:24
+159,Inmobiliaria Castellana S.A.,Finance,Puerto Plata,Dominican Republic,+34825 158 693,pomboolivia@taboada.com,2024-11-01 06:07:57
+160,Grupo Carreño S.L.N.E,Construction,Punta Cana,Dominican Republic,+34972 223 320,rbermudez@franch.org,2024-03-13 01:38:07
+161,Compañía CCS S.Coop.,Legal Services,Santiago,Dominican Republic,+34 719 986 162,claudiacabrera@construccion.es,2026-05-05 20:31:46
+162,Anselmo Dueñas Llorens S.Com.,Healthcare,Santo Domingo,Dominican Republic,+34945 065 307,teofila50@mateo.es,2022-04-24 19:00:16
+163,Desarrollo Inteligentes S.L.N.E,Education,San Pedro de Macorís,Dominican Republic,+34971 546 913,agalvan@martina.com,2022-01-13 12:08:28
+164,Servicios Cerdá & Asociados S.A.,Retail,San Pedro de Macorís,Dominican Republic,+34 873030705,leocadiopedrosa@anselma.net,2024-08-23 20:31:12
+165,Dorotea Salmerón Elías S.L.N.E,Retail,Santiago,Dominican Republic,+34976 98 55 24,lopezamaro@ayala.net,2023-05-12 08:31:05
+166,Fábrica Integrales S.L.,Construction,San Pedro de Macorís,Dominican Republic,+34983 007 229,goicoecheajose-antonio@inmobiliaria.es,2023-08-15 13:46:17
+167,Talleres Inteligentes S.L.,Finance,Puerto Plata,Dominican Republic,+34944910858,marc17@manufacturas.org,2023-01-29 20:31:53
+168,Industrias Barberá S.L.L.,Healthcare,Punta Cana,Dominican Republic,+34945 52 07 44,yquiroga@grupo.net,2026-01-09 16:40:04
+169,Victoria Palmer Vendrell S.Com.,Technology,La Romana,Dominican Republic,+34 849 824 172,luciana82@borrell.org,2025-01-20 00:05:32
+170,Peral y asociados S.Coop.,Construction,Punta Cana,Dominican Republic,+34 975 170 999,suredatamara@consultoria.es,2021-12-08 14:32:17
+171,Desarrollo Fonseca S.Com.,Education,Puerto Plata,Dominican Republic,+34 974 252 175,matiasbarco@hnos.com,2026-05-19 01:51:20
+172,Transportes Borja S.A.,Retail,San Francisco de Macorís,Dominican Republic,+34 966 667 600,lupeperea@hermanos.com,2023-08-05 16:58:56
+173,Minería Inteligentes S.A.,Retail,Puerto Plata,Dominican Republic,+34 942 89 42 10,luis-angel78@roura.es,2024-07-13 19:04:22
+174,Distribuciones del Mediterráneo S.A.,Legal Services,La Romana,Dominican Republic,+34 877230982,pazosleonor@hnos.com,2021-11-19 15:34:12
+175,Banca Privada JV S.Com.,Legal Services,San Pedro de Macorís,Dominican Republic,+34 882 723 046,vinajulian@soluciones.com,2023-11-18 23:31:48
+176,Construcción KKN S.Coop.,Technology,Puerto Plata,Dominican Republic,+34 873 56 42 08,sgaliano@natalio.com,2022-06-01 17:42:41
+177,Eustaquio Bosch Vidal S.A.,Legal Services,Puerto Plata,Dominican Republic,+34 826437447,caboodalis@banco.es,2025-02-06 03:53:25
+178,Construcción AH S.L.,Consulting,Puerto Plata,Dominican Republic,+34 922 579 415,gervasio16@sastre.es,2025-01-23 22:35:08
+179,Consultoría Cazorla S.L.,Finance,Punta Cana,Dominican Republic,+34 812 169 797,emilianapino@andres.es,2022-06-09 12:36:51
+180,Saez y Arteaga S.A.,Healthcare,Santiago,Dominican Republic,+34910 899 358,rosellogisela@tecnologias.es,2022-09-28 11:51:52
+181,Familia Crespo S.Coop.,Manufacturing,San Pedro de Macorís,Dominican Republic,+34 976 721 753,leopoldo08@restauracion.com,2025-05-19 23:57:34
+182,Nicolasa Samper Borja S.L.L.,Healthcare,Santo Domingo,Dominican Republic,+34 972517016,jaraujo@familia.net,2025-05-11 00:42:49
+183,Parra & Asociados S.L.L.,Finance,Punta Cana,Dominican Republic,+34973 589 975,gcarbonell@alimentacion.org,2026-02-19 06:09:18
+184,Camino & Asociados S.L.N.E,Construction,Santo Domingo,Dominican Republic,+34 980 261 493,dionisiopozo@talleres.com,2025-01-01 08:32:05
+185,Familia Sanjuan S.Coop.,Education,San Pedro de Macorís,Dominican Republic,+34 982 270 808,gtomas@farmaceutica.es,2025-10-06 20:33:37
+186,Riquelme y Hurtado S.C.P,Healthcare,Santo Domingo,Dominican Republic,+34924 472 269,pia85@finanzas.org,2024-05-31 10:20:26
+187,Farmaceútica Vara S.Coop.,Construction,Punta Cana,Dominican Republic,+34 921 158 799,bmacias@familia.com,2021-12-16 12:08:37
+188,Inmobiliaria Iberia S.L.U.,Technology,Punta Cana,Dominican Republic,+34881204380,odalys71@restauracion.org,2021-11-16 14:27:33
+189,Ponce y Riera S.L.N.E,Education,Santo Domingo,Dominican Republic,+34 918 00 43 97,vivianapedro@finanzas.com,2023-01-25 13:22:10
+190,Consultoría Pi S.A.,Consulting,Punta Cana,Dominican Republic,+34886 842 294,murilloadelaida@banco.com,2024-01-15 07:06:59
+191,Montserrat Palma Beltran S.L.,Legal Services,Santo Domingo,Dominican Republic,+34 920832818,severoquintanilla@mineria.org,2023-05-03 07:50:46
+192,Chelo Agullo Carbó S.L.,Technology,Santo Domingo,Dominican Republic,+34 972 399 305,ycarballo@instalaciones.es,2025-08-14 02:10:32
+193,Hermanos Fernández S.Com.,Legal Services,La Romana,Dominican Republic,+34 823 128 801,herminiagarces@calleja.es,2022-02-02 17:04:45
+194,Banca Privada Segovia S.L.,Finance,San Pedro de Macorís,Dominican Republic,+34 800 11 02 48,gonivisitacion@soluciones.es,2024-03-02 16:11:46
+195,Hnos Carrasco S.Coop.,Education,Punta Cana,Dominican Republic,+34819015814,elvira14@rico.net,2022-08-21 08:43:26
+196,Marquez y Cobos S.Com.,Healthcare,Puerto Plata,Dominican Republic,+34930882100,tblazquez@mineria.com,2022-11-05 17:00:45
+197,Hotel Iriarte S.A.,Education,Santo Domingo,Dominican Republic,+34859 08 78 14,iglesiaclimaco@transportes.net,2022-04-30 11:17:09
+198,Comercializadora Ferrer y asociados S.Coop.,Legal Services,Santo Domingo,Dominican Republic,+34 922 949 299,nuria56@alimentacion.net,2025-03-09 15:09:11
+199,Promociones Cañizares y asociados S.L.N.E,Construction,Puerto Plata,Dominican Republic,+34974 75 47 81,flaviabilbao@desarrollo.com,2022-02-12 21:36:49
+200,Familia Quirós S.L.,Legal Services,Santo Domingo,Dominican Republic,+34 875084887,piopoza@instalaciones.com,2024-11-07 09:49:53
+201,Vallés & Asociados S.L.,Consulting,Punta Cana,Dominican Republic,+34 848827229,magdalenatomas@arjona.net,2022-01-04 22:39:12
+202,Promociones Guillén & Asociados S.L.,Legal Services,La Romana,Dominican Republic,+34 984 56 77 00,cristian84@farmaceutica.com,2025-11-14 20:33:48
+203,Restauración Gisbert y asociados S.Com.,Education,Puerto Plata,Dominican Republic,+34924 77 90 82,odaza@inmobiliaria.com,2023-06-09 07:15:10
+204,Murillo y Carballo S.Coop.,Legal Services,San Francisco de Macorís,Dominican Republic,+34977739260,armandocastell@desarrollo.com,2021-12-14 08:29:13
+205,Infraestructuras Escolano S.Coop.,Construction,Puerto Plata,Dominican Republic,+34 946990413,esoto@hotel.com,2025-10-27 15:45:37
+206,Distribuciones Noriega y asociados S.Coop.,Education,San Francisco de Macorís,Dominican Republic,+34820366210,azenethvarela@conde.com,2025-12-30 17:40:28
+207,Compañía IUC S.A.,Retail,Puerto Plata,Dominican Republic,+34958 650 863,wpiquer@suministros.com,2023-11-20 17:16:45
+208,Jiménez y Fajardo S.A.,Technology,La Romana,Dominican Republic,+34 709818063,sebastian51@suministros.es,2026-04-13 00:15:01
+209,Llorens y asociados S.L.,Legal Services,San Pedro de Macorís,Dominican Republic,+34947 887 258,tizaguirre@puig.com,2023-06-07 12:22:32
+210,Micaela Cáceres Cabrera S.A.T.,Technology,San Pedro de Macorís,Dominican Republic,+34 945 58 90 26,boupalmira@tecnologias.org,2023-05-13 15:46:25
+211,Bernal & Asociados S.L.,Construction,San Francisco de Macorís,Dominican Republic,+34 945 98 49 02,asaavedra@instalaciones.net,2022-12-02 04:56:45
+212,Hermanos Haro S.L.,Legal Services,Santiago,Dominican Republic,+34846 14 65 66,auraalcantara@compania.org,2023-05-27 17:12:06
+213,Talleres del Mediterráneo S.Coop.,Manufacturing,Punta Cana,Dominican Republic,+34883 268 181,noe18@infraestructuras.net,2024-05-13 22:19:38
+214,Isa Serna Amorós S.Coop.,Education,Punta Cana,Dominican Republic,+34 883 163 356,ascension80@industrias.es,2022-02-14 20:30:19
+215,Tecnologías Mir S.Com.,Construction,Santiago,Dominican Republic,+34884 23 73 33,hilario33@mineria.com,2022-02-22 11:50:35
+216,Encarna Agudo Arnal S.L.L.,Manufacturing,Santiago,Dominican Republic,+34 939 57 94 72,romulo39@comercial.es,2026-01-28 17:57:59
+217,Hermanos Prada S.L.L.,Technology,Puerto Plata,Dominican Republic,+34849718750,galvezreynaldo@logistica.es,2024-05-24 14:30:43
+218,Espejo y asociados S.Com.,Manufacturing,La Romana,Dominican Republic,+34948 556 472,coralgranados@inmobiliaria.com,2025-07-02 03:51:15
+219,Grupo Robles S.Coop.,Construction,San Pedro de Macorís,Dominican Republic,+34 984857448,puigconrado@comercial.es,2022-04-18 20:10:29
+220,Marcela Nadal Juan S.Com.,Construction,San Francisco de Macorís,Dominican Republic,+34882 50 61 59,coronadiaz@mineria.es,2022-02-22 05:52:27
+221,Macías y Silva S.L.,Legal Services,Santo Domingo,Dominican Republic,+34844256996,bernadfelix@gracia.org,2023-10-02 15:34:21
+222,Linares y Salgado S.L.,Manufacturing,San Pedro de Macorís,Dominican Republic,+34927 98 76 22,casaresluisa@infraestructuras.es,2022-05-09 16:19:01
+223,Comercializadora CBU S.L.,Construction,Punta Cana,Dominican Republic,+34 823149216,jenaro34@eugenia.com,2021-09-20 09:48:57
+224,Hermanos Morell S.L.N.E,Consulting,San Pedro de Macorís,Dominican Republic,+34975848728,domitilasaura@zabaleta.es,2026-01-25 07:57:27
+225,Compañía del Norte S.Com.,Consulting,San Francisco de Macorís,Dominican Republic,+34 947 42 40 08,omarmadrid@bienvenida.es,2024-01-10 11:57:54
+226,Hnos Marco S.Coop.,Construction,La Romana,Dominican Republic,+34 708536866,fernandoporta@gimenez.net,2025-11-14 16:37:25
+227,Instalaciones Leiva y asociados S.A.,Consulting,San Francisco de Macorís,Dominican Republic,+34820224179,sllado@godofredo.com,2023-01-22 07:53:50
+228,Instalaciones GWA S.A.,Education,Santiago,Dominican Republic,+34717 356 475,vangulo@despacho.com,2023-02-10 18:16:53
+229,Restauración Alberola & Asociados S.L.N.E,Education,San Pedro de Macorís,Dominican Republic,+34 881 67 30 37,vazquezgraciela@tecnologias.org,2024-03-23 08:43:22
+230,Banco Viñas S.A.,Manufacturing,La Romana,Dominican Republic,+34 978 435 031,evitarovira@alcolea.com,2024-11-04 08:59:29
+231,Alimentación Castellana S.Coop.,Healthcare,San Pedro de Macorís,Dominican Republic,+34 977 925 132,rbravo@barreda.com,2026-01-15 00:47:17
+232,Desarrollo MZP S.L.,Construction,Punta Cana,Dominican Republic,+34963 06 52 40,jrio@transportes.es,2025-06-17 21:25:38
+233,Distribuciones Bayón & Asociados S.Coop.,Consulting,San Francisco de Macorís,Dominican Republic,+34883 85 70 86,solalfonso@haro.es,2023-02-03 13:04:41
+234,María Dolores Correa Luna S.Com.,Finance,La Romana,Dominican Republic,+34920 11 81 02,samantaangulo@construccion.com,2026-05-02 17:08:23
+235,Trillo y Zaragoza S.L.,Consulting,San Pedro de Macorís,Dominican Republic,+34882053910,gabrielatur@talleres.com,2023-09-27 12:02:09
+236,Familia Mateu S.A.,Retail,Puerto Plata,Dominican Republic,+34875 81 13 86,guadalupezorrilla@farmaceutica.es,2025-05-18 20:04:19
+237,Calvet y Diaz S.L.,Retail,San Pedro de Macorís,Dominican Republic,+34945 852 897,vanesa58@peral.es,2024-03-24 13:38:02
+238,Fábrica del Mediterráneo S.L.,Education,Punta Cana,Dominican Republic,+34 882 57 76 00,debora08@inversiones.net,2023-04-22 01:44:07
+239,Almeida y asociados S.L.N.E,Manufacturing,Punta Cana,Dominican Republic,+34 983899210,jpages@infraestructuras.net,2023-06-17 12:41:18
+240,Inversiones Briones y asociados S.Coop.,Construction,San Pedro de Macorís,Dominican Republic,+34 876 157 279,masanselmo@bermudez.es,2024-06-08 14:56:30
+241,Riera y Carreño S.L.N.E,Legal Services,Punta Cana,Dominican Republic,+34877906048,montanacalista@logistica.com,2021-11-27 14:24:56
+242,Salinas y Vargas S.A.,Technology,San Francisco de Macorís,Dominican Republic,+34954622517,pujoljuan-francisco@servicios.es,2026-05-03 16:53:21
+243,Industrias Ibéricos S.A.,Retail,San Francisco de Macorís,Dominican Republic,+34 955 91 16 65,graciano55@hermanos.es,2022-09-19 16:23:57
+244,Arsenio Guillen Flores S.L.,Legal Services,Puerto Plata,Dominican Republic,+34846 110 392,alberto51@supermercados.net,2023-03-18 19:54:56
+245,Tecnologías Cid & Asociados S.Com.,Retail,Santo Domingo,Dominican Republic,+34985 04 20 43,balduino70@restauracion.es,2023-06-11 20:34:00
+246,Verdugo y Cabezas S.L.N.E,Retail,San Pedro de Macorís,Dominican Republic,+34978981238,calmeida@inversiones.com,2021-08-19 17:19:04
+247,Ortiz y asociados S.L.,Manufacturing,San Pedro de Macorís,Dominican Republic,+34 879840460,jafet25@cervantes.net,2025-01-10 06:00:52
+248,Despacho del Noroeste S.L.N.E,Construction,Puerto Plata,Dominican Republic,+34 922782329,rosaliacervera@desarrollo.com,2024-03-06 01:37:08
+249,Consultoría QT S.L.,Manufacturing,San Pedro de Macorís,Dominican Republic,+34 920 66 47 42,custodiocatala@banca.net,2023-06-15 00:10:13
+250,Banca Privada del Levante S.A.,Retail,Puerto Plata,Dominican Republic,+34 977 28 97 52,etur@distribuciones.es,2021-08-09 06:55:46
+251,Soluciones Girón & Asociados S.L.,Manufacturing,Santo Domingo,Dominican Republic,+34 820279757,teofiloquiros@hnos.com,2025-11-27 05:47:45
+252,Supermercados RCZ S.Coop.,Technology,Puerto Plata,Dominican Republic,+34944 086 803,valerio64@talleres.com,2025-11-15 19:26:11
+253,Talleres Sans S.A.,Healthcare,La Romana,Dominican Republic,+34 981 12 98 26,cmorales@grupo.net,2025-05-06 07:01:22
+254,Infraestructuras JVP S.L.,Consulting,La Romana,Dominican Republic,+34 841 117 518,nvidal@restauracion.com,2024-04-30 01:11:51
+255,Distribuciones Coca S.A.,Consulting,Santiago,Dominican Republic,+34806644742,catalahermenegildo@hermanos.es,2026-02-06 05:46:08
+256,Hnos Gárate S.A.T.,Technology,Punta Cana,Dominican Republic,+34 977767199,hierrosofia@fabrica.es,2021-10-15 17:30:20
+257,Banco Martín S.Com.,Manufacturing,Puerto Plata,Dominican Republic,+34823 01 62 24,xavierpalomino@familia.es,2022-01-19 20:58:43
+258,Barón y Marco S.Coop.,Technology,Santo Domingo,Dominican Republic,+34834586833,canalesconcha@tecnologias.es,2023-09-08 09:02:29
+259,Castilla y asociados S.Coop.,Healthcare,Puerto Plata,Dominican Republic,+34980 72 93 43,carrascoamado@eufemia.es,2024-12-31 00:31:50
+260,Hermanos Olmo S.Coop.,Healthcare,La Romana,Dominican Republic,+34 875034414,antonia85@familia.com,2022-12-21 07:14:23
+261,Manufacturas Internacionales S.L.N.E,Education,Santiago,Dominican Republic,+34977702727,oscar60@logistica.es,2024-06-26 05:22:49
+262,Despacho RRT S.Coop.,Healthcare,Punta Cana,Dominican Republic,+34 848996291,julieta50@soluciones.es,2025-04-27 15:57:48
+263,Fábrica Zapata y asociados S.A.,Finance,San Pedro de Macorís,Dominican Republic,+34930 31 78 07,goyonieto@luz.com,2022-04-24 21:33:10
+264,Fábrica Arce S.Coop.,Technology,Punta Cana,Dominican Republic,+34 985 104 091,adelia01@banca.net,2023-11-30 23:23:52
+265,Logística Sainz & Asociados S.C.P,Finance,Santiago,Dominican Republic,+34846 41 09 88,gabaldoncandela@montalban.org,2026-05-12 06:06:45
+266,Distribuciones Española S.Com.,Construction,Punta Cana,Dominican Republic,+34923870207,camachorodolfo@familia.es,2024-07-02 12:39:22
+267,Manufacturas Figuerola & Asociados S.L.N.E,Legal Services,La Romana,Dominican Republic,+34 975 92 17 17,isaura77@hotel.org,2024-07-26 20:07:58
+268,Español y Murillo S.L.,Consulting,Santiago,Dominican Republic,+34 921 77 01 71,alejandra72@mineria.com,2024-04-01 01:59:37
+269,Inversiones XEMM S.A.,Construction,San Francisco de Macorís,Dominican Republic,+34 978615396,inogues@farmaceutica.es,2022-06-13 19:54:57
+270,Máximo Cabanillas Salgado S.A.,Legal Services,Puerto Plata,Dominican Republic,+34 946191965,fbarriga@desarrollo.com,2025-04-30 23:36:22
+271,Restauración Salvador & Asociados S.A.D,Legal Services,San Francisco de Macorís,Dominican Republic,+34 920 494 651,vicenssancho@instalaciones.com,2021-06-26 06:16:03
+272,Canals y asociados S.L.N.E,Education,Punta Cana,Dominican Republic,+34 879 696 566,irozas@farmaceutica.es,2024-07-17 00:23:51
+273,Correa y Maldonado S.L.U.,Technology,Punta Cana,Dominican Republic,+34 841 20 10 27,fcerdan@soluciones.es,2023-01-03 06:02:58
+274,Araceli Rodrigo Sandoval S.Com.,Finance,Santo Domingo,Dominican Republic,+34877 269 097,leticiavalls@soluciones.es,2024-08-11 18:35:53
+275,Tecnologías ELBS S.L.,Retail,San Francisco de Macorís,Dominican Republic,+34886781891,agustinabermejo@comercial.es,2026-05-11 21:20:24
+276,Robledo y asociados S.L.N.E,Consulting,San Francisco de Macorís,Dominican Republic,+34 900420949,benjamin79@comercial.com,2023-12-01 17:54:39
+277,Celestino Castañeda Vega S.A.,Legal Services,Santo Domingo,Dominican Republic,+34 886 42 94 44,cantonelisabet@despacho.com,2023-09-13 07:47:24
+278,Transportes Iberia S.L.,Technology,Punta Cana,Dominican Republic,+34745 129 276,qgarate@lucila.es,2021-12-09 10:12:34
+279,Consultoría Badía & Asociados S.Coop.,Healthcare,Santiago,Dominican Republic,+34 977478366,jjauregui@albero.es,2024-09-22 11:40:30
+280,Armengol & Asociados S.L.N.E,Education,San Francisco de Macorís,Dominican Republic,+34 926 69 45 44,jarafatima@serra.net,2025-11-25 01:50:26
+281,Escolano y asociados S.Coop.,Retail,Punta Cana,Dominican Republic,+34 701 06 18 17,isidoro44@banco.com,2023-04-28 07:00:28
+282,Consultoría SG S.L.,Healthcare,Puerto Plata,Dominican Republic,+34861 244 717,maria-jose65@distribuciones.es,2024-10-12 22:47:17
+283,Barrena y asociados S.L.N.E,Construction,San Pedro de Macorís,Dominican Republic,+34 884271739,pescalona@cesar.com,2025-03-26 14:06:14
+284,Construcción Arana & Asociados S.A.,Finance,San Pedro de Macorís,Dominican Republic,+34881707200,jlarrea@posada.es,2025-07-18 04:02:43
+285,Quintero y Becerra S.Coop.,Retail,Santo Domingo,Dominican Republic,+34667 198 554,obaquero@promociones.net,2022-12-24 09:00:03
+286,Hnos Feijoo S.Com.,Construction,La Romana,Dominican Republic,+34943 157 173,andres-felipeferrando@grupo.org,2025-09-23 02:32:11
+287,Alcides Arco Nicolau S.A.,Manufacturing,Santiago,Dominican Republic,+34 803613878,manuguijarro@banco.com,2021-08-07 06:31:58
+288,Comercial Meléndez S.L.L.,Construction,San Pedro de Macorís,Dominican Republic,+34825 792 911,valenciadulce@comercializadora.es,2024-03-27 00:05:43
+289,Desarrollo RPN S.Coop.,Consulting,Punta Cana,Dominican Republic,+34 923114262,carolina27@banco.es,2022-10-26 18:21:04
+290,Hnos Berrocal S.A.,Manufacturing,Santo Domingo,Dominican Republic,+34851 946 723,felicidadlillo@sergio.com,2023-01-03 21:11:35
+291,Emma Borja Mascaró S.Com.,Consulting,Santiago,Dominican Republic,+34683318195,abrilgalindo@comercial.es,2025-09-16 08:46:51
+292,Distribuciones Aroca S.A.,Manufacturing,Santo Domingo,Dominican Republic,+34 928 436 459,garoca@grupo.es,2025-11-09 09:23:22
+293,Comercializadora LE S.Com.,Manufacturing,Punta Cana,Dominican Republic,+34872 53 15 31,malenarevilla@restauracion.es,2021-12-09 11:13:17
+294,Coca y Garzón S.L.N.E,Construction,Santiago,Dominican Republic,+34973 265 273,julian35@banco.com,2025-06-09 00:08:18
+295,Silvio Donoso Nuñez S.A.T.,Construction,Santiago,Dominican Republic,+34 900 92 92 98,chemarequena@rosalva.org,2021-08-07 16:52:17
+296,Huerta y Huguet S.Com.,Manufacturing,San Francisco de Macorís,Dominican Republic,+34876 92 90 60,sosamacarena@hnos.com,2025-04-29 07:51:32
+297,Jose Angel Blanco Alberola S.L.,Legal Services,Punta Cana,Dominican Republic,+34 946 32 54 31,tenahaydee@distribuciones.es,2022-08-28 07:56:01
+298,Esteban y Pellicer S.L.,Construction,La Romana,Dominican Republic,+34 616580464,mirtaberrocal@ballesteros.com,2024-09-25 10:34:46
+299,Solana & Asociados S.Com.,Technology,San Pedro de Macorís,Dominican Republic,+34849 81 83 25,calistacarballo@malena.org,2025-10-05 03:59:08
