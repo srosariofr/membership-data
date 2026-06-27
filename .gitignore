@@ -1,4 +1,25 @@
-/.venv/
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Environment variables
 .env
-*.ipynb
-/minio/minio/data/
+.env.*
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local data
+data/
+*.csv
+*.parquet
+*.xlsx
+
+# Docker volumes / local storage
+postgres_data/
+minio/minio/data/

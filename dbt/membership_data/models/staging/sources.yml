@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: companies
+      - name: members
+      - name: membership_applications
+      - name: application_status_history
+      - name: member_status_history
+      - name: payments
+      - name: events
+      - name: event_attendance

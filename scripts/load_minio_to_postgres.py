@@ -1,7 +1,7 @@
 from io import BytesIO
 import boto3
 import pandas as pd
-from sqlalchemy import create_engine, text
+from sqlalchemy import create_engine, text, inspect
 
 
 # ------------------------------------------------------------
@@ -11,7 +11,7 @@ from sqlalchemy import create_engine, text
 MINIO_ENDPOINT = "http://localhost:9000"
 MINIO_ACCESS_KEY = "admin"
 MINIO_SECRET_KEY = "password123"
-BUCKET_NAME = "membership-data-bucket"
+BUCKET_NAME = "membership-data"
 
 
 # ------------------------------------------------------------
@@ -110,15 +110,27 @@ def create_raw_schema(engine):
 
 
 def load_dataframe_to_postgres(df, engine, schema_name, table_name):
-    df.to_sql(
-        name=table_name,
-        con=engine,
-        schema=schema_name,
-        if_exists="replace",
-        index=False,
-        method="multi",
-        chunksize=1000,
-    )
+    inspector = inspect(engine)
+    table_exists = inspector.has_table(table_name, schema=schema_name)
+
+    full_table_name = f'"{schema_name}"."{table_name}"'
+
+    with engine.begin() as conn:
+        if table_exists:
+            conn.execute(text(f"TRUNCATE TABLE {full_table_name};"))
+            if_exists_mode = "append"
+        else:
+            if_exists_mode = "replace"
+
+        df.to_sql(
+            name=table_name,
+            con=conn,
+            schema=schema_name,
+            if_exists=if_exists_mode,
+            index=False,
+            method="multi",
+            chunksize=1000,
+        )
 
 
 def main():

@@ -1,0 +1,7 @@
+# dbt generated files
+target/
+dbt_packages/
+logs/
+
+# local dbt credentials
+profiles.yml
