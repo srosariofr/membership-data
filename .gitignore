@@ -15,10 +15,12 @@ Thumbs.db
 .idea/
 
 # Local data
+/data/
 data/
 *.csv
 *.parquet
 *.xlsx
+
 
 # Docker volumes / local storage
 postgres_data/
