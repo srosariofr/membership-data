@@ -1,101 +1,101 @@
 event_id,event_name,event_type,event_date,city,capacity
-1,Workshop 2026 #1,Conference,2026-03-13 07:49:41,Punta Cana,500
-2,Webinar 2023 #2,Assembly,2023-08-14 09:24:43,Punta Cana,500
-3,Webinar 2023 #3,Workshop,2023-01-04 13:17:50,Puerto Plata,500
-4,Webinar 2025 #4,Conference,2025-10-19 06:07:43,La Romana,50
-5,Webinar 2023 #5,Conference,2023-11-26 13:22:20,San Francisco de Macorís,50
-6,Webinar 2024 #6,Conference,2024-08-12 20:04:29,Santo Domingo,500
-7,Networking 2024 #7,Training,2024-07-27 21:17:03,San Francisco de Macorís,50
-8,Conference 2025 #8,Training,2025-05-15 19:44:20,Punta Cana,200
-9,Training 2025 #9,Training,2025-03-15 10:52:36,Punta Cana,300
-10,Workshop 2022 #10,Webinar,2022-05-12 06:29:46,La Romana,50
-11,Webinar 2025 #11,Assembly,2025-12-28 09:05:50,Puerto Plata,50
-12,Conference 2025 #12,Assembly,2025-02-15 18:45:01,Santo Domingo,300
-13,Workshop 2025 #13,Assembly,2025-08-06 14:06:49,Puerto Plata,500
-14,Networking 2025 #14,Networking,2025-08-03 13:28:23,La Romana,50
-15,Conference 2021 #15,Networking,2021-11-16 11:19:21,Punta Cana,150
-16,Workshop 2025 #16,Training,2025-03-05 02:24:28,Santo Domingo,50
-17,Conference 2025 #17,Conference,2025-02-15 16:54:46,San Francisco de Macorís,200
-18,Networking 2025 #18,Training,2025-08-21 20:19:10,San Pedro de Macorís,50
-19,Conference 2022 #19,Training,2022-08-09 01:38:10,Santiago,500
-20,Conference 2022 #20,Training,2022-04-10 05:59:27,Puerto Plata,50
-21,Assembly 2022 #21,Assembly,2022-11-04 08:33:08,San Pedro de Macorís,100
-22,Assembly 2022 #22,Training,2022-12-28 21:31:01,San Pedro de Macorís,100
-23,Conference 2026 #23,Assembly,2026-03-12 04:44:26,San Francisco de Macorís,50
-24,Assembly 2023 #24,Webinar,2023-06-19 21:18:49,Punta Cana,50
-25,Conference 2024 #25,Assembly,2024-01-13 12:59:49,Santo Domingo,150
-26,Conference 2022 #26,Workshop,2022-06-26 20:40:42,Santiago,500
-27,Training 2023 #27,Networking,2023-09-09 20:58:17,San Pedro de Macorís,50
-28,Training 2023 #28,Networking,2023-03-27 05:02:42,Punta Cana,50
-29,Networking 2021 #29,Webinar,2021-07-30 12:29:38,La Romana,500
-30,Workshop 2022 #30,Assembly,2022-10-09 15:22:13,Punta Cana,500
-31,Networking 2022 #31,Conference,2022-06-06 10:22:57,San Francisco de Macorís,300
-32,Workshop 2024 #32,Networking,2024-07-27 05:40:51,San Francisco de Macorís,50
-33,Networking 2022 #33,Networking,2022-11-01 14:48:39,Punta Cana,100
-34,Assembly 2025 #34,Networking,2025-05-03 03:37:53,Santo Domingo,300
-35,Webinar 2022 #35,Conference,2022-12-28 08:46:25,Puerto Plata,300
-36,Conference 2024 #36,Conference,2024-07-30 20:25:45,Santo Domingo,150
-37,Networking 2025 #37,Networking,2025-08-13 01:30:07,Punta Cana,150
-38,Networking 2026 #38,Networking,2026-01-13 17:27:58,Santo Domingo,300
-39,Assembly 2023 #39,Conference,2023-05-18 05:44:27,La Romana,500
-40,Networking 2023 #40,Training,2023-02-27 04:16:10,La Romana,150
-41,Networking 2025 #41,Assembly,2025-01-31 00:44:11,Santiago,100
-42,Networking 2025 #42,Conference,2025-06-07 13:04:37,Punta Cana,100
-43,Workshop 2023 #43,Workshop,2023-11-15 11:54:02,Santo Domingo,150
-44,Conference 2021 #44,Conference,2021-12-13 07:53:06,San Francisco de Macorís,50
-45,Webinar 2025 #45,Webinar,2025-12-10 23:46:39,San Francisco de Macorís,100
-46,Networking 2026 #46,Networking,2026-05-22 15:41:04,Santo Domingo,300
-47,Conference 2022 #47,Workshop,2022-05-11 01:33:44,Santo Domingo,50
-48,Training 2022 #48,Webinar,2022-12-09 07:51:43,San Francisco de Macorís,300
-49,Workshop 2021 #49,Assembly,2021-11-13 23:31:40,Santo Domingo,50
-50,Conference 2024 #50,Training,2024-06-04 03:31:18,San Francisco de Macorís,300
-51,Assembly 2023 #51,Assembly,2023-10-06 18:43:42,Punta Cana,50
-52,Networking 2023 #52,Networking,2023-12-04 17:13:13,Punta Cana,500
-53,Conference 2025 #53,Training,2025-06-12 01:43:45,Puerto Plata,150
-54,Workshop 2024 #54,Conference,2024-10-24 09:41:55,San Pedro de Macorís,150
-55,Webinar 2026 #55,Workshop,2026-01-09 14:10:16,La Romana,200
-56,Assembly 2026 #56,Networking,2026-01-28 12:38:35,Santiago,100
-57,Webinar 2021 #57,Conference,2021-09-26 06:10:35,Punta Cana,300
-58,Workshop 2022 #58,Assembly,2022-04-04 20:34:45,Santiago,300
-59,Networking 2022 #59,Assembly,2022-12-27 07:27:28,San Francisco de Macorís,300
-60,Assembly 2022 #60,Workshop,2022-11-22 12:45:37,San Francisco de Macorís,300
-61,Training 2024 #61,Webinar,2024-05-25 16:03:44,San Pedro de Macorís,500
-62,Networking 2024 #62,Assembly,2024-12-06 15:58:44,Santo Domingo,50
-63,Webinar 2022 #63,Training,2022-08-02 07:29:47,La Romana,200
-64,Workshop 2022 #64,Workshop,2022-01-02 08:19:08,Punta Cana,500
-65,Training 2026 #65,Conference,2026-01-05 14:09:56,La Romana,200
-66,Conference 2023 #66,Workshop,2023-04-30 00:04:57,San Francisco de Macorís,200
-67,Conference 2025 #67,Networking,2025-01-06 12:55:36,Santiago,100
-68,Networking 2022 #68,Assembly,2022-04-21 17:38:54,La Romana,500
-69,Workshop 2021 #69,Assembly,2021-08-11 14:07:43,San Francisco de Macorís,50
-70,Webinar 2026 #70,Webinar,2026-03-31 04:59:44,San Pedro de Macorís,50
-71,Workshop 2026 #71,Networking,2026-01-29 04:51:53,Puerto Plata,200
-72,Training 2021 #72,Assembly,2021-10-24 08:37:57,La Romana,300
-73,Training 2022 #73,Workshop,2022-10-02 10:09:05,Punta Cana,100
-74,Assembly 2024 #74,Networking,2024-07-12 14:54:47,Santo Domingo,500
-75,Assembly 2025 #75,Conference,2025-08-30 11:59:42,Puerto Plata,100
-76,Networking 2021 #76,Assembly,2021-10-24 22:16:59,Santo Domingo,500
-77,Assembly 2022 #77,Training,2022-01-30 10:02:42,Santiago,50
-78,Webinar 2024 #78,Conference,2024-12-01 18:41:51,San Pedro de Macorís,300
-79,Training 2022 #79,Training,2022-12-02 13:38:50,San Pedro de Macorís,100
-80,Conference 2021 #80,Webinar,2021-11-21 05:00:35,San Pedro de Macorís,150
-81,Conference 2024 #81,Training,2024-11-15 13:51:57,Punta Cana,150
-82,Webinar 2023 #82,Webinar,2023-07-15 23:45:26,La Romana,500
-83,Assembly 2025 #83,Conference,2025-05-19 07:39:47,Santo Domingo,500
-84,Webinar 2022 #84,Assembly,2022-01-06 19:44:16,Puerto Plata,300
-85,Conference 2023 #85,Training,2023-06-01 00:34:49,La Romana,50
-86,Workshop 2024 #86,Training,2024-08-25 01:44:30,Punta Cana,100
-87,Webinar 2024 #87,Workshop,2024-05-09 12:59:18,San Francisco de Macorís,150
-88,Conference 2024 #88,Networking,2024-06-24 04:27:21,Santiago,300
-89,Assembly 2022 #89,Networking,2022-05-21 11:24:54,Punta Cana,50
-90,Networking 2024 #90,Workshop,2024-03-11 11:24:16,La Romana,150
-91,Assembly 2022 #91,Webinar,2022-07-15 06:48:35,La Romana,100
-92,Conference 2024 #92,Networking,2024-10-25 11:24:39,San Pedro de Macorís,300
-93,Training 2025 #93,Workshop,2025-03-19 12:36:29,Puerto Plata,200
-94,Conference 2024 #94,Webinar,2024-09-16 04:53:07,San Pedro de Macorís,50
-95,Assembly 2022 #95,Webinar,2022-02-21 05:53:17,La Romana,200
-96,Networking 2025 #96,Webinar,2025-03-11 16:48:37,San Francisco de Macorís,100
-97,Training 2025 #97,Webinar,2025-01-01 14:16:08,Santo Domingo,200
-98,Training 2022 #98,Workshop,2022-10-11 14:14:11,Santo Domingo,200
-99,Workshop 2026 #99,Assembly,2026-05-11 04:22:00,Santo Domingo,500
-100,Assembly 2024 #100,Networking,2024-12-09 08:27:44,San Francisco de Macorís,500
+1,Webinar 2023 #1,Workshop,2023-06-03 08:41:18,Santiago,50
+2,Training 2023 #2,Training,2023-03-15 07:13:01,San Pedro de Macorís,150
+3,Assembly 2025 #3,Webinar,2025-02-16 03:41:02,San Francisco de Macorís,500
+4,Workshop 2025 #4,Assembly,2025-06-23 16:01:28,Santo Domingo,50
+5,Assembly 2023 #5,Assembly,2023-12-01 14:50:53,La Romana,500
+6,Networking 2021 #6,Conference,2021-12-29 10:49:57,San Francisco de Macorís,100
+7,Webinar 2025 #7,Assembly,2025-12-27 02:43:30,Punta Cana,200
+8,Assembly 2022 #8,Conference,2022-05-27 04:30:35,Santiago,150
+9,Assembly 2022 #9,Training,2022-12-25 10:48:34,Santiago,50
+10,Conference 2021 #10,Assembly,2021-11-30 02:28:31,Puerto Plata,200
+11,Workshop 2024 #11,Workshop,2024-06-20 06:28:09,Punta Cana,150
+12,Conference 2023 #12,Workshop,2023-10-22 21:40:33,Punta Cana,50
+13,Training 2023 #13,Webinar,2023-12-20 20:10:04,La Romana,50
+14,Assembly 2025 #14,Conference,2025-06-28 04:40:36,San Pedro de Macorís,500
+15,Assembly 2024 #15,Assembly,2024-11-09 12:38:46,La Romana,200
+16,Training 2026 #16,Assembly,2026-01-25 17:07:07,Puerto Plata,200
+17,Training 2026 #17,Training,2026-02-13 15:35:26,Santo Domingo,150
+18,Training 2021 #18,Webinar,2021-10-12 09:07:26,La Romana,100
+19,Workshop 2022 #19,Networking,2022-04-20 23:31:36,San Pedro de Macorís,500
+20,Training 2023 #20,Networking,2023-01-12 10:24:19,La Romana,300
+21,Networking 2022 #21,Networking,2022-12-08 15:42:28,San Francisco de Macorís,50
+22,Assembly 2024 #22,Networking,2024-06-10 19:00:35,Punta Cana,50
+23,Webinar 2024 #23,Training,2024-12-22 18:55:35,Santiago,100
+24,Conference 2022 #24,Training,2022-08-18 10:26:38,Santo Domingo,500
+25,Networking 2022 #25,Webinar,2022-01-18 11:15:59,Puerto Plata,50
+26,Workshop 2026 #26,Conference,2026-01-21 17:06:47,San Pedro de Macorís,500
+27,Networking 2023 #27,Conference,2023-05-16 03:01:48,Punta Cana,200
+28,Training 2025 #28,Conference,2025-01-22 15:52:27,Punta Cana,500
+29,Webinar 2022 #29,Conference,2022-05-07 20:35:45,Punta Cana,150
+30,Networking 2021 #30,Webinar,2021-08-27 17:04:34,Santiago,50
+31,Webinar 2026 #31,Assembly,2026-04-16 07:56:35,San Pedro de Macorís,150
+32,Conference 2026 #32,Webinar,2026-02-14 07:48:44,Punta Cana,150
+33,Training 2021 #33,Assembly,2021-11-09 11:34:48,San Francisco de Macorís,150
+34,Networking 2022 #34,Networking,2022-10-18 13:05:56,Santiago,100
+35,Workshop 2024 #35,Webinar,2024-07-28 17:51:38,Santiago,300
+36,Webinar 2025 #36,Workshop,2025-09-15 14:56:33,Santo Domingo,150
+37,Networking 2021 #37,Networking,2021-11-10 01:13:50,La Romana,100
+38,Webinar 2022 #38,Workshop,2022-02-15 12:59:33,Puerto Plata,100
+39,Training 2024 #39,Conference,2024-12-17 21:38:42,Puerto Plata,150
+40,Workshop 2022 #40,Webinar,2022-12-18 16:35:41,San Francisco de Macorís,300
+41,Assembly 2021 #41,Conference,2021-12-07 07:57:26,Puerto Plata,500
+42,Training 2024 #42,Workshop,2024-12-01 16:48:48,San Pedro de Macorís,150
+43,Webinar 2023 #43,Networking,2023-08-01 02:42:17,La Romana,500
+44,Assembly 2025 #44,Workshop,2025-06-04 10:36:38,San Francisco de Macorís,150
+45,Training 2022 #45,Training,2022-01-22 22:41:07,Santo Domingo,500
+46,Workshop 2023 #46,Workshop,2023-06-17 03:31:40,San Pedro de Macorís,200
+47,Webinar 2024 #47,Workshop,2024-09-10 04:41:21,Santiago,150
+48,Webinar 2024 #48,Webinar,2024-05-25 15:56:09,Santo Domingo,200
+49,Assembly 2024 #49,Conference,2024-07-10 07:24:12,San Francisco de Macorís,50
+50,Webinar 2022 #50,Webinar,2022-06-06 14:21:45,San Pedro de Macorís,150
+51,Webinar 2024 #51,Workshop,2024-03-27 14:21:07,La Romana,300
+52,Webinar 2022 #52,Conference,2022-07-31 09:45:26,Punta Cana,200
+53,Training 2024 #53,Assembly,2024-11-10 14:21:30,Punta Cana,150
+54,Training 2025 #54,Networking,2025-04-04 15:33:20,Puerto Plata,100
+55,Conference 2024 #55,Conference,2024-10-02 07:49:58,La Romana,50
+56,Webinar 2022 #56,Webinar,2022-03-09 08:50:08,Punta Cana,100
+57,Workshop 2025 #57,Workshop,2025-03-27 19:45:28,San Francisco de Macorís,150
+58,Workshop 2025 #58,Webinar,2025-01-17 17:12:59,Santo Domingo,150
+59,Assembly 2022 #59,Networking,2022-10-27 17:11:02,San Pedro de Macorís,500
+60,Conference 2026 #60,Workshop,2026-05-27 07:18:51,Santiago,100
+61,Webinar 2024 #61,Networking,2024-12-25 11:24:35,San Pedro de Macorís,200
+62,Assembly 2024 #62,Networking,2024-06-26 06:11:17,Puerto Plata,300
+63,Training 2026 #63,Webinar,2026-02-20 10:44:39,La Romana,50
+64,Conference 2024 #64,Assembly,2024-11-26 13:48:44,La Romana,100
+65,Workshop 2023 #65,Assembly,2023-03-04 16:26:58,Punta Cana,50
+66,Training 2024 #66,Workshop,2024-10-23 23:58:16,San Francisco de Macorís,100
+67,Conference 2021 #67,Webinar,2021-12-29 08:17:00,Puerto Plata,300
+68,Assembly 2022 #68,Conference,2022-08-29 22:25:33,La Romana,500
+69,Networking 2024 #69,Workshop,2024-08-04 04:08:00,San Pedro de Macorís,150
+70,Workshop 2023 #70,Training,2023-08-08 21:58:47,San Pedro de Macorís,300
+71,Networking 2024 #71,Networking,2024-09-22 19:03:20,Punta Cana,50
+72,Workshop 2025 #72,Networking,2025-11-24 15:52:48,Santiago,150
+73,Training 2025 #73,Webinar,2025-09-07 04:41:00,Puerto Plata,300
+74,Workshop 2023 #74,Workshop,2023-02-17 14:26:59,San Francisco de Macorís,150
+75,Webinar 2022 #75,Webinar,2022-10-04 18:53:16,San Francisco de Macorís,200
+76,Webinar 2022 #76,Assembly,2022-01-17 19:14:29,San Francisco de Macorís,200
+77,Workshop 2022 #77,Workshop,2022-10-16 20:05:59,Santiago,50
+78,Webinar 2023 #78,Conference,2023-01-16 20:29:41,Puerto Plata,500
+79,Conference 2024 #79,Networking,2024-04-22 00:50:12,Santo Domingo,150
+80,Webinar 2023 #80,Workshop,2023-11-17 16:46:03,San Pedro de Macorís,100
+81,Workshop 2024 #81,Networking,2024-08-03 16:19:44,Santiago,100
+82,Networking 2021 #82,Conference,2021-12-03 09:38:40,Santo Domingo,200
+83,Workshop 2026 #83,Networking,2026-03-16 23:13:50,Puerto Plata,300
+84,Webinar 2021 #84,Assembly,2021-09-12 10:34:10,San Francisco de Macorís,500
+85,Assembly 2024 #85,Workshop,2024-10-28 12:05:12,Puerto Plata,100
+86,Training 2023 #86,Webinar,2023-10-24 20:24:55,San Francisco de Macorís,50
+87,Conference 2021 #87,Training,2021-09-08 11:13:15,Santo Domingo,150
+88,Workshop 2025 #88,Conference,2025-04-08 00:13:18,Puerto Plata,50
+89,Workshop 2026 #89,Networking,2026-04-15 16:48:32,San Pedro de Macorís,500
+90,Workshop 2025 #90,Training,2025-06-21 05:49:55,Puerto Plata,150
+91,Networking 2023 #91,Workshop,2023-04-09 05:37:37,Punta Cana,50
+92,Workshop 2026 #92,Conference,2026-04-14 18:08:54,Santo Domingo,100
+93,Assembly 2025 #93,Networking,2025-10-07 18:29:08,Puerto Plata,300
+94,Workshop 2022 #94,Networking,2022-05-10 13:02:37,La Romana,200
+95,Workshop 2026 #95,Networking,2026-02-02 04:59:21,San Francisco de Macorís,150
+96,Assembly 2023 #96,Assembly,2023-03-27 03:20:50,La Romana,200
+97,Training 2023 #97,Workshop,2023-12-23 17:43:56,Puerto Plata,150
+98,Workshop 2022 #98,Networking,2022-07-12 19:23:08,San Francisco de Macorís,50
+99,Conference 2022 #99,Networking,2022-01-03 05:48:50,Santo Domingo,100
+100,Training 2021 #100,Webinar,2021-12-18 14:29:55,Punta Cana,200

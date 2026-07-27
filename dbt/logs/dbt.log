@@ -132,3 +132,76 @@ Happy modeling!
 [0m15:49:09.321520 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C0B6B44FE0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C0B4E9BFB0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C0B2C2ABD0>]}
 [0m15:49:09.321520 [debug] [MainThread]: Flushing usage events
 [0m15:49:10.062070 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m16:09:56.345035 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C204D28C50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C206AC3410>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C206AC1A30>]}
+
+
+============================== 16:09:56.353595 | 0693c75a-a936-40ce-a6d9-5d63c37c673e ==============================
+[0m16:09:56.353595 [info ] [MainThread]: Running with dbt=1.12.0-b3
+[0m16:09:56.355953 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'maximum_seed_size_mib': '1', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'version_check': 'True', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\s_erf\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'invocation_command': 'dbt run', 'use_colors': 'True', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m16:09:56.355953 [error] [MainThread]: [[31mERROR[0m]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\Users\s_erf\OneDrive\Documentos\GitHub Repositories\membership-data\dbt\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m16:09:56.359618 [debug] [MainThread]: Command `dbt run` failed at 16:09:56.359618 after 0.25 seconds
+[0m16:09:56.361734 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C207C382F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C206AC1A30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C206AC3410>]}
+[0m16:09:56.361734 [debug] [MainThread]: Flushing usage events
+[0m16:09:57.355281 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m17:14:01.451153 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024A9854E030>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024A955F8A40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024A9712A600>]}
+
+
+============================== 17:14:01.458576 | 3167ca0d-6dbd-4e28-a49e-d035956597a6 ==============================
+[0m17:14:01.458576 [info ] [MainThread]: Running with dbt=1.12.0-b3
+[0m17:14:01.458576 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'maximum_seed_size_mib': '1', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'version_check': 'True', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\s_erf\\.dbt', 'indirect_selection': 'eager', 'invocation_command': 'dbt debug', 'use_colors': 'True', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m17:14:01.483490 [info ] [MainThread]: dbt version: 1.12.0-b3
+[0m17:14:01.483490 [info ] [MainThread]: python version: 3.12.2
+[0m17:14:01.483490 [info ] [MainThread]: python path: C:\Users\s_erf\OneDrive\Documentos\GitHub Repositories\membership-data\.venv\Scripts\python.exe
+[0m17:14:01.483490 [info ] [MainThread]: os info: Windows-11-10.0.26200-SP0
+[0m17:14:01.557681 [info ] [MainThread]: Using profiles dir at C:\Users\s_erf\.dbt
+[0m17:14:01.558683 [info ] [MainThread]: Using profiles.yml file at C:\Users\s_erf\.dbt\profiles.yml
+[0m17:14:01.559685 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\s_erf\OneDrive\Documentos\GitHub Repositories\membership-data\dbt\dbt_project.yml
+[0m17:14:01.560683 [info ] [MainThread]: adapter type: postgres
+[0m17:14:01.561683 [info ] [MainThread]: adapter version: 1.10.2
+[0m17:14:01.561683 [info ] [MainThread]: Configuration:
+[0m17:14:01.562682 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m17:14:01.562682 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m17:14:01.563683 [info ] [MainThread]: Required dependencies:
+[0m17:14:01.564482 [debug] [MainThread]: Executing "git --help"
+[0m17:14:01.605863 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m17:14:01.605863 [debug] [MainThread]: STDERR: "b''"
+[0m17:14:01.605863 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m17:14:01.607871 [info ] [MainThread]: Connection:
+[0m17:14:01.607871 [info ] [MainThread]:   host: localhost
+[0m17:14:01.607871 [info ] [MainThread]:   port: 5432
+[0m17:14:01.607871 [info ] [MainThread]:   user: admin
+[0m17:14:01.607871 [info ] [MainThread]:   database: membership_db
+[0m17:14:01.607871 [info ] [MainThread]:   schema: staging
+[0m17:14:01.607871 [info ] [MainThread]:   connect_timeout: 10
+[0m17:14:01.607871 [info ] [MainThread]:   role: None
+[0m17:14:01.607871 [info ] [MainThread]:   search_path: None
+[0m17:14:01.607871 [info ] [MainThread]:   keepalives_idle: 0
+[0m17:14:01.607871 [info ] [MainThread]:   sslmode: None
+[0m17:14:01.614732 [info ] [MainThread]:   sslcert: None
+[0m17:14:01.614732 [info ] [MainThread]:   sslkey: None
+[0m17:14:01.616353 [info ] [MainThread]:   sslrootcert: None
+[0m17:14:01.616353 [info ] [MainThread]:   application_name: dbt
+[0m17:14:01.617360 [info ] [MainThread]:   retries: 1
+[0m17:14:01.618370 [info ] [MainThread]: Registered adapter: postgres=1.10.2
+[0m17:14:01.961899 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m17:14:02.036935 [debug] [MainThread]: Using postgres connection "debug"
+[0m17:14:02.036935 [debug] [MainThread]: On debug: select 1 as id
+[0m17:14:02.036935 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m17:14:02.068649 [debug] [MainThread]: SQL status: SELECT 1 in 0.025 seconds
+[0m17:14:02.068649 [debug] [MainThread]: On debug: Close
+[0m17:14:02.074466 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m17:14:02.074466 [info ] [MainThread]: [31m1 check failed:[0m
+[0m17:14:02.076481 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <C:\Users\s_erf\OneDrive\Documentos\GitHub Repositories\membership-data\dbt\dbt_project.yml> not found
+
+[0m17:14:02.076481 [debug] [MainThread]: Command `dbt debug` failed at 17:14:02.076481 after 0.80 seconds
+[0m17:14:02.076481 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m17:14:02.076481 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024A9838E4B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024A9838C4A0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024A98363770>]}
+[0m17:14:02.076481 [debug] [MainThread]: Flushing usage events
+[0m17:14:03.029083 [debug] [MainThread]: An error was encountered while trying to flush usage events

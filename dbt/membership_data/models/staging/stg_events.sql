@@ -1,12 +1,16 @@
-{{ config(
-    materialized='view'
-) }}
+with source as (
+    select * from {{source('raw', 'stg_events')}}
+),
 
-select
-    event_id,
-    event_name,
-    event_type,
-    cast(event_date as date) as event_date,
-    city,
-    capacity
-from {{source('raw', 'events')}}
+renamed as (
+    select
+        event_id,
+        event_name,
+        event_type,
+        city,
+        capacity,
+        cast(event_date as date) as event_date
+    from source
+)
+
+select * from renamed

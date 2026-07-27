@@ -716,7 +716,7 @@ members_df = generate_members(applications_df, application_status_history_df)
 member_status_history_df = generate_member_status_history(members_df)
 member_status_history_df.to_csv(OUTPUT_DIR / "member_status_history.csv", index=False)
 
-members_df = update_member_current_status(members_df, member_status_history_df)
+# members_df = update_member_current_status(members_df, member_status_history_df)
 members_df.to_csv(OUTPUT_DIR / "members.csv", index=False)
 
 events_df = generate_events()

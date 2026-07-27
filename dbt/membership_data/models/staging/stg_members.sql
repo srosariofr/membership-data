@@ -1,21 +1,25 @@
-{{ config(
-    materialized='view'
-)}}
+with source as (
+    select * from {{source('raw', 'stg_members')}}
+),
 
-select 
-    member_id,
-    application_id,
-    name,
-    email,
-    gender,
-    cast(birth_date as date) as birth_date,
-    country,
-    city,
-    profession,
-    company_id,
-    membership_type,
-    registered_at,
-    approved_at,
-    current_status,
-    cast(current_status_start_at as timestamp) as current_status_start_at
-from {{source('raw', 'members')}}
+renamed as (
+    select 
+        member_id,
+        application_id,
+        company_id,
+        name,
+        email,
+        gender,
+        country,
+        city,
+        profession,
+        membership_type,
+        current_status,
+        cast(birth_date as date) as birth_date,
+        registered_at,
+        approved_at,
+        cast(current_status_start_at as timestamp) as current_status_start_at
+    from source
+)
+
+select * from renamed
