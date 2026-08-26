@@ -4,30 +4,52 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Membership Analytics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f8fafc;
+    /* BICentric brand palette */
+    --navy: #001f67;
+    --navy-deep: #061238;
+    --green: #00823b;
+    --green-soft: #75b148;
+    --lime: #9dd522;
+    --teal: #2b595b;
+    --gray-bg: #f4f4f4;
+
+    --bg: var(--gray-bg);
     --card-bg: #ffffff;
-    --border: #e2e8f0;
-    --text: #0f172a;
-    --text-muted: #64748b;
-    --accent: #4f46e5;
-    --accent-2: #10b981;
-    --accent-3: #f59e0b;
-    --accent-4: #ef4444;
+    --border: #e3e3e3;
+    --text: var(--navy-deep);
+    --text-muted: #6b7280;
+    --accent: var(--green);
+    --accent-2: var(--navy);
+    --accent-3: var(--lime);
+    --accent-4: var(--teal);
   }
   * { box-sizing: border-box; }
   body {
     margin: 0;
-    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background: var(--bg);
     color: var(--text);
   }
-  header { padding: 28px 32px 8px; }
-  header h1 { margin: 0; font-size: 22px; }
-  header p { margin: 6px 0 0; color: var(--text-muted); font-size: 13px; }
-  header code { background: #eef2ff; color: var(--accent); padding: 1px 5px; border-radius: 4px; }
-  main { padding: 16px 32px 40px; max-width: 1200px; margin: 0 auto; }
+  header {
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--card-bg);
+    border-bottom: 3px solid var(--lime);
+  }
+  header .brand-mark { flex: 0 0 auto; }
+  header .brand-mark svg { display: block; width: 30px; height: 30px; }
+  header .heading { flex: 1 1 auto; }
+  header h1 { margin: 0; font-size: 20px; font-weight: 700; letter-spacing: -.01em; }
+  header p { margin: 4px 0 0; color: var(--text-muted); font-size: 12.5px; }
+  header code { background: var(--gray-bg); color: var(--green); padding: 1px 5px; border-radius: 4px; font-weight: 500; }
+  main { padding: 24px 32px 40px; max-width: 1200px; margin: 0 auto; }
   .kpi-row {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -39,9 +61,10 @@
     border: 1px solid var(--border);
     border-radius: 10px;
     padding: 16px;
+    border-top: 3px solid var(--green);
   }
-  .kpi-card .label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: .04em; }
-  .kpi-card .value { font-size: 24px; font-weight: 600; margin-top: 4px; }
+  .kpi-card .label { font-size: 11.5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: .05em; font-weight: 500; }
+  .kpi-card .value { font-size: 24px; font-weight: 700; margin-top: 4px; color: var(--navy); letter-spacing: -.01em; }
   .charts-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
@@ -53,20 +76,29 @@
     border-radius: 10px;
     padding: 16px;
   }
-  .chart-card h2 { margin: 0 0 2px; font-size: 15px; }
+  .chart-card h2 { margin: 0 0 2px; font-size: 15px; font-weight: 600; color: var(--navy); }
   .chart-card .subtitle { font-size: 11px; color: var(--text-muted); margin-bottom: 10px; font-family: ui-monospace, monospace; }
   svg { width: 100%; height: auto; display: block; overflow: visible; }
   .legend { display: flex; gap: 16px; font-size: 12px; color: var(--text-muted); margin-top: 6px; }
   .legend span { display: inline-flex; align-items: center; gap: 6px; }
   .legend i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
-  .error { color: var(--accent-4); font-size: 13px; }
+  .error { color: #b91c1c; font-size: 13px; }
   .loading { color: var(--text-muted); font-size: 13px; padding: 40px 0; text-align: center; }
 </style>
 </head>
 <body>
 <header>
-  <h1>Membership Analytics</h1>
-  <p>Every number on this page comes straight from the dbt Semantic Layer via <code>mf query</code> - no SQL written for this page.</p>
+  <div class="brand-mark" aria-hidden="true">
+    <svg viewBox="85 178 65 64">
+      <path fill="#001f67" d="M105.06,222.18h42.77c3.31,0,6,2.69,6,6v4.95c0,3.31-2.69,6-6,6h-42.77c-.83,0-1.5-.67-1.5-1.5v-13.95c0-.83.67-1.5,1.5-1.5Z" transform="translate(257.4 461.31) rotate(-180)"/>
+      <path fill="#00823b" d="M87.73,201.31h60.1c3.31,0,6,2.69,6,6v4.95c0,3.31-2.69,6-6,6h-60.1c-.83,0-1.5-.67-1.5-1.5v-13.95c0-.83.67-1.5,1.5-1.5Z" transform="translate(240.07 419.57) rotate(-180)"/>
+      <path fill="#9dd522" d="M96.86,180.44h50.97c3.31,0,6,2.69,6,6v4.95c0,3.31-2.69,6-6,6h-50.97c-.83,0-1.5-.67-1.5-1.5v-13.95c0-.83.67-1.5,1.5-1.5Z" transform="translate(249.2 377.83) rotate(180)"/>
+    </svg>
+  </div>
+  <div class="heading">
+    <h1>Membership Analytics</h1>
+    <p>Every number on this page comes straight from the dbt Semantic Layer via <code>mf query</code> - no SQL written for this page.</p>
+  </div>
 </header>
 <main>
   <section class="kpi-row" id="kpi-row">
@@ -145,8 +177,8 @@ function lineChart(container, series, opts = {}) {
   for (let t = 0; t <= ticks; t++) {
     const v = yMin + (t / ticks) * (yMax - yMin);
     const y = yForV(v);
-    svg.appendChild(svgEl("line", { x1: padL, x2: width - padR, y1: y, y2: y, stroke: "#e2e8f0", "stroke-width": 1 }));
-    const label = svgEl("text", { x: padL - 8, y: y + 4, "font-size": 10, fill: "#64748b", "text-anchor": "end" });
+    svg.appendChild(svgEl("line", { x1: padL, x2: width - padR, y1: y, y2: y, stroke: "#e3e3e3", "stroke-width": 1 }));
+    const label = svgEl("text", { x: padL - 8, y: y + 4, "font-size": 10, fill: "#6b7280", "text-anchor": "end" });
     label.textContent = opts.yFormat ? opts.yFormat(v) : Math.round(v);
     svg.appendChild(label);
   }
@@ -154,7 +186,7 @@ function lineChart(container, series, opts = {}) {
   const xLabelEvery = Math.max(1, Math.ceil(n / 6));
   series[0].points.forEach((p, i) => {
     if (i % xLabelEvery !== 0 && i !== n - 1) return;
-    const label = svgEl("text", { x: xForI(i), y: height - 6, "font-size": 10, fill: "#64748b", "text-anchor": "middle" });
+    const label = svgEl("text", { x: xForI(i), y: height - 6, "font-size": 10, fill: "#6b7280", "text-anchor": "middle" });
     label.textContent = opts.xFormat ? opts.xFormat(p.x) : p.x;
     svg.appendChild(label);
   });
@@ -188,11 +220,11 @@ function barChart(container, items, opts = {}) {
   items.forEach((item, i) => {
     const y = padT + i * rowH;
     const barW = (item.value / maxV) * (width - padL - padR);
-    const label = svgEl("text", { x: padL - 10, y: y + rowH / 2 + 4, "font-size": 12, fill: "#0f172a", "text-anchor": "end" });
+    const label = svgEl("text", { x: padL - 10, y: y + rowH / 2 + 4, "font-size": 12, fill: "#061238", "text-anchor": "end" });
     label.textContent = item.label;
     svg.appendChild(label);
-    svg.appendChild(svgEl("rect", { x: padL, y: y + 6, width: Math.max(barW, 1), height: rowH - 14, rx: 4, fill: item.color || "#4f46e5" }));
-    const valLabel = svgEl("text", { x: padL + barW + 8, y: y + rowH / 2 + 4, "font-size": 12, fill: "#64748b" });
+    svg.appendChild(svgEl("rect", { x: padL, y: y + 6, width: Math.max(barW, 1), height: rowH - 14, rx: 4, fill: item.color || "#00823b" }));
+    const valLabel = svgEl("text", { x: padL + barW + 8, y: y + rowH / 2 + 4, "font-size": 12, fill: "#6b7280" });
     valLabel.textContent = opts.valueFormat ? opts.valueFormat(item.value) : item.value;
     svg.appendChild(valLabel);
   });
@@ -233,7 +265,7 @@ async function init() {
   try {
     const rows = await fetchQuery(["revenue"], ["metric_time__month"], ["metric_time__month"]);
     lineChart(document.getElementById("chart-revenue"), [{
-      name: "revenue", color: "#4f46e5",
+      name: "revenue", color: "#00823b",
       points: rows.map(r => ({ x: r.metric_time__month, y: Number(r.revenue) })),
     }], { yFormat: fmtMoney, xFormat: fmtMonth });
   } catch (err) { showError(document.getElementById("chart-revenue"), err); }
@@ -241,7 +273,7 @@ async function init() {
   try {
     const rows = await fetchQuery(["active_members"], ["metric_time__month"], ["metric_time__month"]);
     lineChart(document.getElementById("chart-active-members"), [{
-      name: "active_members", color: "#10b981",
+      name: "active_members", color: "#001f67",
       points: rows.map(r => ({ x: r.metric_time__month, y: Number(r.active_members) })),
     }], { yFormat: fmtInt, xFormat: fmtMonth });
     const last = rows[rows.length - 1];
@@ -254,14 +286,14 @@ async function init() {
       ["applications_submitted", "applications_approved"], ["metric_time__month"], ["metric_time__month"]
     );
     lineChart(document.getElementById("chart-applications"), [
-      { name: "submitted", color: "#f59e0b", points: rows.map(r => ({ x: r.metric_time__month, y: Number(r.applications_submitted) })) },
-      { name: "approved", color: "#4f46e5", points: rows.map(r => ({ x: r.metric_time__month, y: Number(r.applications_approved) })) },
+      { name: "submitted", color: "#2b595b", points: rows.map(r => ({ x: r.metric_time__month, y: Number(r.applications_submitted) })) },
+      { name: "approved", color: "#00823b", points: rows.map(r => ({ x: r.metric_time__month, y: Number(r.applications_approved) })) },
     ], { yFormat: fmtInt, xFormat: fmtMonth });
   } catch (err) { showError(document.getElementById("chart-applications"), err); }
 
   try {
     const rows = await fetchQuery(["revenue"], ["payment__payment_type"], ["-revenue"]);
-    const colors = ["#4f46e5", "#10b981", "#f59e0b"];
+    const colors = ["#001f67", "#00823b", "#9dd522"];
     barChart(document.getElementById("chart-payment-type"),
       rows.map((r, i) => ({ label: r.payment__payment_type, value: Number(r.revenue), color: colors[i % colors.length] })),
       { valueFormat: fmtMoney }
