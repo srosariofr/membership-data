@@ -1,8 +1,3 @@
-{{ config(
-    materialized='table',
-    schema='mart'
-) }}
-
 select
     member.member_id,
     member.application_id,
