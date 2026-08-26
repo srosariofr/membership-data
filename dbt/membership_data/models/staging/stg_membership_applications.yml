@@ -1,0 +1,53 @@
+models:
+  - name: stg_membership_applications
+    description: "One row per membership application submitted, with its current status."
+    columns:
+      - name: application_id
+        description: "The unique identifier for the application."
+        data_type: integer
+        data_tests:
+          - not_null
+          - unique
+      - name: applicant_name
+        description: "The full name of the applicant."
+        data_tests:
+          - not_null
+      - name: email
+        description: "The applicant's email address."
+      - name: birth_date
+        description: "The applicant's date of birth."
+        data_type: date
+      - name: profession
+        description: "The applicant's stated profession."
+      - name: company_id
+        description: "Foreign key to the applicant's company."
+        data_type: integer
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_companies')
+                field: company_id
+      - name: country
+        description: "The applicant's country."
+      - name: city
+        description: "The applicant's city."
+      - name: application_type
+        description: "The type of membership applied for."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['Individual', 'Corporate', 'Student', 'Honorary']
+      - name: status
+        description: "The current status of the application."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Submitted', 'Under Review', 'Pending Payment', 'Approved', 'Rejected', 'Withdrawn']
+      - name: submitted_at
+        description: "The timestamp when the application was submitted."
+        data_type: timestamp
+        data_tests:
+          - not_null
+      - name: source_channel
+        description: "The channel through which the application was received."

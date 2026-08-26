@@ -1,0 +1,29 @@
+models:
+  - name: stg_application_status_history
+    description: "This table contains the history of application statuses for each application."
+    columns:
+      - name: application_status_history_id
+        description: "The unique identifier for the application status history record."
+        data_type: integer
+        data_tests:
+          - not_null
+          - unique
+      - name: application_id
+        description: "The unique identifier for the application."
+        data_type: integer
+        data_tests:
+          - not_null
+      - name: status
+        description: "The status of the application at a given point in time."
+        data_tests:
+          - not_null
+      - name: status_start_at
+        description: "The date when the status was recorded."
+        data_type: timestamp
+        data_tests:
+          - not_null
+      - name: status_end_at
+        description: "The date when the status was no longer applicable."
+        data_type: timestamp
+      - name: changed_by
+        description: "The user or system that made the change to the application status."

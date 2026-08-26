@@ -1,0 +1,70 @@
+models:
+  - name: stg_members
+    description: "One row per approved member, derived from an approved membership application."
+    columns:
+      - name: member_id
+        description: "The unique identifier for the member."
+        data_type: integer
+        data_tests:
+          - not_null
+          - unique
+      - name: application_id
+        description: "Foreign key to the approved application that created this member."
+        data_type: integer
+        data_tests:
+          - not_null
+          - unique
+          - relationships:
+              arguments:
+                to: ref('stg_membership_applications')
+                field: application_id
+      - name: company_id
+        description: "Foreign key to the member's company."
+        data_type: integer
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_companies')
+                field: company_id
+      - name: name
+        description: "The member's full name."
+        data_tests:
+          - not_null
+      - name: email
+        description: "The member's email address."
+      - name: gender
+        description: "The member's gender."
+      - name: country
+        description: "The member's country."
+      - name: city
+        description: "The member's city."
+      - name: profession
+        description: "The member's stated profession."
+      - name: membership_type
+        description: "The type of membership held."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['Individual', 'Corporate', 'Student', 'Honorary']
+      - name: current_status
+        description: "The member's current status, as of the most recent status history record."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['Active', 'Inactive', 'Cancelled', 'Pending Renewal']
+      - name: birth_date
+        description: "The member's date of birth."
+        data_type: date
+      - name: registered_at
+        description: "The timestamp the underlying application was submitted."
+        data_type: timestamp
+        data_tests:
+          - not_null
+      - name: approved_at
+        description: "The timestamp the underlying application was approved, creating the member."
+        data_type: timestamp
+        data_tests:
+          - not_null
+      - name: current_status_start_at
+        description: "The timestamp the member entered their current status."
+        data_type: timestamp

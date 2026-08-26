@@ -50,7 +50,7 @@ def main():
             Key=object_key,
         )
 
-        print(f"Uploaded {local_path} → s3://{BUCKET_NAME}/{object_key}")
+        print(f"Uploaded {local_path} -> s3://{BUCKET_NAME}/{object_key}")
 
 
 if __name__ == "__main__":

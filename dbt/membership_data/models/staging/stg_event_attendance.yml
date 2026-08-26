@@ -1,0 +1,41 @@
+models:
+  - name: stg_event_attendance
+    description: "One row per member registration for an event, with their attendance outcome."
+    columns:
+      - name: event_attendance_id
+        description: "The unique identifier for the event attendance record."
+        data_type: integer
+        data_tests:
+          - not_null
+          - unique
+      - name: event_id
+        description: "Foreign key to the event."
+        data_type: integer
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_events')
+                field: event_id
+      - name: member_id
+        description: "Foreign key to the member who registered."
+        data_type: integer
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_members')
+                field: member_id
+      - name: attendance_status
+        description: "The outcome of the registration."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Registered', 'Attended', 'No Show', 'Cancelled']
+      - name: registered_at
+        description: "The timestamp the member registered for the event."
+        data_type: timestamp
+      - name: attended_at
+        description: "The timestamp the member attended the event. Null unless attendance_status is 'Attended'."
+        data_type: timestamp

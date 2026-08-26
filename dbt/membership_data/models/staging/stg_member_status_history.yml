@@ -1,0 +1,38 @@
+models:
+  - name: stg_member_status_history
+    description: "The history of membership statuses for each member, including annual renewal cycles."
+    columns:
+      - name: member_status_history_id
+        description: "The unique identifier for the member status history record."
+        data_type: integer
+        data_tests:
+          - not_null
+          - unique
+      - name: member_id
+        description: "Foreign key to the member."
+        data_type: integer
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_members')
+                field: member_id
+      - name: status
+        description: "The member's status during this period."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Active', 'Pending Renewal', 'Inactive', 'Cancelled']
+      - name: status_start_at
+        description: "The timestamp when the status period started."
+        data_type: timestamp
+        data_tests:
+          - not_null
+      - name: status_end_at
+        description: "The timestamp when the status period ended. Null if this is the member's current status."
+        data_type: timestamp
+      - name: changed_by
+        description: "The user or system that made the status change."
+      - name: change_reason
+        description: "The reason for the status change."

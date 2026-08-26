@@ -1,5 +1,5 @@
 with source as (
-    select * from {{source('raw', 'stg_membership_applications')}}
+    select * from {{source('raw', 'membership_applications')}}
 ),
 
 renamed as (
