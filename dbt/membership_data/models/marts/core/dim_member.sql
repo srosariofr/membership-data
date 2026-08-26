@@ -1,23 +1,39 @@
-select
-    member.member_id,
-    member.application_id,
-    member.name,
-    member.email,
-    member.gender,
-    member.birth_date,
-    member.country,
-    member.city,
-    member.profession,
-    member.company_id,
-    company.company_name,
-    member.membership_type,
-    member.registered_at,
-    member.approved_at,
-    status.status as current_status,
-    status.status_start_at as current_status_start_at
-from {{ ref('stg_members') }} as member
-left join {{ ref('stg_companies') }} as company
-    on member.company_id = company.company_id
-left join {{ ref('stg_member_status_history') }} as status
-    on member.member_id = status.member_id 
-    and status.status_end_at is null
+with members as (
+    select * from {{ ref('stg_members') }}
+),
+
+companies as (
+    select * from {{ ref('stg_companies') }}
+),
+
+current_status as (
+    select * from {{ ref('stg_member_status_history') }}
+    where status_end_at is null
+),
+
+final as (
+    select
+        members.member_id,
+        members.application_id,
+        members.name,
+        members.email,
+        members.gender,
+        members.birth_date,
+        members.country,
+        members.city,
+        members.profession,
+        members.company_id,
+        companies.company_name,
+        members.membership_type,
+        members.registered_at,
+        members.approved_at,
+        current_status.status as current_status,
+        current_status.status_start_at as current_status_start_at
+    from members
+    left join companies
+        on members.company_id = companies.company_id
+    left join current_status
+        on members.member_id = current_status.member_id
+)
+
+select * from final

@@ -1,8 +1,8 @@
-with source as (
+with events as (
     select * from {{ ref('stg_events') }}
 ),
 
-renamed as (
+final as (
     select
         event_id,
         event_name,
@@ -10,7 +10,7 @@ renamed as (
         event_date,
         city,
         capacity
-    from source
+    from events
 )
 
-select * from renamed
+select * from final

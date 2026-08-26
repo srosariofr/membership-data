@@ -1,8 +1,8 @@
-with source as (
+with companies as (
     select * from {{ ref('stg_companies') }}
 ),
 
-renamed as (
+final as (
     select
         company_id,
         company_name,
@@ -13,7 +13,7 @@ renamed as (
         website,
         email,
         created_at
-    from source
+    from companies
 )
 
-select * from renamed
+select * from final
