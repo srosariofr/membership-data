@@ -1,0 +1,81 @@
+models:
+  - name: fct_member_status_history
+    description: "One row per membership status period for each member, tracking transitions through Active/Pending Renewal/Inactive/Cancelled. Grain: member_status_history_id."
+    semantic_model:
+      enabled: true
+    agg_time_dimension: status_start_at
+    columns:
+      - name: member_status_history_id
+        description: "The unique identifier for the member status history record."
+        data_type: integer
+        data_tests:
+          - not_null
+          - unique
+        entity:
+          type: primary
+          name: member_status_history
+      - name: member_id
+        description: "Foreign key to the member."
+        data_type: integer
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_member')
+                field: member_id
+        entity:
+          type: foreign
+          name: member
+      - name: status
+        description: "The member's status during this period."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Active', 'Pending Renewal', 'Inactive', 'Cancelled']
+        dimension:
+          type: categorical
+      - name: status_start_at
+        description: "The timestamp when the status period started."
+        data_type: timestamp
+        data_tests:
+          - not_null
+        granularity: day
+        dimension:
+          type: time
+      - name: status_end_at
+        description: "The timestamp when the status period ended. Null if this is the member's current status."
+        data_type: timestamp
+        granularity: day
+        dimension:
+          type: time
+      - name: changed_by
+        description: "The user or system that made the status change."
+        dimension:
+          type: categorical
+      - name: change_reason
+        description: "The reason for the status change."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['Membership active before annual renewal', 'Renewal payment received', 'Renewal overdue for more than 6 months', 'Inactive for more than 1 year', 'Current member status']
+        dimension:
+          type: categorical
+      - name: duration_days
+        description: "Days the member spent in this status. Null for the current, still-open period."
+        data_type: integer
+      - name: is_current
+        description: "True if this is the member's current (open) status period."
+        data_tests:
+          - not_null
+        dimension:
+          type: categorical
+    metrics:
+      - name: member_status_periods
+        type: simple
+        agg: count
+        expr: 1
+      - name: avg_status_duration_days
+        type: simple
+        agg: average
+        expr: duration_days
