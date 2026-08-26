@@ -1,15 +1,14 @@
-Welcome to your new dbt project!
+# membership_data (dbt project)
 
-### Using the starter project
+See the [repo root README](../../README.md) for the full picture — data model, pipeline, and how to run everything end to end. This file covers just the dbt-specific commands.
 
-Try running the following commands:
-- dbt run
-- dbt test
+```bash
+dbt build           # run models + tests
+dbt docs generate && dbt docs serve   # browsable model/column docs
+mf list metrics      # list semantic layer metrics (needs DBT_PROFILES_DIR set, see root README)
+```
 
+## Layout
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+- `models/staging/` — one view per raw source, renamed/cast columns only.
+- `models/marts/{core,membership,events,finance}/` — tables, organized by business domain. Semantic model definitions (`semantic_model:`, `entity:`, `dimension:`, `metrics:`) are colocated in each mart's `.yml`, alongside its `data_tests`.
