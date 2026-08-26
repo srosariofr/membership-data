@@ -68,10 +68,12 @@ models:
           type: categorical
     metrics:
       - name: application_status_periods
+        description: "Count of application status periods (one row per status transition an application went through)."
         type: simple
         agg: count
         expr: 1
       - name: avg_application_status_duration_days
+        description: "Average number of days an application spends in a given status before transitioning to the next one."
         type: simple
         agg: average
         expr: duration_days

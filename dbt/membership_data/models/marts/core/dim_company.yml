@@ -50,6 +50,7 @@ models:
           type: time
     metrics:
       - name: companies
+        description: "Count of companies."
         type: simple
         agg: count
         expr: 1

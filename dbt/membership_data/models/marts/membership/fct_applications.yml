@@ -101,14 +101,17 @@ models:
           name: member
     metrics:
       - name: applications_submitted
+        description: "Count of applications submitted."
         type: simple
         agg: count
         expr: 1
       - name: applications_approved
+        description: "Count of applications whose current status is Approved."
         type: simple
         agg: sum
         expr: "case when is_approved then 1 else 0 end"
       - name: avg_days_to_decision
+        description: "Average number of days between an application's submission and its terminal decision (Approved/Rejected/Withdrawn)."
         type: simple
         agg: average
         expr: days_to_decision

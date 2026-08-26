@@ -67,10 +67,12 @@ models:
           type: categorical
     metrics:
       - name: event_registrations
+        description: "Count of event registrations."
         type: simple
         agg: count
         expr: 1
       - name: event_attendees
+        description: "Count of registrations that resulted in actual attendance."
         type: simple
         agg: sum
         expr: "case when is_attended then 1 else 0 end"

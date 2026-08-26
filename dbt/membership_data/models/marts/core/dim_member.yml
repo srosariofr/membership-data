@@ -105,6 +105,7 @@ models:
           - not_null
     metrics:
       - name: members
+        description: "Count of members."
         type: simple
         agg: count
         expr: 1

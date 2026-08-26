@@ -121,14 +121,17 @@ models:
           type: categorical
     metrics:
       - name: revenue
+        description: "Total payment amount collected, across initial subscriptions, renewals, and event registrations."
         type: simple
         agg: sum
         expr: amount
       - name: payments_count
+        description: "Count of payments."
         type: simple
         agg: count
         expr: 1
       - name: late_payments_count
+        description: "Count of payments made after their due date."
         type: simple
         agg: sum
         expr: "case when is_late then 1 else 0 end"

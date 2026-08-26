@@ -44,6 +44,7 @@ models:
           - not_null
     metrics:
       - name: events_hosted
+        description: "Count of events hosted."
         type: simple
         agg: count
         expr: 1

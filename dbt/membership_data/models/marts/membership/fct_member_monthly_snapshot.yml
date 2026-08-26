@@ -57,10 +57,12 @@ models:
           - not_null
     metrics:
       - name: member_month_snapshots
+        description: "Count of member-month snapshot rows - the total membership base measured across every month, regardless of status."
         type: simple
         agg: count
         expr: 1
       - name: active_members
+        description: "Count of members whose status was strictly Active as of the snapshot month-end (excludes Pending Renewal)."
         type: simple
         agg: sum
         expr: "case when status = 'Active' then 1 else 0 end"
