@@ -1,0 +1,66 @@
+models:
+  - name: fct_member_monthly_snapshot
+    description: "Periodic snapshot: one row per member per calendar month they existed in, with the status in effect as of the last day of that month. Grain: member_id x snapshot_month."
+    semantic_model:
+      enabled: true
+    agg_time_dimension: snapshot_month
+    columns:
+      - name: member_month_id
+        description: "Synthetic key: snapshot_month || '-' || member_id."
+        data_tests:
+          - not_null
+          - unique
+        entity:
+          type: primary
+          name: member_snapshot
+      - name: member_id
+        description: "Foreign key to the member."
+        data_type: integer
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_member')
+                field: member_id
+        entity:
+          type: foreign
+          name: member
+      - name: snapshot_month
+        description: "The first day of the snapshot month."
+        data_type: date
+        data_tests:
+          - not_null
+        granularity: month
+        dimension:
+          type: time
+      - name: snapshot_date
+        description: "The last calendar day of the snapshot month - the point in time the status was measured as of."
+        data_type: date
+        data_tests:
+          - not_null
+        granularity: day
+        dimension:
+          type: time
+      - name: status
+        description: "The member's status as of the end of this month."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Active', 'Pending Renewal', 'Inactive', 'Cancelled']
+        dimension:
+          type: categorical
+      - name: days_in_current_status
+        description: "How many days into their current status period the member was, as of this snapshot's month-end."
+        data_type: integer
+        data_tests:
+          - not_null
+    metrics:
+      - name: member_month_snapshots
+        type: simple
+        agg: count
+        expr: 1
+      - name: active_members
+        type: simple
+        agg: sum
+        expr: "case when status = 'Active' then 1 else 0 end"
