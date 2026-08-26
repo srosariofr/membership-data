@@ -46,12 +46,6 @@ models:
           - accepted_values:
               arguments:
                 values: ['Individual', 'Corporate', 'Student', 'Honorary']
-      - name: current_status
-        description: "The member's current status, as of the most recent status history record."
-        data_tests:
-          - accepted_values:
-              arguments:
-                values: ['Active', 'Inactive', 'Cancelled', 'Pending Renewal']
       - name: birth_date
         description: "The member's date of birth."
         data_type: date
@@ -65,6 +59,3 @@ models:
         data_type: timestamp
         data_tests:
           - not_null
-      - name: current_status_start_at
-        description: "The timestamp the member entered their current status."
-        data_type: timestamp

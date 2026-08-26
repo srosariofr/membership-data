@@ -14,11 +14,9 @@ renamed as (
         city,
         profession,
         membership_type,
-        current_status,
         cast(birth_date as date) as birth_date,
         registered_at,
-        approved_at,
-        cast(current_status_start_at as timestamp) as current_status_start_at
+        approved_at
     from source
 )
 
