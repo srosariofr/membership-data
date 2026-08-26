@@ -1,0 +1,77 @@
+models:
+  - name: fct_application_status_history
+    description: "One row per status period for each membership application, tracking its path through the review funnel. Grain: application_status_history_id."
+    semantic_model:
+      enabled: true
+    agg_time_dimension: status_start_at
+    columns:
+      - name: application_status_history_id
+        description: "The unique identifier for the application status history record."
+        data_type: integer
+        data_tests:
+          - not_null
+          - unique
+        entity:
+          type: primary
+          name: application_status_history
+      - name: application_id
+        description: "Foreign key to the application."
+        data_type: integer
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('fct_applications')
+                field: application_id
+        entity:
+          type: foreign
+          name: application
+      - name: status
+        description: "The application's status during this period."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Submitted', 'Under Review', 'Pending Payment', 'Approved', 'Rejected', 'Withdrawn']
+        dimension:
+          type: categorical
+      - name: status_start_at
+        description: "The timestamp when the status period started."
+        data_type: timestamp
+        data_tests:
+          - not_null
+        granularity: day
+        dimension:
+          type: time
+      - name: status_end_at
+        description: "The timestamp when the status period ended. Null if this is the application's current status."
+        data_type: timestamp
+        granularity: day
+        dimension:
+          type: time
+      - name: changed_by
+        description: "The user or system that made the status change."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['system', 'membership_officer', 'review_committee']
+        dimension:
+          type: categorical
+      - name: duration_days
+        description: "Days the application spent in this status. Null for the current, still-open period."
+        data_type: integer
+      - name: is_current
+        description: "True if this is the application's current (open) status period."
+        data_tests:
+          - not_null
+        dimension:
+          type: categorical
+    metrics:
+      - name: application_status_periods
+        type: simple
+        agg: count
+        expr: 1
+      - name: avg_application_status_duration_days
+        type: simple
+        agg: average
+        expr: duration_days
