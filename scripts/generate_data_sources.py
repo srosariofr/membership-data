@@ -513,12 +513,6 @@ def generate_payments(
         columns={"status_start_at": "approved_at"}
     )
 
-    pending_payment_applications = application_status_history_df[
-        application_status_history_df["status"] == "Pending Payment"
-    ][["application_id", "status_start_at"]].rename(
-        columns={"status_start_at": "payment_due_at"}
-    )
-
     initial_payments_base = (
         members_df[["member_id", "application_id", "membership_type"]]
         .merge(
@@ -526,20 +520,18 @@ def generate_payments(
             on="application_id",
             how="inner"
         )
-        .merge(
-            pending_payment_applications,
-            on="application_id",
-            how="left"
-        )
     )
 
     for _, row in initial_payments_base.iterrows():
-        due_date = row["payment_due_at"]
-
-        if pd.isna(due_date):
-            due_date = row["approved_at"] - timedelta(days=random.randint(1, 15))
-
         paid_at = row["approved_at"]
+
+        # Distribuimos los pagos entre puntuales y tardíos respecto a su fecha de vencimiento.
+        is_late = random.choices([True, False], weights=[25, 75], k=1)[0]
+
+        if is_late:
+            due_date = paid_at - timedelta(days=random.randint(1, 20))
+        else:
+            due_date = paid_at + timedelta(days=random.randint(0, 10))
 
         rows.append({
             "payment_id": payment_id,
@@ -581,8 +573,15 @@ def generate_payments(
     ].copy()
 
     for _, row in renewal_payments_base.iterrows():
-        due_date = row["status_start_at"]
         paid_at = row["status_end_at"]
+
+        # Distribuimos los pagos entre puntuales y tardíos respecto a su fecha de vencimiento.
+        is_late = random.choices([True, False], weights=[25, 75], k=1)[0]
+
+        if is_late:
+            due_date = paid_at - timedelta(days=random.randint(1, 30))
+        else:
+            due_date = paid_at + timedelta(days=random.randint(0, 15))
 
         rows.append({
             "payment_id": payment_id,
@@ -652,14 +651,14 @@ def generate_payments(
     )
 
     for _, row in event_registrations.iterrows():
-        due_date = row["registered_at"]
+        registered_at = row["registered_at"]
 
-        if pd.isna(due_date):
-            due_date = row["event_date"] - timedelta(days=random.randint(1, 30))
+        if pd.isna(registered_at):
+            registered_at = row["event_date"] - timedelta(days=random.randint(1, 30))
 
         # Simulamos que algunos pagan antes del evento y otros el mismo día.
-        paid_at = due_date + timedelta(
-            days=random.randint(0, max(0, (row["event_date"] - due_date).days)),
+        paid_at = registered_at + timedelta(
+            days=random.randint(0, max(0, (row["event_date"] - registered_at).days)),
             hours=random.randint(8, 18),
             minutes=random.randint(0, 59),
             seconds=random.randint(0, 59),
@@ -668,6 +667,14 @@ def generate_payments(
         # Si por alguna razón paid_at queda después del evento, lo ajustamos.
         if paid_at > row["event_date"]:
             paid_at = row["event_date"]
+
+        # Distribuimos los pagos entre puntuales y tardíos respecto a su fecha de vencimiento.
+        is_late = random.choices([True, False], weights=[25, 75], k=1)[0]
+
+        if is_late:
+            due_date = paid_at - timedelta(days=random.randint(1, 10))
+        else:
+            due_date = paid_at + timedelta(days=random.randint(0, 5))
 
         rows.append({
             "payment_id": payment_id,
