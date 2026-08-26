@@ -1,6 +1,9 @@
 models:
   - name: dim_event
     description: "One row per event hosted by the association."
+    semantic_model:
+      enabled: true
+    agg_time_dimension: event_date
     columns:
       - name: event_id
         description: "The unique identifier for the event."
@@ -8,6 +11,9 @@ models:
         data_tests:
           - not_null
           - unique
+        entity:
+          type: primary
+          name: event
       - name: event_name
         description: "The name of the event."
         data_tests:
@@ -18,14 +24,26 @@ models:
           - accepted_values:
               arguments:
                 values: ['Conference', 'Workshop', 'Networking', 'Webinar', 'Training', 'Assembly']
+        dimension:
+          type: categorical
       - name: event_date
         description: "The date the event took place."
         data_type: date
         data_tests:
           - not_null
+        granularity: day
+        dimension:
+          type: time
       - name: city
         description: "The city where the event was held."
+        dimension:
+          type: categorical
       - name: capacity
         description: "The maximum number of attendees the event could hold."
         data_tests:
           - not_null
+    metrics:
+      - name: events_hosted
+        type: simple
+        agg: count
+        expr: 1

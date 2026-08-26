@@ -1,0 +1,6 @@
+metrics:
+  - name: approval_rate
+    description: "Share of applications whose current status is Approved."
+    type: ratio
+    numerator: applications_approved
+    denominator: applications_submitted

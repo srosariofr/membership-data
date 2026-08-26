@@ -1,6 +1,9 @@
 models:
   - name: fct_applications
     description: "One row per membership application, with derived decision timing. Grain: application_id."
+    semantic_model:
+      enabled: true
+    agg_time_dimension: submitted_at
     columns:
       - name: application_id
         description: "The unique identifier for the application."
@@ -8,6 +11,9 @@ models:
         data_tests:
           - not_null
           - unique
+        entity:
+          type: primary
+          name: application
       - name: applicant_name
         description: "The full name of the applicant."
         data_tests:
@@ -27,18 +33,29 @@ models:
               arguments:
                 to: ref('dim_company')
                 field: company_id
+        entity:
+          type: foreign
+          name: company
       - name: country
         description: "The applicant's country."
+        dimension:
+          type: categorical
       - name: city
         description: "The applicant's city."
+        dimension:
+          type: categorical
       - name: application_type
         description: "The type of membership applied for."
         data_tests:
           - accepted_values:
               arguments:
                 values: ['Individual', 'Corporate', 'Student', 'Honorary']
+        dimension:
+          type: categorical
       - name: source_channel
         description: "The channel through which the application was received."
+        dimension:
+          type: categorical
       - name: status
         description: "The current status of the application."
         data_tests:
@@ -46,14 +63,22 @@ models:
           - accepted_values:
               arguments:
                 values: ['Submitted', 'Under Review', 'Pending Payment', 'Approved', 'Rejected', 'Withdrawn']
+        dimension:
+          type: categorical
       - name: submitted_at
         description: "The timestamp when the application was submitted."
         data_type: timestamp
         data_tests:
           - not_null
+        granularity: day
+        dimension:
+          type: time
       - name: decided_at
         description: "The timestamp the application reached a terminal status (Approved/Rejected/Withdrawn). Null while still in the pipeline."
         data_type: timestamp
+        granularity: day
+        dimension:
+          type: time
       - name: days_to_decision
         description: "Days between submission and the terminal decision. Null while still in the pipeline."
         data_type: integer
@@ -61,6 +86,8 @@ models:
         description: "True if the application's current status is Approved."
         data_tests:
           - not_null
+        dimension:
+          type: categorical
       - name: member_id
         description: "Foreign key to the member created from this application, if approved. Null otherwise."
         data_type: integer
@@ -69,3 +96,19 @@ models:
               arguments:
                 to: ref('dim_member')
                 field: member_id
+        entity:
+          type: foreign
+          name: member
+    metrics:
+      - name: applications_submitted
+        type: simple
+        agg: count
+        expr: 1
+      - name: applications_approved
+        type: simple
+        agg: sum
+        expr: "case when is_approved then 1 else 0 end"
+      - name: avg_days_to_decision
+        type: simple
+        agg: average
+        expr: days_to_decision

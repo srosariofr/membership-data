@@ -1,6 +1,9 @@
 models:
   - name: dim_company
     description: "One row per company that a member or applicant can be affiliated with."
+    semantic_model:
+      enabled: true
+    agg_time_dimension: created_at
     columns:
       - name: company_id
         description: "The unique identifier for the company."
@@ -8,6 +11,9 @@ models:
         data_tests:
           - not_null
           - unique
+        entity:
+          type: primary
+          name: company
       - name: company_name
         description: "The legal or trading name of the company."
         data_tests:
@@ -18,10 +24,16 @@ models:
           - accepted_values:
               arguments:
                 values: ['Technology', 'Finance', 'Legal Services', 'Construction', 'Consulting', 'Healthcare', 'Education', 'Retail', 'Manufacturing']
+        dimension:
+          type: categorical
       - name: city
         description: "The city where the company is located."
+        dimension:
+          type: categorical
       - name: country
         description: "The country where the company is located."
+        dimension:
+          type: categorical
       - name: phone_number
         description: "The company's contact phone number."
       - name: website
@@ -33,3 +45,11 @@ models:
         data_type: timestamp
         data_tests:
           - not_null
+        granularity: day
+        dimension:
+          type: time
+    metrics:
+      - name: companies
+        type: simple
+        agg: count
+        expr: 1

@@ -1,6 +1,9 @@
 models:
   - name: dim_member
     description: "One row per member, with company attributes and current status derived from the member status history."
+    semantic_model:
+      enabled: true
+    agg_time_dimension: registered_at
     columns:
       - name: member_id
         description: "The unique identifier for the member."
@@ -8,6 +11,9 @@ models:
         data_tests:
           - not_null
           - unique
+        entity:
+          type: primary
+          name: member
       - name: application_id
         description: "Foreign key to the approved application that created this member."
         data_type: integer
@@ -18,6 +24,9 @@ models:
               arguments:
                 to: ref('fct_applications')
                 field: application_id
+        entity:
+          type: foreign
+          name: application
       - name: name
         description: "The member's full name."
         data_tests:
@@ -26,15 +35,23 @@ models:
         description: "The member's email address."
       - name: gender
         description: "The member's gender."
+        dimension:
+          type: categorical
       - name: birth_date
         description: "The member's date of birth."
         data_type: date
       - name: country
         description: "The member's country."
+        dimension:
+          type: categorical
       - name: city
         description: "The member's city."
+        dimension:
+          type: categorical
       - name: profession
         description: "The member's stated profession."
+        dimension:
+          type: categorical
       - name: company_id
         description: "Foreign key to the member's company."
         data_type: integer
@@ -43,6 +60,9 @@ models:
               arguments:
                 to: ref('dim_company')
                 field: company_id
+        entity:
+          type: foreign
+          name: company
       - name: company_name
         description: "The name of the member's company."
       - name: membership_type
@@ -51,16 +71,24 @@ models:
           - accepted_values:
               arguments:
                 values: ['Individual', 'Corporate', 'Student', 'Honorary']
+        dimension:
+          type: categorical
       - name: registered_at
         description: "The timestamp the underlying application was submitted."
         data_type: timestamp
         data_tests:
           - not_null
+        granularity: day
+        dimension:
+          type: time
       - name: approved_at
         description: "The timestamp the underlying application was approved, creating the member."
         data_type: timestamp
         data_tests:
           - not_null
+        granularity: day
+        dimension:
+          type: time
       - name: current_status
         description: "The member's current status, derived from the open status history record (status_end_at is null)."
         data_tests:
@@ -68,8 +96,15 @@ models:
           - accepted_values:
               arguments:
                 values: ['Active', 'Pending Renewal', 'Inactive', 'Cancelled']
+        dimension:
+          type: categorical
       - name: current_status_start_at
         description: "The timestamp the member entered their current status."
         data_type: timestamp
         data_tests:
           - not_null
+    metrics:
+      - name: members
+        type: simple
+        agg: count
+        expr: 1

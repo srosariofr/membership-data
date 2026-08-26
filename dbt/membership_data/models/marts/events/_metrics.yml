@@ -1,0 +1,6 @@
+metrics:
+  - name: event_attendance_rate
+    description: "Share of event registrations that resulted in actual attendance."
+    type: ratio
+    numerator: event_attendees
+    denominator: event_registrations

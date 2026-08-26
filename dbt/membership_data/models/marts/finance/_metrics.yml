@@ -1,0 +1,6 @@
+metrics:
+  - name: late_payment_rate
+    description: "Share of payments made after their due date."
+    type: ratio
+    numerator: late_payments_count
+    denominator: payments_count

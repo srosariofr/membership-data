@@ -1,6 +1,9 @@
 models:
   - name: fct_payments
     description: "One row per payment, covering initial subscriptions, annual renewals, and event registrations. Grain: payment_id."
+    semantic_model:
+      enabled: true
+    agg_time_dimension: paid_at
     columns:
       - name: payment_id
         description: "The unique identifier for the payment."
@@ -8,6 +11,9 @@ models:
         data_tests:
           - not_null
           - unique
+        entity:
+          type: primary
+          name: payment
       - name: member_id
         description: "Foreign key to the member who made the payment."
         data_type: integer
@@ -17,6 +23,9 @@ models:
               arguments:
                 to: ref('dim_member')
                 field: member_id
+        entity:
+          type: foreign
+          name: member
       - name: application_id
         description: "Foreign key to the application, populated for initial subscription payments."
         data_type: integer
@@ -25,6 +34,9 @@ models:
               arguments:
                 to: ref('fct_applications')
                 field: application_id
+        entity:
+          type: foreign
+          name: application
       - name: event_id
         description: "Foreign key to the event, populated for event registration payments."
         data_type: integer
@@ -33,6 +45,9 @@ models:
               arguments:
                 to: ref('dim_event')
                 field: event_id
+        entity:
+          type: foreign
+          name: event
       - name: event_attendance_id
         description: "Foreign key to the event attendance record, populated for event registration payments."
         data_type: integer
@@ -41,6 +56,9 @@ models:
               arguments:
                 to: ref('fct_event_attendance')
                 field: event_attendance_id
+        entity:
+          type: foreign
+          name: event_attendance
       - name: invoice_id
         description: "The invoice identifier associated with the payment."
       - name: payment_type
@@ -50,18 +68,28 @@ models:
           - accepted_values:
               arguments:
                 values: ['Initial Subscription', 'Annual Renewal', 'Event Registration']
+        dimension:
+          type: categorical
       - name: payment_status
         description: "The status of the payment."
         data_tests:
           - accepted_values:
               arguments:
                 values: ['Pending', 'Paid', 'Failed', 'Overdue', 'Refunded']
+        dimension:
+          type: categorical
       - name: payment_method
         description: "The method used to make the payment."
+        dimension:
+          type: categorical
       - name: billing_period
         description: "The billing year the payment applies to."
+        dimension:
+          type: categorical
       - name: currency
         description: "The currency of the payment amount."
+        dimension:
+          type: categorical
       - name: amount
         description: "The payment amount, in the given currency."
         data_tests:
@@ -71,11 +99,17 @@ models:
         data_type: timestamp
         data_tests:
           - not_null
+        granularity: day
+        dimension:
+          type: time
       - name: paid_at
         description: "The timestamp the payment was made."
         data_type: timestamp
         data_tests:
           - not_null
+        granularity: day
+        dimension:
+          type: time
       - name: days_to_pay
         description: "Days between the due date and the date the payment was made. Negative values mean paid before due."
         data_type: integer
@@ -83,3 +117,18 @@ models:
         description: "True if the payment was made after its due date."
         data_tests:
           - not_null
+        dimension:
+          type: categorical
+    metrics:
+      - name: revenue
+        type: simple
+        agg: sum
+        expr: amount
+      - name: payments_count
+        type: simple
+        agg: count
+        expr: 1
+      - name: late_payments_count
+        type: simple
+        agg: sum
+        expr: "case when is_late then 1 else 0 end"

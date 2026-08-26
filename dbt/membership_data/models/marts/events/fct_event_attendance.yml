@@ -1,6 +1,9 @@
 models:
   - name: fct_event_attendance
     description: "One row per member registration for an event, with their attendance outcome. Grain: event_attendance_id."
+    semantic_model:
+      enabled: true
+    agg_time_dimension: registered_at
     columns:
       - name: event_attendance_id
         description: "The unique identifier for the event attendance record."
@@ -8,6 +11,9 @@ models:
         data_tests:
           - not_null
           - unique
+        entity:
+          type: primary
+          name: event_attendance
       - name: event_id
         description: "Foreign key to the event."
         data_type: integer
@@ -17,6 +23,9 @@ models:
               arguments:
                 to: ref('dim_event')
                 field: event_id
+        entity:
+          type: foreign
+          name: event
       - name: member_id
         description: "Foreign key to the member who registered."
         data_type: integer
@@ -26,6 +35,9 @@ models:
               arguments:
                 to: ref('dim_member')
                 field: member_id
+        entity:
+          type: foreign
+          name: member
       - name: attendance_status
         description: "The outcome of the registration."
         data_tests:
@@ -33,13 +45,32 @@ models:
           - accepted_values:
               arguments:
                 values: ['Registered', 'Attended', 'No Show', 'Cancelled']
+        dimension:
+          type: categorical
       - name: registered_at
         description: "The timestamp the member registered for the event."
         data_type: timestamp
+        granularity: day
+        dimension:
+          type: time
       - name: attended_at
         description: "The timestamp the member attended the event. Null unless attendance_status is 'Attended'."
         data_type: timestamp
+        granularity: day
+        dimension:
+          type: time
       - name: is_attended
         description: "True if the member actually attended the event (attendance_status = 'Attended')."
         data_tests:
           - not_null
+        dimension:
+          type: categorical
+    metrics:
+      - name: event_registrations
+        type: simple
+        agg: count
+        expr: 1
+      - name: event_attendees
+        type: simple
+        agg: sum
+        expr: "case when is_attended then 1 else 0 end"
