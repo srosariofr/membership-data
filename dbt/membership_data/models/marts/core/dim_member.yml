@@ -16,7 +16,7 @@ models:
           - unique
           - relationships:
               arguments:
-                to: ref('stg_membership_applications')
+                to: ref('fct_applications')
                 field: application_id
       - name: name
         description: "The member's full name."
@@ -41,7 +41,7 @@ models:
         data_tests:
           - relationships:
               arguments:
-                to: ref('stg_companies')
+                to: ref('dim_company')
                 field: company_id
       - name: company_name
         description: "The name of the member's company."

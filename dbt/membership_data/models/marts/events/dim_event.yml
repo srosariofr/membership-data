@@ -1,0 +1,31 @@
+models:
+  - name: dim_event
+    description: "One row per event hosted by the association."
+    columns:
+      - name: event_id
+        description: "The unique identifier for the event."
+        data_type: integer
+        data_tests:
+          - not_null
+          - unique
+      - name: event_name
+        description: "The name of the event."
+        data_tests:
+          - not_null
+      - name: event_type
+        description: "The type of event."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['Conference', 'Workshop', 'Networking', 'Webinar', 'Training', 'Assembly']
+      - name: event_date
+        description: "The date the event took place."
+        data_type: date
+        data_tests:
+          - not_null
+      - name: city
+        description: "The city where the event was held."
+      - name: capacity
+        description: "The maximum number of attendees the event could hold."
+        data_tests:
+          - not_null

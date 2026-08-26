@@ -1,0 +1,85 @@
+models:
+  - name: fct_payments
+    description: "One row per payment, covering initial subscriptions, annual renewals, and event registrations. Grain: payment_id."
+    columns:
+      - name: payment_id
+        description: "The unique identifier for the payment."
+        data_type: integer
+        data_tests:
+          - not_null
+          - unique
+      - name: member_id
+        description: "Foreign key to the member who made the payment."
+        data_type: integer
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_member')
+                field: member_id
+      - name: application_id
+        description: "Foreign key to the application, populated for initial subscription payments."
+        data_type: integer
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('fct_applications')
+                field: application_id
+      - name: event_id
+        description: "Foreign key to the event, populated for event registration payments."
+        data_type: integer
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_event')
+                field: event_id
+      - name: event_attendance_id
+        description: "Foreign key to the event attendance record, populated for event registration payments."
+        data_type: integer
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('fct_event_attendance')
+                field: event_attendance_id
+      - name: invoice_id
+        description: "The invoice identifier associated with the payment."
+      - name: payment_type
+        description: "The type of payment."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Initial Subscription', 'Annual Renewal', 'Event Registration']
+      - name: payment_status
+        description: "The status of the payment."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['Pending', 'Paid', 'Failed', 'Overdue', 'Refunded']
+      - name: payment_method
+        description: "The method used to make the payment."
+      - name: billing_period
+        description: "The billing year the payment applies to."
+      - name: currency
+        description: "The currency of the payment amount."
+      - name: amount
+        description: "The payment amount, in the given currency."
+        data_tests:
+          - not_null
+      - name: due_date
+        description: "The timestamp the payment was due."
+        data_type: timestamp
+        data_tests:
+          - not_null
+      - name: paid_at
+        description: "The timestamp the payment was made."
+        data_type: timestamp
+        data_tests:
+          - not_null
+      - name: days_to_pay
+        description: "Days between the due date and the date the payment was made. Negative values mean paid before due."
+        data_type: integer
+      - name: is_late
+        description: "True if the payment was made after its due date."
+        data_tests:
+          - not_null

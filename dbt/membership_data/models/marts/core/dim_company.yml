@@ -1,0 +1,35 @@
+models:
+  - name: dim_company
+    description: "One row per company that a member or applicant can be affiliated with."
+    columns:
+      - name: company_id
+        description: "The unique identifier for the company."
+        data_type: integer
+        data_tests:
+          - not_null
+          - unique
+      - name: company_name
+        description: "The legal or trading name of the company."
+        data_tests:
+          - not_null
+      - name: industry
+        description: "The industry sector the company operates in."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['Technology', 'Finance', 'Legal Services', 'Construction', 'Consulting', 'Healthcare', 'Education', 'Retail', 'Manufacturing']
+      - name: city
+        description: "The city where the company is located."
+      - name: country
+        description: "The country where the company is located."
+      - name: phone_number
+        description: "The company's contact phone number."
+      - name: website
+        description: "The company's website URL."
+      - name: email
+        description: "The company's contact email address."
+      - name: created_at
+        description: "The timestamp when the company record was created."
+        data_type: timestamp
+        data_tests:
+          - not_null
