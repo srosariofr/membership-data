@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Membership Analytics</title>
+<style>
+  :root {
+    --bg: #f8fafc;
+    --card-bg: #ffffff;
+    --border: #e2e8f0;
+    --text: #0f172a;
+    --text-muted: #64748b;
+    --accent: #4f46e5;
+    --accent-2: #10b981;
+    --accent-3: #f59e0b;
+    --accent-4: #ef4444;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+  }
+  header { padding: 28px 32px 8px; }
+  header h1 { margin: 0; font-size: 22px; }
+  header p { margin: 6px 0 0; color: var(--text-muted); font-size: 13px; }
+  header code { background: #eef2ff; color: var(--accent); padding: 1px 5px; border-radius: 4px; }
+  main { padding: 16px 32px 40px; max-width: 1200px; margin: 0 auto; }
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .kpi-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+  }
+  .kpi-card .label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: .04em; }
+  .kpi-card .value { font-size: 24px; font-weight: 600; margin-top: 4px; }
+  .charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 16px;
+  }
+  .chart-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+  }
+  .chart-card h2 { margin: 0 0 2px; font-size: 15px; }
+  .chart-card .subtitle { font-size: 11px; color: var(--text-muted); margin-bottom: 10px; font-family: ui-monospace, monospace; }
+  svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .legend { display: flex; gap: 16px; font-size: 12px; color: var(--text-muted); margin-top: 6px; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .legend i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+  .error { color: var(--accent-4); font-size: 13px; }
+  .loading { color: var(--text-muted); font-size: 13px; padding: 40px 0; text-align: center; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Membership Analytics</h1>
+  <p>Every number on this page comes straight from the dbt Semantic Layer via <code>mf query</code> - no SQL written for this page.</p>
+</header>
+<main>
+  <section class="kpi-row" id="kpi-row">
+    <div class="loading">Loading KPIs…</div>
+  </section>
+  <section class="charts-grid">
+    <div class="chart-card">
+      <h2>Revenue by month</h2>
+      <div class="subtitle">metrics=revenue &amp; group_by=metric_time__month</div>
+      <div id="chart-revenue"><div class="loading">Loading…</div></div>
+    </div>
+    <div class="chart-card">
+      <h2>Active members by month</h2>
+      <div class="subtitle">metrics=active_members &amp; group_by=metric_time__month</div>
+      <div id="chart-active-members"><div class="loading">Loading…</div></div>
+    </div>
+    <div class="chart-card">
+      <h2>Applications: submitted vs approved</h2>
+      <div class="subtitle">metrics=applications_submitted,applications_approved &amp; group_by=metric_time__month</div>
+      <div id="chart-applications"><div class="loading">Loading…</div></div>
+    </div>
+    <div class="chart-card">
+      <h2>Revenue by payment type</h2>
+      <div class="subtitle">metrics=revenue &amp; group_by=payment__payment_type</div>
+      <div id="chart-payment-type"><div class="loading">Loading…</div></div>
+    </div>
+  </section>
+</main>
+<script>
+const API = "/api/query";
+
+async function fetchQuery(metrics, groupBy, orderBy, limit) {
+  const params = new URLSearchParams({ metrics: metrics.join(",") });
+  if (groupBy) params.set("group_by", groupBy.join(","));
+  if (orderBy) params.set("order_by", orderBy.join(","));
+  if (limit) params.set("limit", limit);
+  const res = await fetch(`${API}?${params.toString()}`);
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error || "query failed");
+  return data.rows;
+}
+
+function fmtMoney(n) {
+  n = Number(n);
+  if (Math.abs(n) >= 1e6) return "$" + (n / 1e6).toFixed(2) + "M";
+  if (Math.abs(n) >= 1e3) return "$" + (n / 1e3).toFixed(1) + "K";
+  return "$" + n.toFixed(0);
+}
+function fmtInt(n) { return Math.round(Number(n)).toLocaleString("en-US"); }
+function fmtPct(n) { return (Number(n) * 100).toFixed(1) + "%"; }
+function fmtMonth(s) {
+  const d = new Date(s);
+  return d.toLocaleDateString("en-US", { year: "2-digit", month: "short" });
+}
+
+function svgEl(tag, attrs = {}) {
+  const e = document.createElementNS("http://www.w3.org/2000/svg", tag);
+  for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+  return e;
+}
+
+// series = [{ name, color, points: [{x, y}] }]
+function lineChart(container, series, opts = {}) {
+  const width = opts.width || 760, height = opts.height || 220;
+  const padL = 52, padR = 12, padT = 12, padB = 24;
+  const allY = series.flatMap(s => s.points.map(p => p.y));
+  const yMin = Math.min(0, ...allY);
+  const yMax = (Math.max(...allY) || 1) * 1.08;
+  const n = series[0].points.length;
+  const xForI = i => padL + (n <= 1 ? 0 : (i / (n - 1)) * (width - padL - padR));
+  const yForV = v => height - padB - ((v - yMin) / (yMax - yMin || 1)) * (height - padT - padB);
+
+  const svg = svgEl("svg", { viewBox: `0 0 ${width} ${height}` });
+
+  const ticks = 4;
+  for (let t = 0; t <= ticks; t++) {
+    const v = yMin + (t / ticks) * (yMax - yMin);
+    const y = yForV(v);
+    svg.appendChild(svgEl("line", { x1: padL, x2: width - padR, y1: y, y2: y, stroke: "#e2e8f0", "stroke-width": 1 }));
+    const label = svgEl("text", { x: padL - 8, y: y + 4, "font-size": 10, fill: "#64748b", "text-anchor": "end" });
+    label.textContent = opts.yFormat ? opts.yFormat(v) : Math.round(v);
+    svg.appendChild(label);
+  }
+
+  const xLabelEvery = Math.max(1, Math.ceil(n / 6));
+  series[0].points.forEach((p, i) => {
+    if (i % xLabelEvery !== 0 && i !== n - 1) return;
+    const label = svgEl("text", { x: xForI(i), y: height - 6, "font-size": 10, fill: "#64748b", "text-anchor": "middle" });
+    label.textContent = opts.xFormat ? opts.xFormat(p.x) : p.x;
+    svg.appendChild(label);
+  });
+
+  for (const s of series) {
+    const d = s.points.map((p, i) => `${i === 0 ? "M" : "L"} ${xForI(i).toFixed(1)} ${yForV(p.y).toFixed(1)}`).join(" ");
+    svg.appendChild(svgEl("path", { d, fill: "none", stroke: s.color, "stroke-width": 2 }));
+    s.points.forEach((p, i) => {
+      svg.appendChild(svgEl("circle", { cx: xForI(i), cy: yForV(p.y), r: 2.5, fill: s.color }));
+    });
+  }
+
+  container.innerHTML = "";
+  container.appendChild(svg);
+
+  if (series.length > 1) {
+    const legend = document.createElement("div");
+    legend.className = "legend";
+    legend.innerHTML = series.map(s => `<span><i style="background:${s.color}"></i>${s.name}</span>`).join("");
+    container.appendChild(legend);
+  }
+}
+
+// items = [{label, value, color}]
+function barChart(container, items, opts = {}) {
+  const width = opts.width || 760, rowH = 34, padL = 150, padR = 70, padT = 8;
+  const height = padT * 2 + items.length * rowH;
+  const maxV = Math.max(...items.map(i => i.value)) || 1;
+  const svg = svgEl("svg", { viewBox: `0 0 ${width} ${height}` });
+
+  items.forEach((item, i) => {
+    const y = padT + i * rowH;
+    const barW = (item.value / maxV) * (width - padL - padR);
+    const label = svgEl("text", { x: padL - 10, y: y + rowH / 2 + 4, "font-size": 12, fill: "#0f172a", "text-anchor": "end" });
+    label.textContent = item.label;
+    svg.appendChild(label);
+    svg.appendChild(svgEl("rect", { x: padL, y: y + 6, width: Math.max(barW, 1), height: rowH - 14, rx: 4, fill: item.color || "#4f46e5" }));
+    const valLabel = svgEl("text", { x: padL + barW + 8, y: y + rowH / 2 + 4, "font-size": 12, fill: "#64748b" });
+    valLabel.textContent = opts.valueFormat ? opts.valueFormat(item.value) : item.value;
+    svg.appendChild(valLabel);
+  });
+
+  container.innerHTML = "";
+  container.appendChild(svg);
+}
+
+function showError(container, err) {
+  container.innerHTML = `<div class="error">${(err && err.message) || err}</div>`;
+}
+
+function kpiCard(label, value, id) {
+  const card = document.createElement("div");
+  card.className = "kpi-card";
+  if (id) card.id = id;
+  card.innerHTML = `<div class="label">${label}</div><div class="value">${value}</div>`;
+  return card;
+}
+
+async function init() {
+  const kpiEl = document.getElementById("kpi-row");
+  try {
+    const [row] = await fetchQuery(
+      ["revenue", "payments_count", "approval_rate", "late_payment_rate", "event_attendance_rate"]
+    );
+    kpiEl.innerHTML = "";
+    kpiEl.appendChild(kpiCard("Total Revenue", fmtMoney(row.revenue)));
+    kpiEl.appendChild(kpiCard("Payments", fmtInt(row.payments_count)));
+    kpiEl.appendChild(kpiCard("Approval Rate", fmtPct(row.approval_rate)));
+    kpiEl.appendChild(kpiCard("Late Payment Rate", fmtPct(row.late_payment_rate)));
+    kpiEl.appendChild(kpiCard("Event Attendance", fmtPct(row.event_attendance_rate)));
+    kpiEl.appendChild(kpiCard("Active Members", "…", "kpi-active-members"));
+  } catch (err) {
+    showError(kpiEl, err);
+  }
+
+  try {
+    const rows = await fetchQuery(["revenue"], ["metric_time__month"], ["metric_time__month"]);
+    lineChart(document.getElementById("chart-revenue"), [{
+      name: "revenue", color: "#4f46e5",
+      points: rows.map(r => ({ x: r.metric_time__month, y: Number(r.revenue) })),
+    }], { yFormat: fmtMoney, xFormat: fmtMonth });
+  } catch (err) { showError(document.getElementById("chart-revenue"), err); }
+
+  try {
+    const rows = await fetchQuery(["active_members"], ["metric_time__month"], ["metric_time__month"]);
+    lineChart(document.getElementById("chart-active-members"), [{
+      name: "active_members", color: "#10b981",
+      points: rows.map(r => ({ x: r.metric_time__month, y: Number(r.active_members) })),
+    }], { yFormat: fmtInt, xFormat: fmtMonth });
+    const last = rows[rows.length - 1];
+    const card = document.getElementById("kpi-active-members");
+    if (card && last) card.innerHTML = `<div class="label">Active Members</div><div class="value">${fmtInt(last.active_members)}</div>`;
+  } catch (err) { showError(document.getElementById("chart-active-members"), err); }
+
+  try {
+    const rows = await fetchQuery(
+      ["applications_submitted", "applications_approved"], ["metric_time__month"], ["metric_time__month"]
+    );
+    lineChart(document.getElementById("chart-applications"), [
+      { name: "submitted", color: "#f59e0b", points: rows.map(r => ({ x: r.metric_time__month, y: Number(r.applications_submitted) })) },
+      { name: "approved", color: "#4f46e5", points: rows.map(r => ({ x: r.metric_time__month, y: Number(r.applications_approved) })) },
+    ], { yFormat: fmtInt, xFormat: fmtMonth });
+  } catch (err) { showError(document.getElementById("chart-applications"), err); }
+
+  try {
+    const rows = await fetchQuery(["revenue"], ["payment__payment_type"], ["-revenue"]);
+    const colors = ["#4f46e5", "#10b981", "#f59e0b"];
+    barChart(document.getElementById("chart-payment-type"),
+      rows.map((r, i) => ({ label: r.payment__payment_type, value: Number(r.revenue), color: colors[i % colors.length] })),
+      { valueFormat: fmtMoney }
+    );
+  } catch (err) { showError(document.getElementById("chart-payment-type"), err); }
+}
+
+init();
+</script>
+</body>
+</html>

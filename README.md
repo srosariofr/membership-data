@@ -125,6 +125,17 @@ mf query --metrics approval_rate,late_payment_rate,event_attendance_rate
 DBT_PROFILES_DIR="$HOME/.dbt" mf query --metrics revenue --group-by metric_time__month
 ```
 
+## Dashboard
+
+A small analytics dashboard ([dashboard/](dashboard/)) that reads exclusively through the semantic layer — no SQL is written for it. [dashboard/api.py](dashboard/api.py) is a Flask app that loads the MetricFlow Python engine once at startup (the same `MetricFlowEngine`/`CLIConfiguration` classes the `mf` CLI wraps) and exposes it as `GET /api/query?metrics=...&group_by=...&order_by=...`; [dashboard/static/index.html](dashboard/static/index.html) is a single self-contained page (vanilla JS, hand-rolled SVG charts, no build step, no CDN dependency) that calls that endpoint and renders KPIs plus revenue/membership/funnel charts.
+
+```bash
+python dashboard/api.py
+# open http://localhost:5001
+```
+
+Loading the engine costs ~15s (importing dbt-core/metricflow and parsing the semantic manifest) — that happens once at process startup, printed to the console, not per request. Querying `mf` as a subprocess per request was the first approach and it worked, but every single call paid that ~15s cold-start again (confirmed with `time mf --version`: 14.8s doing nothing) since each invocation is a fresh process; loading the engine once in a long-running process instead brought each query down to ~0.5-1s.
+
 ## Known quirks
 
 - `active_members` is defined **strictly** (`status = 'Active'`) — members in the `Pending Renewal` grace period are their own segment, not folded in. Filter for both explicitly if you want "members in good standing."

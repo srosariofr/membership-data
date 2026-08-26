@@ -8,3 +8,5 @@ tzdata==2026.2
 dbt-core==1.12.0b3
 dbt-postgres==1.10.2
 dbt-metricflow[postgres]==0.14.0
+
+Flask==3.1.3
