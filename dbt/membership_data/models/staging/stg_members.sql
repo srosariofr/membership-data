@@ -15,8 +15,8 @@ renamed as (
         profession,
         membership_type,
         cast(birth_date as date) as birth_date,
-        registered_at,
-        approved_at
+        cast(registered_at as timestamp) as registered_at,
+        cast(approved_at as timestamp) as approved_at
     from source
 )
 

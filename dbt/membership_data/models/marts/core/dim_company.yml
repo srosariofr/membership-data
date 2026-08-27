@@ -18,6 +18,8 @@ models:
         description: "The legal or trading name of the company."
         data_tests:
           - not_null
+        dimension:
+          type: categorical
       - name: industry
         description: "The industry sector the company operates in."
         data_tests:

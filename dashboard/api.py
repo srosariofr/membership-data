@@ -48,6 +48,27 @@ def _parse_identifier_list(raw: str) -> list[str]:
     return items
 
 
+def _parse_filters(raw: str) -> list[str]:
+    """Turns 'dim1:value1|dim2:value2' into MetricFlow where_constraints strings.
+
+    Dimension names are validated against IDENTIFIER_RE (same allowlist as
+    metrics/group_by); values are only ever compared for equality inside a
+    quoted SQL literal, so the sole injection surface is an embedded quote,
+    which is escaped by doubling it.
+    """
+    constraints = []
+    for pair in (p for p in raw.split("|") if p.strip()):
+        if ":" not in pair:
+            raise ValueError(f"invalid filter (expected dim:value): {pair!r}")
+        dim, value = pair.split(":", 1)
+        dim = dim.strip()
+        if not IDENTIFIER_RE.match(dim):
+            raise ValueError(f"invalid filter dimension: {dim!r}")
+        escaped_value = value.replace("'", "''")
+        constraints.append(f"{{{{ Dimension('{dim}') }}}} = '{escaped_value}'")
+    return constraints
+
+
 def _jsonable(value):
     if isinstance(value, decimal.Decimal):
         return float(value)
@@ -62,6 +83,9 @@ def api_query():
     group_by_raw = request.args.get("group_by", "")
     order_by_raw = request.args.get("order_by", "")
     limit = request.args.get("limit", "").strip()
+    start_date_raw = request.args.get("start_date", "").strip()
+    end_date_raw = request.args.get("end_date", "").strip()
+    filters_raw = request.args.get("filters", "").strip()
 
     if not metrics_raw.strip():
         return jsonify({"error": "metrics query param is required"}), 400
@@ -72,14 +96,32 @@ def api_query():
         metrics = _parse_identifier_list(metrics_raw)
         group_by = _parse_identifier_list(group_by_raw)
         order_by = _parse_identifier_list(order_by_raw)
+        where_constraints = _parse_filters(filters_raw)
     except ValueError as exc:
         return jsonify({"error": str(exc)}), 400
+
+    try:
+        time_constraint_start = (
+            datetime.datetime.combine(datetime.date.fromisoformat(start_date_raw), datetime.time.min)
+            if start_date_raw
+            else None
+        )
+        time_constraint_end = (
+            datetime.datetime.combine(datetime.date.fromisoformat(end_date_raw), datetime.time.max)
+            if end_date_raw
+            else None
+        )
+    except ValueError:
+        return jsonify({"error": "start_date/end_date must be YYYY-MM-DD"}), 400
 
     mf_request = MetricFlowQueryRequest.create(
         metric_names=metrics,
         group_by_names=group_by or None,
         order_by_names=order_by or None,
         limit=int(limit) if limit else None,
+        time_constraint_start=time_constraint_start,
+        time_constraint_end=time_constraint_end,
+        where_constraints=where_constraints or None,
     )
 
     try:

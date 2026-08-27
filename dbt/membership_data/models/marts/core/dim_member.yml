@@ -31,8 +31,12 @@ models:
         description: "The member's full name."
         data_tests:
           - not_null
+        dimension:
+          type: categorical
       - name: email
         description: "The member's email address."
+        dimension:
+          type: categorical
       - name: gender
         description: "The member's gender."
         dimension:
@@ -103,6 +107,22 @@ models:
         data_type: timestamp
         data_tests:
           - not_null
+      - name: age_range
+        description: "The member's age bucket, computed from birth_date as of the last dbt run."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['Under 25', '25-34', '35-44', '45-54', '55-64', '65+']
+        dimension:
+          type: categorical
+      - name: tenure_range
+        description: "How long the member has held membership, bucketed from approved_at as of the last dbt run."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['Under 1 year', '1-3 years', '3-5 years', '5+ years']
+        dimension:
+          type: categorical
     metrics:
       - name: members
         description: "Count of members."

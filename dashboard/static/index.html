@@ -49,12 +49,148 @@
   header h1 { margin: 0; font-size: 20px; font-weight: 700; letter-spacing: -.01em; }
   header p { margin: 4px 0 0; color: var(--text-muted); font-size: 12.5px; }
   header code { background: var(--gray-bg); color: var(--green); padding: 1px 5px; border-radius: 4px; font-weight: 500; }
+
+  .tabs {
+    display: flex;
+    gap: 4px;
+    padding: 0 32px;
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+  }
+  .tab-btn {
+    padding: 14px 18px;
+    border: none;
+    background: none;
+    font: inherit;
+    font-weight: 600;
+    font-size: 13.5px;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+  }
+  .tab-btn:hover { color: var(--navy); }
+  .tab-btn.active { color: var(--navy); border-bottom-color: var(--green); }
+
   main { padding: 24px 32px 40px; max-width: 1200px; margin: 0 auto; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+    padding: 12px 16px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    flex-wrap: wrap;
+    font-size: 13px;
+  }
+  .filter-bar label { color: var(--text-muted); font-weight: 500; }
+  .filter-bar input[type=date] {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 8px;
+    font: inherit;
+    font-size: 13px;
+    color: var(--text);
+    background: #fff;
+  }
+  .filter-bar button {
+    border: none;
+    border-radius: 6px;
+    padding: 7px 14px;
+    font: inherit;
+    font-weight: 600;
+    font-size: 12.5px;
+    cursor: pointer;
+  }
+  .filter-bar .btn-apply { background: var(--green); color: #fff; }
+  .filter-bar .btn-apply:hover { background: #006a30; }
+  .filter-bar .btn-reset { background: var(--gray-bg); color: var(--text-muted); }
+  .filter-bar .btn-reset:hover { color: var(--text); }
+  .filter-bar .range-note { margin-left: auto; color: var(--text-muted); font-size: 12px; }
+
+  .dim-filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 14px;
+    margin-bottom: 24px;
+    padding: 14px 16px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+  .dim-filters .field { display: flex; flex-direction: column; gap: 4px; }
+  .dim-filters label {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+  .dim-filters select {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 7px 8px;
+    font: inherit;
+    font-size: 13px;
+    color: var(--text);
+    background: #fff;
+    min-width: 150px;
+  }
+  .dim-filters .btn-reset {
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font: inherit;
+    font-weight: 600;
+    font-size: 12.5px;
+    cursor: pointer;
+    background: var(--gray-bg);
+    color: var(--text-muted);
+    align-self: flex-end;
+  }
+  .dim-filters .btn-reset:hover { color: var(--text); }
+
+  .pie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+  }
+  .pie-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+  }
+  .pie-card h2 { margin: 0 0 2px; font-size: 15px; font-weight: 600; color: var(--navy); }
+  .pie-card .subtitle { font-size: 11px; color: var(--text-muted); margin-bottom: 10px; font-family: ui-monospace, monospace; }
+  .pie-body { display: flex; align-items: center; gap: 16px; }
+  .pie-body svg { width: 128px; height: 128px; flex: 0 0 auto; }
+  .pie-legend { flex: 1 1 auto; min-width: 0; font-size: 12px; display: flex; flex-direction: column; gap: 5px; }
+  .pie-legend .pl-row { display: flex; align-items: center; gap: 6px; }
+  .pie-legend .pl-row i { width: 9px; height: 9px; border-radius: 2px; display: inline-block; flex: 0 0 auto; }
+  .pie-legend .pl-row span { flex: 1 1 auto; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .pie-legend .pl-row b { color: var(--text-muted); font-weight: 600; }
+
+  .section-title {
+    font-size: 12.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--text-muted);
+    margin: 28px 0 12px;
+  }
+
   .kpi-row {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 12px;
-    margin-bottom: 24px;
   }
   .kpi-card {
     background: var(--card-bg);
@@ -65,6 +201,8 @@
   }
   .kpi-card .label { font-size: 11.5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: .05em; font-weight: 500; }
   .kpi-card .value { font-size: 24px; font-weight: 700; margin-top: 4px; color: var(--navy); letter-spacing: -.01em; }
+  .kpi-card .sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
   .charts-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
@@ -82,6 +220,54 @@
   .legend { display: flex; gap: 16px; font-size: 12px; color: var(--text-muted); margin-top: 6px; }
   .legend span { display: inline-flex; align-items: center; gap: 6px; }
   .legend i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+
+  .chart-tooltip {
+    position: fixed;
+    z-index: 1000;
+    display: none;
+    background: var(--navy-deep);
+    color: #fff;
+    font-size: 12px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    pointer-events: none;
+    box-shadow: 0 6px 16px rgba(0,0,0,.2);
+    max-width: 240px;
+  }
+  .chart-tooltip .tt-title { font-weight: 700; font-size: 11px; color: var(--lime); margin-bottom: 5px; letter-spacing: .01em; }
+  .chart-tooltip .tt-row { display: flex; align-items: center; gap: 6px; line-height: 1.5; }
+  .chart-tooltip .tt-row i { width: 8px; height: 8px; border-radius: 2px; display: inline-block; flex: 0 0 auto; }
+  .chart-tooltip .tt-row span { flex: 1 1 auto; }
+  .chart-tooltip .tt-row b { margin-left: 10px; font-weight: 600; }
+
+  .tables-stack { display: flex; flex-direction: column; gap: 16px; }
+  .table-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    overflow-x: auto;
+  }
+  .table-card h2 { margin: 0 0 12px; font-size: 15px; font-weight: 600; color: var(--navy); }
+  .table-card h2:has(+ .subtitle) { margin-bottom: 2px; }
+  .table-card .subtitle { font-size: 11px; color: var(--text-muted); margin-bottom: 10px; font-family: ui-monospace, monospace; }
+  .table-card .table-scroll { overflow-y: auto; max-height: 480px; }
+  .table-card .table-scroll thead th { position: sticky; top: 0; background: var(--card-bg); }
+  #mem-table-companies .table-scroll { max-height: 220px; }
+  table.detail-table { width: 100%; border-collapse: collapse; font-size: 13px; white-space: nowrap; }
+  .detail-table th {
+    text-align: left;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--text-muted);
+    padding: 8px 12px 8px 0;
+    border-bottom: 2px solid var(--border);
+  }
+  .detail-table td { padding: 9px 12px 9px 0; border-bottom: 1px solid var(--border); color: var(--text); }
+  .detail-table tr:last-child td { border-bottom: none; }
+  .detail-table th.num, .detail-table td.num { text-align: right; }
+
   .error { color: #b91c1c; font-size: 13px; }
   .loading { color: var(--text-muted); font-size: 13px; padding: 40px 0; text-align: center; }
 </style>
@@ -100,41 +286,170 @@
     <p>Every number on this page comes straight from the dbt Semantic Layer via <code>mf query</code> - no SQL written for this page.</p>
   </div>
 </header>
+<nav class="tabs" id="tabs">
+  <button class="tab-btn active" data-tab="members">Member Base</button>
+  <button class="tab-btn" data-tab="applications">Applications</button>
+  <button class="tab-btn" data-tab="events">Events</button>
+  <button class="tab-btn" data-tab="payments">Payments</button>
+</nav>
 <main>
-  <section class="kpi-row" id="kpi-row">
-    <div class="loading">Loading KPIs…</div>
+
+  <!-- MEMBER BASE -->
+  <section class="tab-panel active" id="tab-members">
+    <div class="dim-filters" id="member-filters"></div>
+    <div class="kpi-row" id="mem-kpi"><div class="loading">Loading KPIs…</div></div>
+    <div class="section-title">Breakdown</div>
+    <div class="pie-grid">
+      <div class="pie-card">
+        <h2>By Industry</h2>
+        <div class="subtitle">group_by=company__industry</div>
+        <div id="pie-industry"><div class="loading">Loading…</div></div>
+      </div>
+      <div class="pie-card">
+        <h2>By Tenure</h2>
+        <div class="subtitle">group_by=member__tenure_range</div>
+        <div id="pie-tenure"><div class="loading">Loading…</div></div>
+      </div>
+      <div class="pie-card">
+        <h2>By Age Range</h2>
+        <div class="subtitle">group_by=member__age_range</div>
+        <div id="pie-age"><div class="loading">Loading…</div></div>
+      </div>
+      <div class="pie-card">
+        <h2>By Gender</h2>
+        <div class="subtitle">group_by=member__gender</div>
+        <div id="pie-gender"><div class="loading">Loading…</div></div>
+      </div>
+      <div class="pie-card">
+        <h2>By Status</h2>
+        <div class="subtitle">group_by=member__current_status</div>
+        <div id="pie-status"><div class="loading">Loading…</div></div>
+      </div>
+      <div class="pie-card">
+        <h2>By Position</h2>
+        <div class="subtitle">group_by=member__profession</div>
+        <div id="pie-profession"><div class="loading">Loading…</div></div>
+      </div>
+    </div>
+    <div class="section-title">Detail</div>
+    <div class="tables-stack">
+      <div class="table-card">
+        <h2>Top Companies by Member Count</h2>
+        <div class="subtitle">group_by=company__company_name, top 20</div>
+        <div id="mem-table-companies"><div class="loading">Loading…</div></div>
+      </div>
+      <div class="table-card">
+        <h2>Members</h2>
+        <div id="mem-table"><div class="loading">Loading…</div></div>
+      </div>
+    </div>
   </section>
-  <section class="charts-grid">
-    <div class="chart-card">
-      <h2>Revenue by month</h2>
-      <div class="subtitle">metrics=revenue &amp; group_by=metric_time__month</div>
-      <div id="chart-revenue"><div class="loading">Loading…</div></div>
+
+  <!-- APPLICATIONS -->
+  <section class="tab-panel" id="tab-applications">
+    <div class="filter-bar" id="filter-applications"></div>
+    <div class="kpi-row" id="app-kpi"><div class="loading">Loading KPIs…</div></div>
+    <div class="section-title">Evolution</div>
+    <div class="charts-grid">
+      <div class="chart-card">
+        <h2>Submitted vs approved</h2>
+        <div class="subtitle">metrics=applications_submitted,applications_approved &amp; group_by=metric_time__month</div>
+        <div id="app-chart-funnel"><div class="loading">Loading…</div></div>
+      </div>
     </div>
-    <div class="chart-card">
-      <h2>Active members by month</h2>
-      <div class="subtitle">metrics=active_members &amp; group_by=metric_time__month</div>
-      <div id="chart-active-members"><div class="loading">Loading…</div></div>
-    </div>
-    <div class="chart-card">
-      <h2>Applications: submitted vs approved</h2>
-      <div class="subtitle">metrics=applications_submitted,applications_approved &amp; group_by=metric_time__month</div>
-      <div id="chart-applications"><div class="loading">Loading…</div></div>
-    </div>
-    <div class="chart-card">
-      <h2>Revenue by payment type</h2>
-      <div class="subtitle">metrics=revenue &amp; group_by=payment__payment_type</div>
-      <div id="chart-payment-type"><div class="loading">Loading…</div></div>
+    <div class="section-title">Detail</div>
+    <div class="tables-stack">
+      <div class="table-card">
+        <h2>By application type</h2>
+        <div id="app-table-type"><div class="loading">Loading…</div></div>
+      </div>
+      <div class="table-card">
+        <h2>By source channel</h2>
+        <div id="app-table-channel"><div class="loading">Loading…</div></div>
+      </div>
+      <div class="table-card">
+        <h2>Status funnel timing</h2>
+        <div id="app-table-funnel-timing"><div class="loading">Loading…</div></div>
+      </div>
     </div>
   </section>
+
+  <!-- EVENTS -->
+  <section class="tab-panel" id="tab-events">
+    <div class="filter-bar" id="filter-events"></div>
+    <div class="kpi-row" id="evt-kpi"><div class="loading">Loading KPIs…</div></div>
+    <div class="section-title">Evolution</div>
+    <div class="charts-grid">
+      <div class="chart-card">
+        <h2>Registrations &amp; attendees by month</h2>
+        <div class="subtitle">metrics=event_registrations,event_attendees &amp; group_by=metric_time__month</div>
+        <div id="evt-chart-volume"><div class="loading">Loading…</div></div>
+      </div>
+      <div class="chart-card">
+        <h2>Attendance rate by month</h2>
+        <div class="subtitle">metrics=event_attendance_rate &amp; group_by=metric_time__month</div>
+        <div id="evt-chart-rate"><div class="loading">Loading…</div></div>
+      </div>
+    </div>
+    <div class="section-title">Detail</div>
+    <div class="tables-stack">
+      <div class="table-card">
+        <h2>By event type</h2>
+        <div id="evt-table-type"><div class="loading">Loading…</div></div>
+      </div>
+      <div class="table-card">
+        <h2>By attendance status</h2>
+        <div id="evt-table-status"><div class="loading">Loading…</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAYMENTS -->
+  <section class="tab-panel" id="tab-payments">
+    <div class="filter-bar" id="filter-payments"></div>
+    <div class="kpi-row" id="pay-kpi"><div class="loading">Loading KPIs…</div></div>
+    <div class="section-title">Evolution</div>
+    <div class="charts-grid">
+      <div class="chart-card">
+        <h2>Revenue by month</h2>
+        <div class="subtitle">metrics=revenue &amp; group_by=metric_time__month</div>
+        <div id="pay-chart-revenue"><div class="loading">Loading…</div></div>
+      </div>
+      <div class="chart-card">
+        <h2>Late payment rate by month</h2>
+        <div class="subtitle">metrics=late_payment_rate &amp; group_by=metric_time__month</div>
+        <div id="pay-chart-late"><div class="loading">Loading…</div></div>
+      </div>
+    </div>
+    <div class="section-title">Detail</div>
+    <div class="tables-stack">
+      <div class="table-card">
+        <h2>By payment type</h2>
+        <div id="pay-table-type"><div class="loading">Loading…</div></div>
+      </div>
+      <div class="table-card">
+        <h2>By payment method</h2>
+        <div id="pay-table-method"><div class="loading">Loading…</div></div>
+      </div>
+      <div class="table-card">
+        <h2>By payment status</h2>
+        <div id="pay-table-status"><div class="loading">Loading…</div></div>
+      </div>
+    </div>
+  </section>
+
 </main>
 <script>
 const API = "/api/query";
 
-async function fetchQuery(metrics, groupBy, orderBy, limit) {
+async function fetchQuery(metrics, groupBy, orderBy, limit, opts) {
   const params = new URLSearchParams({ metrics: metrics.join(",") });
   if (groupBy) params.set("group_by", groupBy.join(","));
   if (orderBy) params.set("order_by", orderBy.join(","));
   if (limit) params.set("limit", limit);
+  if (opts && opts.start) params.set("start_date", opts.start);
+  if (opts && opts.end) params.set("end_date", opts.end);
+  if (opts && opts.filters) params.set("filters", opts.filters);
   const res = await fetch(`${API}?${params.toString()}`);
   const data = await res.json();
   if (!res.ok) throw new Error(data.error || "query failed");
@@ -148,16 +463,42 @@ function fmtMoney(n) {
   return "$" + n.toFixed(0);
 }
 function fmtInt(n) { return Math.round(Number(n)).toLocaleString("en-US"); }
-function fmtPct(n) { return (Number(n) * 100).toFixed(1) + "%"; }
+function fmtPct(n) { return n == null ? "—" : (Number(n) * 100).toFixed(1) + "%"; }
+function fmtDays(n) { return n == null ? "—" : Number(n).toFixed(1) + "d"; }
 function fmtMonth(s) {
   const d = new Date(s);
   return d.toLocaleDateString("en-US", { year: "2-digit", month: "short" });
+}
+function fmtMonthLong(s) {
+  if (!s) return "";
+  const d = new Date(s);
+  return d.toLocaleDateString("en-US", { year: "numeric", month: "long" });
 }
 
 function svgEl(tag, attrs = {}) {
   const e = document.createElementNS("http://www.w3.org/2000/svg", tag);
   for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
   return e;
+}
+
+let _tooltipEl = null;
+function getTooltip() {
+  if (!_tooltipEl) {
+    _tooltipEl = document.createElement("div");
+    _tooltipEl.className = "chart-tooltip";
+    document.body.appendChild(_tooltipEl);
+  }
+  return _tooltipEl;
+}
+function positionTooltip(evt, tooltip) {
+  const pad = 14;
+  let left = evt.clientX + pad;
+  let top = evt.clientY + pad;
+  const rect = tooltip.getBoundingClientRect();
+  if (left + rect.width > window.innerWidth - 8) left = evt.clientX - rect.width - pad;
+  if (top + rect.height > window.innerHeight - 8) top = evt.clientY - rect.height - pad;
+  tooltip.style.left = `${Math.max(8, left)}px`;
+  tooltip.style.top = `${Math.max(8, top)}px`;
 }
 
 // series = [{ name, color, points: [{x, y}] }]
@@ -195,11 +536,58 @@ function lineChart(container, series, opts = {}) {
     const d = s.points.map((p, i) => `${i === 0 ? "M" : "L"} ${xForI(i).toFixed(1)} ${yForV(p.y).toFixed(1)}`).join(" ");
     svg.appendChild(svgEl("path", { d, fill: "none", stroke: s.color, "stroke-width": 2 }));
     s.points.forEach((p, i) => {
-      svg.appendChild(svgEl("circle", { cx: xForI(i), cy: yForV(p.y), r: 2.5, fill: s.color }));
+      const c = svgEl("circle", { cx: xForI(i), cy: yForV(p.y), r: 2.5, fill: s.color });
+      c.classList.add("pt");
+      c.dataset.idx = i;
+      svg.appendChild(c);
     });
   }
 
+  // Hover interaction: one invisible hit-column per x index, highlighting every
+  // series' point at that index and showing a combined tooltip - rather than
+  // per-circle listeners, so a multi-series chart reads as a single lookup.
+  if (n > 0) {
+    const guide = svgEl("line", {
+      x1: xForI(0), x2: xForI(0), y1: padT, y2: height - padB,
+      stroke: "#9ca3af", "stroke-width": 1, "stroke-dasharray": "3,3", opacity: 0,
+    });
+    svg.appendChild(guide);
+
+    const tooltip = getTooltip();
+    const colW = n <= 1 ? (width - padL - padR) : (width - padL - padR) / (n - 1);
+    for (let i = 0; i < n; i++) {
+      const x = xForI(i);
+      const hit = svgEl("rect", {
+        x: Math.max(padL, x - colW / 2), y: padT,
+        width: n <= 1 ? (width - padL - padR) : colW,
+        height: height - padT - padB,
+        fill: "transparent",
+      });
+      hit.addEventListener("mouseenter", (evt) => {
+        guide.setAttribute("x1", x); guide.setAttribute("x2", x); guide.setAttribute("opacity", 1);
+        svg.querySelectorAll(`circle.pt[data-idx="${i}"]`).forEach(c => c.setAttribute("r", 4.5));
+        const xLabel = opts.tooltipXFormat ? opts.tooltipXFormat(series[0].points[i].x)
+          : (opts.xFormat ? opts.xFormat(series[0].points[i].x) : series[0].points[i].x);
+        const rows = series.map(s => `<div class="tt-row"><i style="background:${s.color}"></i><span>${s.name}</span><b>${opts.yFormat ? opts.yFormat(s.points[i].y) : s.points[i].y}</b></div>`).join("");
+        tooltip.innerHTML = `<div class="tt-title">${xLabel}</div>${rows}`;
+        tooltip.style.display = "block";
+        positionTooltip(evt, tooltip);
+      });
+      hit.addEventListener("mousemove", (evt) => positionTooltip(evt, tooltip));
+      hit.addEventListener("mouseleave", () => {
+        guide.setAttribute("opacity", 0);
+        svg.querySelectorAll(`circle.pt[data-idx="${i}"]`).forEach(c => c.setAttribute("r", 2.5));
+        tooltip.style.display = "none";
+      });
+      svg.appendChild(hit);
+    }
+  }
+
   container.innerHTML = "";
+  if (series[0].points.length === 0) {
+    container.innerHTML = `<div class="loading">No data in this range.</div>`;
+    return;
+  }
   container.appendChild(svg);
 
   if (series.length > 1) {
@@ -210,95 +598,548 @@ function lineChart(container, series, opts = {}) {
   }
 }
 
-// items = [{label, value, color}]
-function barChart(container, items, opts = {}) {
-  const width = opts.width || 760, rowH = 34, padL = 150, padR = 70, padT = 8;
-  const height = padT * 2 + items.length * rowH;
-  const maxV = Math.max(...items.map(i => i.value)) || 1;
-  const svg = svgEl("svg", { viewBox: `0 0 ${width} ${height}` });
-
-  items.forEach((item, i) => {
-    const y = padT + i * rowH;
-    const barW = (item.value / maxV) * (width - padL - padR);
-    const label = svgEl("text", { x: padL - 10, y: y + rowH / 2 + 4, "font-size": 12, fill: "#061238", "text-anchor": "end" });
-    label.textContent = item.label;
-    svg.appendChild(label);
-    svg.appendChild(svgEl("rect", { x: padL, y: y + 6, width: Math.max(barW, 1), height: rowH - 14, rx: 4, fill: item.color || "#00823b" }));
-    const valLabel = svgEl("text", { x: padL + barW + 8, y: y + rowH / 2 + 4, "font-size": 12, fill: "#6b7280" });
-    valLabel.textContent = opts.valueFormat ? opts.valueFormat(item.value) : item.value;
-    svg.appendChild(valLabel);
-  });
-
-  container.innerHTML = "";
-  container.appendChild(svg);
-}
-
 function showError(container, err) {
   container.innerHTML = `<div class="error">${(err && err.message) || err}</div>`;
 }
 
-function kpiCard(label, value, id) {
+function kpiCard(label, value, sub) {
   const card = document.createElement("div");
   card.className = "kpi-card";
-  if (id) card.id = id;
-  card.innerHTML = `<div class="label">${label}</div><div class="value">${value}</div>`;
+  card.innerHTML = `<div class="label">${label}</div><div class="value">${value}</div>${sub ? `<div class="sub">${sub}</div>` : ""}`;
   return card;
 }
 
-async function init() {
-  const kpiEl = document.getElementById("kpi-row");
-  try {
-    const [row] = await fetchQuery(
-      ["revenue", "payments_count", "approval_rate", "late_payment_rate", "event_attendance_rate"]
-    );
-    kpiEl.innerHTML = "";
-    kpiEl.appendChild(kpiCard("Total Revenue", fmtMoney(row.revenue)));
-    kpiEl.appendChild(kpiCard("Payments", fmtInt(row.payments_count)));
-    kpiEl.appendChild(kpiCard("Approval Rate", fmtPct(row.approval_rate)));
-    kpiEl.appendChild(kpiCard("Late Payment Rate", fmtPct(row.late_payment_rate)));
-    kpiEl.appendChild(kpiCard("Event Attendance", fmtPct(row.event_attendance_rate)));
-    kpiEl.appendChild(kpiCard("Active Members", "…", "kpi-active-members"));
-  } catch (err) {
-    showError(kpiEl, err);
+// columns = [{ label, key, format, num }]
+function renderTable(container, columns, rows) {
+  if (!rows.length) {
+    container.innerHTML = `<div class="loading">No data in this range.</div>`;
+    return;
+  }
+  const thead = `<thead><tr>${columns.map(c => `<th class="${c.num ? "num" : ""}">${c.label}</th>`).join("")}</tr></thead>`;
+  const tbody = `<tbody>${rows.map(r => `<tr>${columns.map(c => {
+    const raw = typeof c.key === "function" ? c.key(r) : r[c.key];
+    const val = c.format ? c.format(raw, r) : raw;
+    return `<td class="${c.num ? "num" : ""}">${val}</td>`;
+  }).join("")}</tr>`).join("")}</tbody>`;
+  container.innerHTML = `<div class="table-scroll"><table class="detail-table">${thead}${tbody}</table></div>`;
+}
+
+function buildFilterBar(container, onApply) {
+  container.innerHTML = `
+    <label>From</label>
+    <input type="date" class="f-start">
+    <label>To</label>
+    <input type="date" class="f-end">
+    <button class="btn-apply">Apply</button>
+    <button class="btn-reset">All time</button>
+    <span class="range-note">Showing: all time</span>
+  `;
+  const startEl = container.querySelector(".f-start");
+  const endEl = container.querySelector(".f-end");
+  const note = container.querySelector(".range-note");
+  const updateNote = (range) => {
+    note.textContent = (range.start || range.end)
+      ? `Showing: ${range.start || "earliest"} → ${range.end || "latest"}`
+      : "Showing: all time";
+  };
+  container.querySelector(".btn-apply").addEventListener("click", () => {
+    const range = { start: startEl.value, end: endEl.value };
+    updateNote(range);
+    onApply(range);
+  });
+  container.querySelector(".btn-reset").addEventListener("click", () => {
+    startEl.value = ""; endEl.value = "";
+    const range = { start: "", end: "" };
+    updateNote(range);
+    onApply(range);
+  });
+}
+
+// ---------------------------------------------------------------- Member Base
+
+const PIE_COLORS = ["#001f67", "#00823b", "#9dd522", "#2b595b", "#75b148", "#6b7280", "#b91c1c", "#d97706", "#7c3aed", "#0891b2"];
+
+// Dimensions with a meaningful non-alphabetical order; everything else sorts A-Z.
+const DIM_ORDER = {
+  "member__current_status": ["Active", "Pending Renewal", "Inactive", "Cancelled"],
+  "member__age_range": ["Under 25", "25-34", "35-44", "45-54", "55-64", "65+"],
+  "member__tenure_range": ["Under 1 year", "1-3 years", "3-5 years", "5+ years"],
+};
+function sortByDim(values, dim) {
+  const order = DIM_ORDER[dim];
+  if (!order) return [...values].sort((a, b) => a.localeCompare(b));
+  return [...values].sort((a, b) => order.indexOf(a) - order.indexOf(b));
+}
+
+const MEMBER_FILTERS = [
+  { key: "industry", dim: "company__industry", label: "Industry" },
+  { key: "tenure", dim: "member__tenure_range", label: "Tenure" },
+  { key: "age", dim: "member__age_range", label: "Age Range" },
+  { key: "gender", dim: "member__gender", label: "Gender" },
+  { key: "status", dim: "member__current_status", label: "Status" },
+  { key: "profession", dim: "member__profession", label: "Position" },
+];
+
+function buildFiltersString(filters, excludeKey) {
+  return MEMBER_FILTERS
+    .filter(f => f.key !== excludeKey && filters[f.key])
+    .map(f => `${f.dim}:${filters[f.key]}`)
+    .join("|");
+}
+
+async function buildDimFilters(container, filters, onChange) {
+  container.innerHTML = "";
+  const selects = {};
+  for (const f of MEMBER_FILTERS) {
+    const field = document.createElement("div");
+    field.className = "field";
+    const label = document.createElement("label");
+    label.textContent = f.label;
+    const select = document.createElement("select");
+    select.innerHTML = `<option value="">All</option>`;
+    field.appendChild(label);
+    field.appendChild(select);
+    container.appendChild(field);
+    selects[f.key] = select;
+    select.addEventListener("change", () => {
+      filters[f.key] = select.value;
+      onChange(filters);
+    });
+  }
+  const resetBtn = document.createElement("button");
+  resetBtn.className = "btn-reset";
+  resetBtn.textContent = "Reset filters";
+  resetBtn.addEventListener("click", () => {
+    for (const f of MEMBER_FILTERS) { filters[f.key] = ""; selects[f.key].value = ""; }
+    onChange(filters);
+  });
+  container.appendChild(resetBtn);
+
+  // Populate each dropdown's options once, unfiltered.
+  await Promise.all(MEMBER_FILTERS.map(async (f) => {
+    try {
+      const rows = await fetchQuery(["members"], [f.dim], null, null, null);
+      const values = sortByDim(rows.map(r => r[f.dim]).filter(v => v != null), f.dim);
+      for (const v of values) {
+        const opt = document.createElement("option");
+        opt.value = v; opt.textContent = v;
+        selects[f.key].appendChild(opt);
+      }
+    } catch (err) { /* leave just "All" if this dimension's options fail to load */ }
+  }));
+}
+
+function polarToCartesian(cx, cy, r, angleDeg) {
+  const rad = (angleDeg - 90) * Math.PI / 180;
+  return { x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) };
+}
+function donutArcPath(cx, cy, outerR, innerR, startAngle, endAngle) {
+  const outerStart = polarToCartesian(cx, cy, outerR, startAngle);
+  const outerEnd = polarToCartesian(cx, cy, outerR, endAngle);
+  const innerStart = polarToCartesian(cx, cy, innerR, startAngle);
+  const innerEnd = polarToCartesian(cx, cy, innerR, endAngle);
+  const largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
+  return [
+    "M", outerStart.x.toFixed(2), outerStart.y.toFixed(2),
+    "A", outerR, outerR, 0, largeArcFlag, 1, outerEnd.x.toFixed(2), outerEnd.y.toFixed(2),
+    "L", innerEnd.x.toFixed(2), innerEnd.y.toFixed(2),
+    "A", innerR, innerR, 0, largeArcFlag, 0, innerStart.x.toFixed(2), innerStart.y.toFixed(2),
+    "Z",
+  ].join(" ");
+}
+
+// items = [{ label, value }]; opts.highlightLabel marks the value the user
+// filtered this same dimension to - the slice stays visible (not filtered
+// out of its own chart) but stands out from the rest, which are dimmed.
+function pieChart(container, items, opts = {}) {
+  container.innerHTML = "";
+  const total = items.reduce((s, i) => s + i.value, 0);
+  if (!total) {
+    container.innerHTML = `<div class="loading">No data for this selection.</div>`;
+    return;
+  }
+  const cx = 64, cy = 64, outerR = 60, innerR = 36;
+  const svg = svgEl("svg", { viewBox: "0 0 128 128" });
+  const colored = items.map((it, i) => ({ ...it, color: PIE_COLORS[i % PIE_COLORS.length] }));
+  const isDimmed = (it) => opts.highlightLabel && it.label !== opts.highlightLabel;
+  const isSelected = (it) => opts.highlightLabel && it.label === opts.highlightLabel;
+
+  if (colored.length === 1) {
+    const el = svgEl("circle", { cx, cy, r: outerR, fill: colored[0].color, opacity: isDimmed(colored[0]) ? 0.35 : 1 });
+    svg.appendChild(el);
+    svg.appendChild(svgEl("circle", { cx, cy, r: innerR, fill: "#ffffff" }));
+    colored[0]._el = el;
+  } else {
+    let cumulative = 0;
+    for (const it of colored) {
+      const startAngle = (cumulative / total) * 360;
+      cumulative += it.value;
+      const endAngle = (cumulative / total) * 360;
+      const path = svgEl("path", {
+        d: donutArcPath(cx, cy, outerR, innerR, startAngle, endAngle),
+        fill: it.color,
+        stroke: isSelected(it) ? "#061238" : "#fff",
+        "stroke-width": isSelected(it) ? 2.5 : 1,
+        opacity: isDimmed(it) ? 0.35 : 1,
+      });
+      svg.appendChild(path);
+      it._el = path;
+    }
   }
 
-  try {
-    const rows = await fetchQuery(["revenue"], ["metric_time__month"], ["metric_time__month"]);
-    lineChart(document.getElementById("chart-revenue"), [{
-      name: "revenue", color: "#00823b",
-      points: rows.map(r => ({ x: r.metric_time__month, y: Number(r.revenue) })),
-    }], { yFormat: fmtMoney, xFormat: fmtMonth });
-  } catch (err) { showError(document.getElementById("chart-revenue"), err); }
+  const totalLabel = svgEl("text", { x: cx, y: cy - 4, "text-anchor": "middle", "font-size": 15, "font-weight": 700, fill: "#061238" });
+  totalLabel.textContent = fmtInt(total);
+  svg.appendChild(totalLabel);
+  const totalSub = svgEl("text", { x: cx, y: cy + 11, "text-anchor": "middle", "font-size": 8, fill: "#6b7280" });
+  totalSub.textContent = "members";
+  svg.appendChild(totalSub);
 
+  const tooltip = getTooltip();
+  for (const it of colored) {
+    const el = it._el;
+    if (!el) continue;
+    const baseOpacity = isDimmed(it) ? "0.35" : "1";
+    const baseStroke = isSelected(it) ? "#061238" : "#fff";
+    const baseStrokeWidth = isSelected(it) ? "2.5" : "1";
+    el.addEventListener("mouseenter", (evt) => {
+      el.setAttribute("opacity", 1);
+      el.setAttribute("stroke-width", 2.5);
+      el.setAttribute("stroke", "#061238");
+      tooltip.innerHTML = `<div class="tt-title">${it.label}</div><div class="tt-row"><i style="background:${it.color}"></i><span>Members</span><b>${fmtInt(it.value)} (${fmtPct(it.value / total)})</b></div>`;
+      tooltip.style.display = "block";
+      positionTooltip(evt, tooltip);
+    });
+    el.addEventListener("mousemove", (evt) => positionTooltip(evt, tooltip));
+    el.addEventListener("mouseleave", () => {
+      el.setAttribute("opacity", baseOpacity);
+      el.setAttribute("stroke-width", baseStrokeWidth);
+      el.setAttribute("stroke", baseStroke);
+      tooltip.style.display = "none";
+    });
+  }
+
+  const body = document.createElement("div");
+  body.className = "pie-body";
+  body.appendChild(svg);
+  const legend = document.createElement("div");
+  legend.className = "pie-legend";
+  legend.innerHTML = colored.map(it =>
+    `<div class="pl-row"${isSelected(it) ? ' style="font-weight:700;"' : ""}><i style="background:${it.color};${isDimmed(it) ? "opacity:.4" : ""}"></i><span>${it.label}</span><b>${fmtInt(it.value)}</b></div>`
+  ).join("");
+  body.appendChild(legend);
+  container.appendChild(body);
+}
+
+const memberFilters = { industry: "", tenure: "", age: "", gender: "", status: "", profession: "" };
+
+async function renderMemberBase(filters) {
+  const filterStr = buildFiltersString(filters);
+  const opts = { filters: filterStr };
+
+  const kpiEl = document.getElementById("mem-kpi");
   try {
-    const rows = await fetchQuery(["active_members"], ["metric_time__month"], ["metric_time__month"]);
-    lineChart(document.getElementById("chart-active-members"), [{
-      name: "active_members", color: "#001f67",
-      points: rows.map(r => ({ x: r.metric_time__month, y: Number(r.active_members) })),
-    }], { yFormat: fmtInt, xFormat: fmtMonth });
-    const last = rows[rows.length - 1];
-    const card = document.getElementById("kpi-active-members");
-    if (card && last) card.innerHTML = `<div class="label">Active Members</div><div class="value">${fmtInt(last.active_members)}</div>`;
-  } catch (err) { showError(document.getElementById("chart-active-members"), err); }
+    const rows = await fetchQuery(["members"], ["member__current_status"], null, null, opts);
+    const total = rows.reduce((s, r) => s + Number(r.members), 0);
+    const byStatus = Object.fromEntries(rows.map(r => [r.member__current_status, Number(r.members)]));
+    kpiEl.innerHTML = "";
+    kpiEl.appendChild(kpiCard("Total Members", fmtInt(total)));
+    for (const status of DIM_ORDER["member__current_status"]) {
+      const count = byStatus[status] || 0;
+      kpiEl.appendChild(kpiCard(status, fmtInt(count), total ? fmtPct(count / total) : ""));
+    }
+  } catch (err) { showError(kpiEl, err); }
+
+  // Each donut excludes its own dimension's filter from its own query, so
+  // filtering (say) Status=Active doesn't collapse "By Status" into a
+  // trivial 100% ring - it still shows the full distribution, with the
+  // selected value highlighted instead of the rest being filtered away.
+  await Promise.all(MEMBER_FILTERS.map(async (f) => {
+    const el = document.getElementById(`pie-${f.key}`);
+    try {
+      const exclOpts = { filters: buildFiltersString(filters, f.key) };
+      const rows = await fetchQuery(["members"], [f.dim], null, null, exclOpts);
+      const order = DIM_ORDER[f.dim];
+      const items = rows
+        .filter(r => r[f.dim] != null)
+        .map(r => ({ label: r[f.dim], value: Number(r.members) }))
+        .sort((a, b) => order ? order.indexOf(a.label) - order.indexOf(b.label) : b.value - a.value);
+      pieChart(el, items, { highlightLabel: filters[f.key] || null });
+    } catch (err) { showError(el, err); }
+  }));
+
+  const companiesEl = document.getElementById("mem-table-companies");
+  try {
+    const rows = await fetchQuery(
+      ["members"], ["company__company_name"], ["-members"], 20, opts
+    );
+    renderTable(companiesEl, [
+      { label: "Company", key: "company__company_name" },
+      { label: "Members", key: "members", format: fmtInt, num: true },
+    ], rows);
+  } catch (err) { showError(companiesEl, err); }
+
+  const tableEl = document.getElementById("mem-table");
+  try {
+    const rows = await fetchQuery(
+      ["members"],
+      ["member__name", "member__email", "member__membership_type", "member__current_status",
+       "company__company_name", "company__industry", "member__profession", "member__gender",
+       "member__age_range", "member__tenure_range", "member__country"],
+      ["member__name"], 500, opts
+    );
+    renderTable(tableEl, [
+      { label: "Name", key: "member__name" },
+      { label: "Email", key: "member__email" },
+      { label: "Membership Type", key: "member__membership_type" },
+      { label: "Status", key: "member__current_status" },
+      { label: "Company", key: "company__company_name" },
+      { label: "Industry", key: "company__industry" },
+      { label: "Position", key: "member__profession" },
+      { label: "Gender", key: "member__gender" },
+      { label: "Age Range", key: "member__age_range" },
+      { label: "Tenure", key: "member__tenure_range" },
+      { label: "Country", key: "member__country" },
+    ], rows);
+    if (rows.length === 500) {
+      const note = document.createElement("div");
+      note.style.cssText = "font-size:11px;color:var(--text-muted);margin-top:10px;";
+      note.textContent = "Showing the first 500 matching members. Narrow the filters to see fewer.";
+      tableEl.appendChild(note);
+    }
+  } catch (err) { showError(tableEl, err); }
+}
+
+// --------------------------------------------------------------- Applications
+
+async function renderApplications(range) {
+  const kpiEl = document.getElementById("app-kpi");
+  try {
+    const [row] = await fetchQuery(
+      ["applications_submitted", "approval_rate", "applications_approved", "avg_days_to_decision"], null, null, null, range
+    );
+    kpiEl.innerHTML = "";
+    kpiEl.appendChild(kpiCard("Applications Submitted", fmtInt(row.applications_submitted)));
+    kpiEl.appendChild(kpiCard("Approval Rate", fmtPct(row.approval_rate)));
+    kpiEl.appendChild(kpiCard("Applications Approved", fmtInt(row.applications_approved)));
+    kpiEl.appendChild(kpiCard("Avg Days to Decision", fmtDays(row.avg_days_to_decision)));
+  } catch (err) { showError(kpiEl, err); }
 
   try {
     const rows = await fetchQuery(
-      ["applications_submitted", "applications_approved"], ["metric_time__month"], ["metric_time__month"]
+      ["applications_submitted", "applications_approved"], ["metric_time__month"], ["metric_time__month"], null, range
     );
-    lineChart(document.getElementById("chart-applications"), [
+    lineChart(document.getElementById("app-chart-funnel"), [
       { name: "submitted", color: "#2b595b", points: rows.map(r => ({ x: r.metric_time__month, y: Number(r.applications_submitted) })) },
       { name: "approved", color: "#00823b", points: rows.map(r => ({ x: r.metric_time__month, y: Number(r.applications_approved) })) },
     ], { yFormat: fmtInt, xFormat: fmtMonth });
-  } catch (err) { showError(document.getElementById("chart-applications"), err); }
+  } catch (err) { showError(document.getElementById("app-chart-funnel"), err); }
 
   try {
-    const rows = await fetchQuery(["revenue"], ["payment__payment_type"], ["-revenue"]);
-    const colors = ["#001f67", "#00823b", "#9dd522"];
-    barChart(document.getElementById("chart-payment-type"),
-      rows.map((r, i) => ({ label: r.payment__payment_type, value: Number(r.revenue), color: colors[i % colors.length] })),
-      { valueFormat: fmtMoney }
+    const rows = await fetchQuery(
+      ["applications_submitted", "applications_approved"], ["application__application_type"], ["-applications_submitted"], null, range
     );
-  } catch (err) { showError(document.getElementById("chart-payment-type"), err); }
+    renderTable(document.getElementById("app-table-type"), [
+      { label: "Type", key: "application__application_type" },
+      { label: "Submitted", key: "applications_submitted", format: fmtInt, num: true },
+      { label: "Approved", key: "applications_approved", format: fmtInt, num: true },
+      { label: "Approval Rate", key: r => Number(r.applications_approved) / Number(r.applications_submitted), format: fmtPct, num: true },
+    ], rows);
+  } catch (err) { showError(document.getElementById("app-table-type"), err); }
+
+  try {
+    const rows = await fetchQuery(
+      ["applications_submitted"], ["application__source_channel"], ["-applications_submitted"], null, range
+    );
+    renderTable(document.getElementById("app-table-channel"), [
+      { label: "Channel", key: "application__source_channel" },
+      { label: "Submitted", key: "applications_submitted", format: fmtInt, num: true },
+    ], rows);
+  } catch (err) { showError(document.getElementById("app-table-channel"), err); }
+
+  try {
+    const rows = await fetchQuery(
+      ["application_status_periods", "avg_application_status_duration_days"],
+      ["application_status_history__status"], ["-application_status_periods"], null, range
+    );
+    renderTable(document.getElementById("app-table-funnel-timing"), [
+      { label: "Status", key: "application_status_history__status" },
+      { label: "Count", key: "application_status_periods", format: fmtInt, num: true },
+      { label: "Avg Duration", key: "avg_application_status_duration_days", format: fmtDays, num: true },
+    ], rows);
+  } catch (err) { showError(document.getElementById("app-table-funnel-timing"), err); }
+}
+
+// -------------------------------------------------------------------- Events
+
+async function renderEvents(range) {
+  const kpiEl = document.getElementById("evt-kpi");
+  let statusRows = [];
+  try {
+    statusRows = await fetchQuery(
+      ["event_registrations"], ["event_attendance__attendance_status"], ["-event_registrations"], null, range
+    );
+  } catch (err) { /* handled below by the table render */ }
+
+  try {
+    const [row] = await fetchQuery(
+      ["event_registrations", "event_attendance_rate", "event_attendees"], null, null, null, range
+    );
+    const noShow = statusRows.find(r => r.event_attendance__attendance_status === "No Show");
+    kpiEl.innerHTML = "";
+    kpiEl.appendChild(kpiCard("Event Registrations", fmtInt(row.event_registrations)));
+    kpiEl.appendChild(kpiCard("Attendance Rate", fmtPct(row.event_attendance_rate)));
+    kpiEl.appendChild(kpiCard("Attendees", fmtInt(row.event_attendees)));
+    kpiEl.appendChild(kpiCard("No-Shows", noShow ? fmtInt(noShow.event_registrations) : "—"));
+  } catch (err) { showError(kpiEl, err); }
+
+  try {
+    const rows = await fetchQuery(
+      ["event_registrations", "event_attendees"], ["metric_time__month"], ["metric_time__month"], null, range
+    );
+    lineChart(document.getElementById("evt-chart-volume"), [
+      { name: "registrations", color: "#2b595b", points: rows.map(r => ({ x: r.metric_time__month, y: Number(r.event_registrations) })) },
+      { name: "attendees", color: "#00823b", points: rows.map(r => ({ x: r.metric_time__month, y: Number(r.event_attendees) })) },
+    ], { yFormat: fmtInt, xFormat: fmtMonth });
+  } catch (err) { showError(document.getElementById("evt-chart-volume"), err); }
+
+  try {
+    const rows = await fetchQuery(
+      ["event_attendance_rate"], ["metric_time__month"], ["metric_time__month"], null, range
+    );
+    lineChart(document.getElementById("evt-chart-rate"), [{
+      name: "attendance_rate", color: "#9dd522",
+      points: rows.map(r => ({ x: r.metric_time__month, y: Number(r.event_attendance_rate) })),
+    }], { yFormat: fmtPct, xFormat: fmtMonth });
+  } catch (err) { showError(document.getElementById("evt-chart-rate"), err); }
+
+  try {
+    const rows = await fetchQuery(
+      ["event_registrations", "event_attendees"], ["event__event_type"], ["-event_registrations"], null, range
+    );
+    renderTable(document.getElementById("evt-table-type"), [
+      { label: "Type", key: "event__event_type" },
+      { label: "Registrations", key: "event_registrations", format: fmtInt, num: true },
+      { label: "Attendees", key: "event_attendees", format: fmtInt, num: true },
+      { label: "Attendance Rate", key: r => Number(r.event_attendees) / Number(r.event_registrations), format: fmtPct, num: true },
+    ], rows);
+  } catch (err) { showError(document.getElementById("evt-table-type"), err); }
+
+  try {
+    const total = statusRows.reduce((s, r) => s + Number(r.event_registrations), 0) || 1;
+    renderTable(document.getElementById("evt-table-status"), [
+      { label: "Status", key: "event_attendance__attendance_status" },
+      { label: "Registrations", key: "event_registrations", format: fmtInt, num: true },
+      { label: "Share", key: r => Number(r.event_registrations) / total, format: fmtPct, num: true },
+    ], statusRows);
+  } catch (err) { showError(document.getElementById("evt-table-status"), err); }
+}
+
+// ------------------------------------------------------------------ Payments
+
+async function renderPayments(range) {
+  const kpiEl = document.getElementById("pay-kpi");
+  try {
+    const [row] = await fetchQuery(
+      ["revenue", "payments_count", "late_payment_rate", "late_payments_count"], null, null, null, range
+    );
+    kpiEl.innerHTML = "";
+    kpiEl.appendChild(kpiCard("Revenue", fmtMoney(row.revenue)));
+    kpiEl.appendChild(kpiCard("Payments Count", fmtInt(row.payments_count)));
+    kpiEl.appendChild(kpiCard("Late Payment Rate", fmtPct(row.late_payment_rate)));
+    kpiEl.appendChild(kpiCard("Late Payments Count", fmtInt(row.late_payments_count)));
+  } catch (err) { showError(kpiEl, err); }
+
+  try {
+    const rows = await fetchQuery(["revenue"], ["metric_time__month"], ["metric_time__month"], null, range);
+    lineChart(document.getElementById("pay-chart-revenue"), [{
+      name: "revenue", color: "#00823b",
+      points: rows.map(r => ({ x: r.metric_time__month, y: Number(r.revenue) })),
+    }], { yFormat: fmtMoney, xFormat: fmtMonth });
+  } catch (err) { showError(document.getElementById("pay-chart-revenue"), err); }
+
+  try {
+    const rows = await fetchQuery(["late_payment_rate"], ["metric_time__month"], ["metric_time__month"], null, range);
+    lineChart(document.getElementById("pay-chart-late"), [{
+      name: "late_payment_rate", color: "#9dd522",
+      points: rows.map(r => ({ x: r.metric_time__month, y: Number(r.late_payment_rate) })),
+    }], { yFormat: fmtPct, xFormat: fmtMonth });
+  } catch (err) { showError(document.getElementById("pay-chart-late"), err); }
+
+  try {
+    const rows = await fetchQuery(
+      ["revenue", "payments_count", "late_payments_count"], ["payment__payment_type"], ["-revenue"], null, range
+    );
+    renderTable(document.getElementById("pay-table-type"), [
+      { label: "Type", key: "payment__payment_type" },
+      { label: "Revenue", key: "revenue", format: fmtMoney, num: true },
+      { label: "Count", key: "payments_count", format: fmtInt, num: true },
+      { label: "Late Rate", key: r => Number(r.late_payments_count) / Number(r.payments_count), format: fmtPct, num: true },
+    ], rows);
+  } catch (err) { showError(document.getElementById("pay-table-type"), err); }
+
+  try {
+    const rows = await fetchQuery(
+      ["revenue", "payments_count"], ["payment__payment_method"], ["-revenue"], null, range
+    );
+    renderTable(document.getElementById("pay-table-method"), [
+      { label: "Method", key: "payment__payment_method" },
+      { label: "Revenue", key: "revenue", format: fmtMoney, num: true },
+      { label: "Count", key: "payments_count", format: fmtInt, num: true },
+    ], rows);
+  } catch (err) { showError(document.getElementById("pay-table-method"), err); }
+
+  try {
+    const rows = await fetchQuery(
+      ["revenue", "payments_count"], ["payment__payment_status"], ["-revenue"], null, range
+    );
+    renderTable(document.getElementById("pay-table-status"), [
+      { label: "Status", key: "payment__payment_status" },
+      { label: "Revenue", key: "revenue", format: fmtMoney, num: true },
+      { label: "Count", key: "payments_count", format: fmtInt, num: true },
+    ], rows);
+  } catch (err) { showError(document.getElementById("pay-table-status"), err); }
+}
+
+// --------------------------------------------------------------------- Tabs
+
+const TABS = {
+  members: { render: renderMemberBase, filterKind: "dims" },
+  applications: { render: renderApplications, filterKind: "date" },
+  events: { render: renderEvents, filterKind: "date" },
+  payments: { render: renderPayments, filterKind: "date" },
+};
+
+function init() {
+  for (const key of Object.keys(TABS)) {
+    const tab = TABS[key];
+    tab.loaded = false;
+    if (tab.filterKind === "dims") {
+      tab.filters = memberFilters;
+      buildDimFilters(document.getElementById("member-filters"), tab.filters, (filters) => tab.render(filters));
+    } else {
+      tab.range = { start: "", end: "" };
+      buildFilterBar(document.getElementById(`filter-${key}`), (range) => {
+        tab.range = range;
+        tab.render(range);
+      });
+    }
+  }
+
+  document.querySelectorAll(".tab-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const key = btn.dataset.tab;
+      document.querySelectorAll(".tab-btn").forEach(b => b.classList.toggle("active", b === btn));
+      document.querySelectorAll(".tab-panel").forEach(p => p.classList.toggle("active", p.id === `tab-${key}`));
+      const tab = TABS[key];
+      if (!tab.loaded) {
+        tab.loaded = true;
+        tab.render(tab.filterKind === "dims" ? tab.filters : tab.range);
+      }
+    });
+  });
+
+  TABS.members.loaded = true;
+  TABS.members.render(TABS.members.filters);
 }
 
 init();
